@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "case_id": "5201fa5c81e576a65e3ccba7a8f2e48fd95f3dc091dac6cc1e8952de4d7e7106",
+  "execution_id": "07dfb8b0029350449a0e338a5970a057ca7a93cb68dc1c62a93a9ddbadbf53e5",
+  "dataset_sha256": "1c204ce9357214782dc6bb94982841edd041a58cc8bcc45aeccf135936ea2e82",
+  "file_id": "S-15.csv",
+  "window_idx": 7,
+  "group_id": 15,
+  "fold_id": 1,
+  "phase": "S",
+  "y_true": 1,
+  "source_sha256": "081ee75d516593c01172b995002483913da38f4933cb71f852fc0df2a14268aa",
+  "input_sha256": "0089c9b6f944c5c7e584f3596dae18f559b57a135b799933fc82dbfc2b949aa2",
+  "fault": {
+    "kind": "grid",
+    "type": "noise",
+    "axis": "x",
+    "scale": 0.4,
+    "count": 0,
+    "seed": 42,
+    "positions": [],
+    "signs": []
+  },
+  "before": "J",
+  "after": "C1",
+  "outputs": {
+    "J": {
+      "model": "J",
+      "fold": "1",
+      "model_sha256": "cbb92ab54703f23504c19926daadc7b20bfa0951cdd4aa1aaf53244c25fdbc6d",
+      "run_id": "1c2a8441e59a9ee406189e15d301c0a8b9e260a143299e1aca01e440e8cca868",
+      "threshold": 0.6125268440605842,
+      "clean": {
+        "score": 0.6415621602308075,
+        "prediction": 1,
+        "input_status": "VALID"
+      },
+      "test": {
+        "score": 0.20260098141715127,
+        "prediction": 0,
+        "input_status": "VALID"
+      }
+    },
+    "C1": {
+      "model": "C1",
+      "fold": "1",
+      "model_sha256": "a09249bc74d25ddf11d523c50f96d2e202a97311dc724289e5d37dc58fa50b5b",
+      "run_id": "57528faa8deaf90eb6d32723f4f7d058a7fefc108c4d1820915fa15bafe84c94",
+      "threshold": 0.5376444458961487,
+      "clean": {
+        "score": 0.5431416630744934,
+        "prediction": 1,
+        "input_status": "VALID"
+      },
+      "test": {
+        "score": 0.5409947633743286,
+        "prediction": 1,
+        "input_status": "VALID"
+      }
+    }
+  },
+  "change": "rescued_FN",
+  "before_induced": true,
+  "evidence": "고정 교란 네 조건에서 J의 점수가 임계값을 넘은 구간은 0개였다.",
+  "human_hypothesis": "요약 특징이 그룹을 넘어 유지되는 짧은 파형의 B/S 차이를 잃을 수 있다.",
+  "modification": "요약 특징 분류기를 7패치 원시 파형 CNN으로 교체했다. C1은 현재 구간의 공통 진동 크기도 정규화한다.",
+  "regression": {
+    "table": "experiments/cnn_v1/changes.csv",
+    "before": "J",
+    "after": "C1",
+    "summary": "experiments/cnn_v1/summary.csv"
+  }
+}

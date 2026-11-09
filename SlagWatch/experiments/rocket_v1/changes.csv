@@ -1,0 +1,11 @@
+before,after,scenario,rescued_FN,new_FN,removed_FP,new_FP
+J,R0,clean,14,36,36,33
+J,R0,new_y_spike,18,0,0,38
+J,R0,new_z_spike,32,0,0,59
+J,R0,noise,32,0,0,70
+J,R0,spike,23,0,0,41
+R0,R1,clean,5,7,8,8
+R0,R1,new_y_spike,9,6,5,11
+R0,R1,new_z_spike,4,12,19,4
+R0,R1,noise,5,15,36,10
+R0,R1,spike,6,5,10,9

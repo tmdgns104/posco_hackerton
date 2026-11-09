@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "publication_date": "2026-11-09",
+  "repository": "https://github.com/tmdgns104/posco_hackerton",
+  "branch": "main",
+  "payload_file_count": 8962,
+  "payload_size_bytes": 1174058910,
+  "model_file_count": 74,
+  "ksdd2_official_image_mask_pairs": 3335,
+  "ksdd2_preserved_excluded_duplicate_pairs": 1,
+  "neu_bmp_count": 1800,
+  "ssfd_original_csv_count": 48,
+  "ssfd_original_jpg_count": 3,
+  "sources": [
+    {
+      "name": "SteelTrust_Inspection_Regression.zip",
+      "file_count": 3208,
+      "sha256": "4c935297bf66b7f75cc7431496a6a75433d469426b5622bd51409262e53869c3"
+    },
+    {
+      "name": "KolektorSDD2.zip",
+      "size_bytes": 853126555,
+      "sha256": "edcdb486809b24f1d17b785e30c52fafc5999554dd5fe18ddf77b61ceb6f36a8",
+      "url": "https://github.com/tmdgns104/posco_hackerton/releases/download/ksdd2-original-v1/KolektorSDD2.zip"
+    }
+  ],
+  "integrity_manifest": "PROJECT_FILES.sha256",
+  "verification": "python tools/verify_project.py",
+  "count_scope": "Payload excludes PROJECT_INVENTORY.json and PROJECT_FILES.sha256. Hash inventory includes PROJECT_INVENTORY.json and excludes itself.",
+  "excluded_recreatable_content": [
+    "Python installation",
+    "installed packages and virtual environment",
+    "intermediate feature cache"
+  ],
+  "limitations": [
+    "Windows application launch and full retraining unverified",
+    "NEU explicit redistribution license unverified",
+    "Original cloud temporary workspace was not fully audited"
+  ]
+}

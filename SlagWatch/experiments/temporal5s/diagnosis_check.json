@@ -1,0 +1,6 @@
+{
+  "diagnostic_archive_sha256": "b70423eb323c3b93197383d0ea65bccd1ec9c65c2151a2f10cf83d109c96d741",
+  "compared": "attached F1 control vs current T1, 48 files",
+  "classes_match": 48,
+  "max_score_delta": 3.1086244689504383e-15
+}

@@ -1,0 +1,4 @@
+task_id,sample_unit,evaluation,n_files,model_id,scenario,tp,fn,fp,tn,fp_E,fp_B
+ssfd_file5s,5s_file,development_group_cv,48,J_file5s,clean,2,14,2,30,0,2
+ssfd_file5s,5s_file,development_group_cv,48,T1,clean,8,8,5,27,4,1
+ssfd_file5s,5s_file,development_group_cv,48,T2,clean,9,7,4,28,4,0

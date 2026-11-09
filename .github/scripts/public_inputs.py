@@ -42,30 +42,55 @@ def put(z, name, dest, expected):
     dest.write_bytes(data)
 
 
+def matches(path, expected):
+    return path.is_file() and sha(path) == expected
+
+
+def restore_archive(cache, name, url, expected, members):
+    """Repair only absent or changed members; a complete checkout stays offline."""
+    missing = [(member, dest, digest) for member, dest, digest in members
+               if not matches(dest, digest)]
+    if missing:
+        with ZipFile(fetch(cache, name, url, expected)) as z:
+            for member, dest, digest in missing:
+                put(z, member, dest, digest)
+
+
 def main(cache):
     cache.mkdir(parents=True, exist_ok=True)
     ksdd = ROOT / "data/ksdd2"
     audit = json.loads((ksdd / "audit.json").read_text(encoding="utf8"))
-    archive = fetch(cache, "KolektorSDD2.zip", KSDD2, audit["archive_sha256"])
-    with ZipFile(archive) as z, (ksdd / "manifest.csv").open(encoding="utf8", newline="") as f:
-        validation = [r for r in csv.DictReader(f) if r["split"] == "validation"]
-        if len(validation) != 466:
-            raise ValueError("Expected 466 validation rows.")
-        for row in validation:
-            for path, digest in (("image_path", "file_sha256"), ("mask_path", "mask_sha256")):
-                dest = ROOT / row[path]
-                put(z, dest.relative_to(ksdd / "raw").as_posix(), dest, row[digest])
+    manifest_path = ksdd / "manifest.csv"
+    if not matches(manifest_path, audit["manifest_sha256"]):
+        raise ValueError("Registered KSDD2 manifest hash mismatch")
+    with manifest_path.open(encoding="utf8", newline="") as f:
+        rows = list(csv.DictReader(f))
+    if len(rows) != audit["archive_png_pairs"]:
+        raise ValueError("KSDD2 manifest pair count differs from the registered audit")
+    members = []
+    # Hash original bytes in every split, including the excluded duplicate.
+    # Official test images/masks and split metadata are never evaluated or unpickled.
+    for row in rows:
+        for path, digest in (("image_path", "file_sha256"), ("mask_path", "mask_sha256")):
+            dest = ROOT / row[path]
+            members.append((dest.relative_to(ksdd / "raw").as_posix(), dest, row[digest]))
+    metadata = audit["official_split_metadata_sha256"]
+    members.extend((name, ksdd / "raw" / name, digest) for name, digest in metadata.items())
+    restore_archive(cache, "KolektorSDD2.zip", KSDD2, audit["archive_sha256"], members)
     raw = ROOT / "data/raw"
     manifest = json.loads((raw / "manifest.json").read_text(encoding="utf8"))
-    with ZipFile(fetch(cache, "ssfd.zip", SSFD, manifest["original_zip_sha256"])) as z:
-        for file in manifest["files"]:
-            put(z, file["path"], raw / file["path"], file["sha256"])
+    restore_archive(cache, "ssfd.zip", SSFD, manifest["original_zip_sha256"],
+                    [(file["path"], raw / file["path"], file["sha256"])
+                     for file in manifest["files"]])
     folder = ROOT / "experiments/surface_v1"
     protocol = json.loads((folder / "protocol.json").read_text(encoding="utf8"))
-    weights = fetch(cache, "resnet18-f37072fd.pth", RESNET, protocol["weight_sha256"])
-    (folder / "models").mkdir(exist_ok=True)
-    shutil.copyfile(weights, folder / "models" / weights.name)
-    print(f"Verified {len(validation)} image/mask pairs, {len(manifest['files'])} SSFD files and the encoder.")
+    dest = folder / "models/resnet18-f37072fd.pth"
+    if not matches(dest, protocol["weight_sha256"]):
+        weights = fetch(cache, dest.name, RESNET, protocol["weight_sha256"])
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(weights, dest)
+    print(f"Verified {len(rows)} image/mask pairs, {len(metadata)} split metadata files, "
+          f"{len(manifest['files'])} SSFD files and the encoder.")
 
 
 if __name__ == "__main__":

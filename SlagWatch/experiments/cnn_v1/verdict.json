@@ -1,0 +1,44 @@
+{
+  "A1": {
+    "conditions": {
+      "clean": false,
+      "new_y_spike": false,
+      "new_z_spike": false,
+      "noise": false,
+      "spike": false
+    },
+    "all_pass": false
+  },
+  "C0": {
+    "conditions": {
+      "clean": false,
+      "new_y_spike": false,
+      "new_z_spike": false,
+      "noise": false,
+      "spike": false
+    },
+    "all_pass": false,
+    "adopt": false
+  },
+  "C1": {
+    "conditions": {
+      "clean": false,
+      "new_y_spike": false,
+      "new_z_spike": false,
+      "noise": false,
+      "spike": false
+    },
+    "all_pass": false,
+    "adopt": false
+  },
+  "J": {
+    "conditions": {
+      "clean": false,
+      "new_y_spike": false,
+      "new_z_spike": false,
+      "noise": false,
+      "spike": false
+    },
+    "all_pass": false
+  }
+}

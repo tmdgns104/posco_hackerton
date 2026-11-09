@@ -1,0 +1,249 @@
+{
+  "after_model_id": "K1",
+  "before_model_id": "K0",
+  "classes": [
+    "normal",
+    "defect"
+  ],
+  "completed_pairs": 3262,
+  "completed_predictions": 6524,
+  "conditions": [
+    [
+      "clean",
+      0
+    ],
+    [
+      "noise_weak",
+      101
+    ],
+    [
+      "noise_weak",
+      102
+    ],
+    [
+      "noise_strong",
+      101
+    ],
+    [
+      "noise_strong",
+      102
+    ],
+    [
+      "dark",
+      0
+    ],
+    [
+      "bright",
+      0
+    ]
+  ],
+  "environment": {
+    "machine": "x86_64",
+    "os": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "python": "3.11.17",
+    "versions": {
+      "Pillow": "13.0.0",
+      "numpy": "2.3.5",
+      "opencv-python-headless": "4.13.0.92",
+      "pandas": "2.2.3",
+      "scikit-learn": "1.8.0",
+      "torch": "2.8.0+cpu",
+      "torchvision": "0.23.0+cpu"
+    }
+  },
+  "failed_pairs": 0,
+  "failed_predictions": 0,
+  "files": {
+    "baselines.csv": "e45c2eea3f7edd9942cc73c2a9db47bc90175f3e300f3c3dd0bd93b1451901f1",
+    "changes.csv": "e1c2669c98342b6978225109d4000bf6225150eca80622c21c35abfa02625ab9",
+    "changes_by_class.csv": "d3d305f9226ad846653989325c6aff1cb70f99087f8b88dfea9ed110354a6ebf",
+    "classes.csv": "a6a9c15b037967bbd9356917b7fd62adb4515a6cfece745632569663dfed699f",
+    "data_manifest.csv": "62b4fed55724bdc3e351b2ed88b766ce76393c83e3f095e8dc8c47ccc505967f",
+    "decision.json": "5ea52d810a0101563ff81f4523cd5dd3129bc495957e683f704a22c88249e647",
+    "failures.csv": "8e54eebbf7f375029d1fa3c17cc977d82663ddf7eaae39a50ebee5eb32ec7e1c",
+    "pairs.csv": "4334f4d848505a2221c016ae86a5e4357ee91dbbc43c9085124313a620c80d48",
+    "predictions.csv": "48e3bc6201962c3a501a9b0560c4ef4504dba0ea2fd662384cfdb6765d5d1d20",
+    "protocol.json": "0ef3758e84beb17ff8bba26839404c97dcb24cb7e6c342d0d49147def73e334e",
+    "summary.csv": "39d1100b42f34145f8dca516f3015dcdabdba325e1fa491f4fb0da093930c96c"
+  },
+  "finished_at": "2026-11-08T19:35:27.798509+00:00",
+  "frozen_status": null,
+  "input_layout": "native-shape-dtype-v1",
+  "kind": "binary",
+  "metric_denominators": "Binary rates require all scheduled outcomes for that truth class. If an eligible image failed or support is zero, its rate is unavailable; counts retain failures.",
+  "model_order": [
+    "K0",
+    "K1"
+  ],
+  "models": {
+    "K0": {
+      "artifact_sha256": "837e82f23d5c77a4cddea97b6b2b07ff1274b13127cd396974ace0c450efb618",
+      "class_mapping": {
+        "0": "normal",
+        "1": "defect"
+      },
+      "encoder": "ImageNet1K V1 / frozen ResNet18",
+      "encoder_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+      "head_sha256": "837e82f23d5c77a4cddea97b6b2b07ff1274b13127cd396974ace0c450efb618",
+      "model_id": "K0",
+      "model_source_sha256": "4f48393b78e7f96209281af0a24b86be57e647f2b7ae29187c1a9a8c2667b822",
+      "preprocessing": "ksdd2-whole-rgb-fit192x512-reflect-meanmax-stage3_4-v1",
+      "protocol_sha256": "ac90a2b313631dfa50a4d889e0bab29e0197f9b33d96d6c903b25400a2765ed0",
+      "score_rule": "round(decision_function,6) >= threshold for defect",
+      "threshold": -2.223765
+    },
+    "K1": {
+      "artifact_sha256": "615eb79b9b3490d33d21d21da8f0de4fcddfbeb08d2454818cef5d50df722fc7",
+      "class_mapping": {
+        "0": "normal",
+        "1": "defect"
+      },
+      "encoder": "ImageNet1K V1 / frozen ResNet18",
+      "encoder_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+      "head_sha256": "615eb79b9b3490d33d21d21da8f0de4fcddfbeb08d2454818cef5d50df722fc7",
+      "model_id": "K1",
+      "model_source_sha256": "4f48393b78e7f96209281af0a24b86be57e647f2b7ae29187c1a9a8c2667b822",
+      "preprocessing": "ksdd2-whole-rgb-fit192x512-reflect-meanmax-stage3_4-v1",
+      "protocol_sha256": "ac90a2b313631dfa50a4d889e0bab29e0197f9b33d96d6c903b25400a2765ed0",
+      "score_rule": "round(decision_function,6) >= threshold for defect",
+      "threshold": -2.148255
+    }
+  },
+  "n_originals": 466,
+  "official": true,
+  "planned_pairs": 3262,
+  "planned_predictions": 6524,
+  "project_id": "ksdd2",
+  "protocol": {
+    "baseline_model": "K0",
+    "candidate_model": "K1",
+    "classes": [
+      "normal",
+      "defect"
+    ],
+    "clean_drop_limit": 0.02,
+    "conditions": [
+      {
+        "condition": "clean",
+        "seed": 0
+      },
+      {
+        "condition": "noise_weak",
+        "seed": 101
+      },
+      {
+        "condition": "noise_weak",
+        "seed": 102
+      },
+      {
+        "condition": "noise_strong",
+        "seed": 101
+      },
+      {
+        "condition": "noise_strong",
+        "seed": 102
+      },
+      {
+        "condition": "dark",
+        "seed": 0
+      },
+      {
+        "condition": "bright",
+        "seed": 0
+      }
+    ],
+    "created_utc": "2026-11-08T19:24:54.542399+00:00",
+    "development_class_counts": {
+      "train": {
+        "defect": 197,
+        "normal": 1668
+      },
+      "validation": {
+        "defect": 49,
+        "normal": 417
+      }
+    },
+    "encoder": {
+      "features": "concatenate full spatial mean and max per channel from stages 3 and 4 (1536 values)",
+      "name": "frozen ImageNet-1K ResNet18",
+      "sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec"
+    },
+    "evaluation_unit": "one whole source image with one true label; no tile labels or independent views",
+    "gate": {
+      "comparison": "paired same original/condition/seed; no inferential claims from repeated trials",
+      "relative_improvement": "sum over all 7 cells; fewer FN with no more FP OR fewer FP with no more FN",
+      "relative_limits": "clean recall drop or FPR rise <=.02; each perturbed cell <=.05",
+      "require_all": "all seven cells meet absolute defect recall >=.80 and normal FPR <=.10; no missing, failed or deferred predictions",
+      "selection": "only one K1, passes only if all criteria pass; if not, reject on validation and leave official test locked",
+      "weights": "every original equal; each original supplies 7 equally weighted condition/seed cells (1/7 each); retain actual counts per cell"
+    },
+    "head": {
+      "K0_training": "one clean image per training original",
+      "K1_change": "one failure-led hypothesis must be saved after K0 validation and before K1 fitting; no other candidate",
+      "estimator": "StandardScaler + L2 logistic regression lbfgs, C=.1, class_weight=balanced, max_iter=2000; train split only"
+    },
+    "implementation": {
+      "input_source_sha256": "ea926f9d543b3229c4db9f81d03c747291ae4c7ea9c7aac3743508dc1e9233a5",
+      "model_source_sha256": "4f48393b78e7f96209281af0a24b86be57e647f2b7ae29187c1a9a8c2667b822"
+    },
+    "input": {
+      "geometry": "fit entire frame into 192w x 512h preserving aspect; rotate landscape 90 degrees clockwise; round resized axes to nearest int, min 1; cv2.INTER_AREA down / LINEAR up; centered BORDER_REFLECT_101 padding with extra pixels bottom/right; no tiling/crop",
+      "native": "RGB float32 HWC [0,1]; no mask, filename or annotation at inference",
+      "normalization": "ImageNet RGB means .485/.456/.406, SD .229/.224/.225",
+      "rationale": "Official train examples 10000 (229x645, empty mask) and 10021 (228x649, annotated defect in upper-left touching frame edges): retain full RGB view, localized responses, and borders.",
+      "version": "ksdd2-whole-rgb-fit192x512-reflect-meanmax-stage3_4-v1"
+    },
+    "maximum_fpr": 0.1,
+    "minimum_recall": 0.8,
+    "model_ids": [
+      "K0",
+      "K1"
+    ],
+    "other_drop_limit": 0.05,
+    "positive_class": "defect",
+    "project_id": "ksdd2",
+    "purpose": "시제품 시험 기준; 제조 안전 기준 아님",
+    "schema": "steeltrust.binary.protocol.v1",
+    "score_atol": 1e-05,
+    "source": "KolektorSDD2 / official masks: any nonzero annotation = defect; missing or invalid masks rejected",
+    "source_scope": "This study fits only training originals and evaluates only validation originals, both from official train. Test is independently locked.",
+    "split_manifest": "data/ksdd2/manifest.csv",
+    "split_manifest_sha256": "8c85620d838a4916afc94c365593bf351e09588d65b733f8bbc96e67d44faa68",
+    "threshold": {
+      "failure": "if best feasible recall is below .80, record absolute failure; no retuning on any condition/test",
+      "score": "logistic decision_function, positive class defect, rounded to 6 decimals; normal=-defect; not probability",
+      "selection": "validation clean only; budget FPR <= .10; maximize TP, then minimize FP, then highest threshold",
+      "sweep": "distinct rounded defect scores plus nextafter(max,+inf) for all-normal; score>=threshold is defect"
+    },
+    "transformations": {
+      "bright": "multiply by 1.20",
+      "clean": "identity",
+      "dark": "multiply by .80",
+      "interpretation": "synthetic sensitivity probes, not representative of every installation or real camera contamination",
+      "noise_strong": "iid RGB Gaussian sigma .08",
+      "noise_weak": "iid RGB Gaussian sigma .02",
+      "range": "native float32 in [0,1]; clip after change",
+      "seed_rule": "SHA256(inspection-rgb-v1|sample_id|condition|seed), first 8 bytes big endian -> numpy default_rng"
+    },
+    "versions": {
+      "Pillow": "13.0.0",
+      "joblib": "1.5.3",
+      "numpy": "2.3.5",
+      "opencv-python-headless": "4.13.0.92",
+      "scikit-learn": "1.8.0",
+      "torch": "2.8.0+cpu",
+      "torchvision": "0.23.0+cpu"
+    }
+  },
+  "protocol_file_sha256": "ac90a2b313631dfa50a4d889e0bab29e0197f9b33d96d6c903b25400a2765ed0",
+  "protocol_sha256": "0ef3758e84beb17ff8bba26839404c97dcb24cb7e6c342d0d49147def73e334e",
+  "record_sha256": "13f40d3496e4b11b20c196c89ec2d03f1d645a5e4009afb5bdffa8bc0d8994f0",
+  "run_id": "20261108T193331597782Z-ca753bd910bc42fcb3b785eda802f8f9",
+  "schema": 1,
+  "scope": "full",
+  "score_atol": 1e-05,
+  "source_manifest_sha256": "8c85620d838a4916afc94c365593bf351e09588d65b733f8bbc96e67d44faa68",
+  "split": "validation",
+  "started_at": "2026-11-08T19:33:31.597782+00:00",
+  "status": "complete"
+}

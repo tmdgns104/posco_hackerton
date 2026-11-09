@@ -1,0 +1,73 @@
+{
+  "schema": 2,
+  "case_id": "da479143c0b0ca46b8e56f4b3d864438a5414eb1f2fac62014cebc2a2b837e87",
+  "execution_id": "85802887a66b465183801c0968040f2cbea24aabe731827f8503346d95adc013",
+  "dataset_sha256": "1c204ce9357214782dc6bb94982841edd041a58cc8bcc45aeccf135936ea2e82",
+  "file_id": "S-16.csv",
+  "window_idx": 6,
+  "group_id": 16,
+  "fold_id": 0,
+  "phase": "S",
+  "y_true": 1,
+  "source_sha256": "ff1299e3902f32f93ff8d016c0eaf3fd57c67da0a8d1e7abba2ea0990c016738",
+  "input_sha256": "ff1299e3902f32f93ff8d016c0eaf3fd57c67da0a8d1e7abba2ea0990c016738",
+  "fault": {
+    "kind": "fixed",
+    "scenario": "clean"
+  },
+  "before": "J",
+  "after": "R0",
+  "outputs": {
+    "J": {
+      "model": "J",
+      "fold": "0",
+      "model_sha256": "bc1821ca7e6345216178fe6eabd49f3f829ae72198fb8008f81c9a53d666a278",
+      "run_id": "f0fa78d7e037504c19f8377cabcfd652584c70f642d6729307252037763d4d13",
+      "threshold": 0.19591170497862406,
+      "clean": {
+        "score": -0.3105821860751476,
+        "prediction": 0,
+        "input_status": "VALID"
+      },
+      "test": {
+        "score": -0.3105821860751476,
+        "prediction": 0,
+        "input_status": "VALID"
+      }
+    },
+    "R0": {
+      "model": "R0",
+      "fold": "0",
+      "model_sha256": "0936df9d2fa5120c218f100ff8464cbaf90eb1108d86a2b5f73713af44f171b2",
+      "run_id": "60c83068ecba0679e67ee07446668e7e151b9736e971b87dae55a521a5b3e7c6",
+      "threshold": 0.7188149638012291,
+      "bundle_sha256": "fae1b361e6078d3c20c0f5b2a8ac5239138cb63f6f708dff8473fd259e97aac6",
+      "feature_sha256": "3d064e3cfa2aaeea26710002d9f5dd71f2233ef7e987523e8b2450224a959fe5",
+      "clean": {
+        "score": 0.7678830004382817,
+        "prediction": 1,
+        "input_status": "VALID"
+      },
+      "test": {
+        "score": 0.7678830004382817,
+        "prediction": 1,
+        "input_status": "VALID"
+      }
+    }
+  },
+  "change": "rescued_FN",
+  "before_induced": false,
+  "evidence": "기존 J의 fold 0 원본 학습 AUC 0.987, 학습 제외 그룹 AUC 0.647.",
+  "human_hypothesis": "다변량 파형의 국소 패턴을 변환하면 새로운 그룹의 S와 비슬래그를 더 잘 구분할 수 있다.",
+  "modification": "MiniRocket 특징과 Ridge 분류기를 원본 학습 그룹으로 적합했다.",
+  "regression": {
+    "table": "experiments/rocket_v1/changes.csv",
+    "before": "J",
+    "after": "R0",
+    "summary": "experiments/rocket_v1/summary.csv"
+  },
+  "study": "rocket_v1",
+  "manifest_sha256": "d7cbd4b50ed7eb36e3100a8ec99020d95a047aa29bf837090bf335f627100927",
+  "evaluation_origin": "outer_held_out",
+  "inner_evidence": null
+}

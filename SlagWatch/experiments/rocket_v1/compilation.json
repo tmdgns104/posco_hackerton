@@ -1,0 +1,8 @@
+{
+  "synthetic_windows": 12,
+  "actual_features": 9996,
+  "cold_import_fit_transform_s": 23.303571487998852,
+  "numba_compiler_s": 20.662577486998998,
+  "warm_transform_and_check_s": 0.06585277799968026,
+  "scope": "synthetic inputs, fresh temporary Numba cache; excluded from fit/search timing"
+}

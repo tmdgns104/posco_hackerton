@@ -1,0 +1,46 @@
+{
+  "C1": {
+    "conditions": {
+      "clean": false,
+      "new_y_spike": false,
+      "new_z_spike": false,
+      "noise": false,
+      "spike": false
+    },
+    "all_pass": false
+  },
+  "J": {
+    "conditions": {
+      "clean": false,
+      "new_y_spike": false,
+      "new_z_spike": false,
+      "noise": false,
+      "spike": false
+    },
+    "all_pass": false
+  },
+  "R0": {
+    "conditions": {
+      "clean": false,
+      "new_y_spike": false,
+      "new_z_spike": false,
+      "noise": false,
+      "spike": false
+    },
+    "all_pass": false,
+    "comparison_eligible": false,
+    "adopt": false
+  },
+  "R1": {
+    "conditions": {
+      "clean": false,
+      "new_y_spike": false,
+      "new_z_spike": false,
+      "noise": false,
+      "spike": false
+    },
+    "all_pass": false,
+    "comparison_eligible": false,
+    "adopt": false
+  }
+}

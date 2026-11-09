@@ -1,0 +1,132 @@
+{
+  "model_id": "K0",
+  "created_utc": "2026-11-08T19:27:56.664190+00:00",
+  "threshold": -2.223765,
+  "train_originals": 1865,
+  "training_views": 1865,
+  "validation_originals": 466,
+  "train_policies": [
+    [
+      "clean",
+      0
+    ]
+  ],
+  "validation_cells": [
+    {
+      "condition": "clean",
+      "seed": 0,
+      "TP": 42,
+      "FN": 7,
+      "FP": 33,
+      "TN": 384,
+      "defect_recall": 0.8571428571428571,
+      "normal_fpr": 0.07913669064748201,
+      "normal_specificity": 0.920863309352518,
+      "normal_recall": 0.920863309352518,
+      "defect_miss_rate": 0.14285714285714285
+    },
+    {
+      "condition": "noise_weak",
+      "seed": 101,
+      "TP": 40,
+      "FN": 9,
+      "FP": 36,
+      "TN": 381,
+      "defect_recall": 0.8163265306122449,
+      "normal_fpr": 0.08633093525179857,
+      "normal_specificity": 0.9136690647482014,
+      "normal_recall": 0.9136690647482014,
+      "defect_miss_rate": 0.1836734693877551
+    },
+    {
+      "condition": "noise_weak",
+      "seed": 102,
+      "TP": 41,
+      "FN": 8,
+      "FP": 34,
+      "TN": 383,
+      "defect_recall": 0.8367346938775511,
+      "normal_fpr": 0.0815347721822542,
+      "normal_specificity": 0.9184652278177458,
+      "normal_recall": 0.9184652278177458,
+      "defect_miss_rate": 0.16326530612244897
+    },
+    {
+      "condition": "noise_strong",
+      "seed": 101,
+      "TP": 44,
+      "FN": 5,
+      "FP": 221,
+      "TN": 196,
+      "defect_recall": 0.8979591836734694,
+      "normal_fpr": 0.5299760191846523,
+      "normal_specificity": 0.47002398081534774,
+      "normal_recall": 0.47002398081534774,
+      "defect_miss_rate": 0.10204081632653061
+    },
+    {
+      "condition": "noise_strong",
+      "seed": 102,
+      "TP": 44,
+      "FN": 5,
+      "FP": 189,
+      "TN": 228,
+      "defect_recall": 0.8979591836734694,
+      "normal_fpr": 0.45323741007194246,
+      "normal_specificity": 0.5467625899280576,
+      "normal_recall": 0.5467625899280576,
+      "defect_miss_rate": 0.10204081632653061
+    },
+    {
+      "condition": "dark",
+      "seed": 0,
+      "TP": 39,
+      "FN": 10,
+      "FP": 24,
+      "TN": 393,
+      "defect_recall": 0.7959183673469388,
+      "normal_fpr": 0.05755395683453238,
+      "normal_specificity": 0.9424460431654677,
+      "normal_recall": 0.9424460431654677,
+      "defect_miss_rate": 0.20408163265306123
+    },
+    {
+      "condition": "bright",
+      "seed": 0,
+      "TP": 45,
+      "FN": 4,
+      "FP": 64,
+      "TN": 353,
+      "defect_recall": 0.9183673469387755,
+      "normal_fpr": 0.15347721822541965,
+      "normal_specificity": 0.8465227817745803,
+      "normal_recall": 0.8465227817745803,
+      "defect_miss_rate": 0.08163265306122448
+    }
+  ],
+  "minimum_clean_recall_met": true,
+  "naive_each_cell": {
+    "all_normal": {
+      "TP": 0,
+      "FN": 49,
+      "FP": 0,
+      "TN": 417,
+      "defect_recall": 0.0,
+      "normal_fpr": 0.0,
+      "normal_specificity": 1.0,
+      "normal_recall": 1.0,
+      "defect_miss_rate": 1.0
+    },
+    "all_defect": {
+      "TP": 49,
+      "FN": 0,
+      "FP": 417,
+      "TN": 0,
+      "defect_recall": 1.0,
+      "normal_fpr": 1.0,
+      "normal_specificity": 0.0,
+      "normal_recall": 0.0,
+      "defect_miss_rate": 0.0
+    }
+  }
+}

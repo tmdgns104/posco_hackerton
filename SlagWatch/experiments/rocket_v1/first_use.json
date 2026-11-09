@@ -1,0 +1,9 @@
+{
+  "first_import_s": 2.4399013339989324,
+  "first_synthetic_fit_s": 10.734640959000899,
+  "first_transform_s": 10.687152896998668,
+  "warm_transform_s": 0.06436390000089887,
+  "actual_features": 9996,
+  "n": 12,
+  "description": "first import/fit/transform includes Numba compilation; warm time uses same synthetic input; excluded from group timings"
+}

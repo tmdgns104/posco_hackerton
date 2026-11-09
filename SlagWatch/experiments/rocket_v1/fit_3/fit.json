@@ -1,0 +1,187 @@
+{
+  "split": {
+    "fold_id": 3,
+    "train": [
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      10,
+      11,
+      12,
+      14,
+      15,
+      16
+    ],
+    "test": [
+      1,
+      5,
+      9,
+      13
+    ],
+    "inner": [
+      {
+        "train": [
+          2,
+          3,
+          6,
+          7,
+          10,
+          11,
+          14,
+          15
+        ],
+        "val": [
+          4,
+          8,
+          12,
+          16
+        ]
+      },
+      {
+        "train": [
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16
+        ],
+        "val": [
+          3,
+          7,
+          11,
+          15
+        ]
+      },
+      {
+        "train": [
+          3,
+          4,
+          7,
+          8,
+          11,
+          12,
+          15,
+          16
+        ],
+        "val": [
+          2,
+          6,
+          10,
+          14
+        ]
+      }
+    ],
+    "base_sha256": "7d3a2d5435a9dd00a441da8fb4abaa4fe15cc4f723611be9e98ca8b1439e25d7"
+  },
+  "thresholds": {
+    "R0": 0.4268435741489469,
+    "R1": 0.5384719985938045
+  },
+  "features": 9996,
+  "scale": [
+    2.128113785014397,
+    3.6873378570552315,
+    3.137645995886962
+  ],
+  "feature_sha256": "cb7cd4e0b33db797c0c3cf6bb91ce5b559e34b8a9424b51dd845cdb0244c65cc",
+  "timings": [
+    {
+      "fold": 3,
+      "inner": 0,
+      "stage": "fit_clean",
+      "fit_transformer_s": 0.3941083779991459,
+      "features_scaler_s": 1.011341330000505,
+      "ridge_s": 0.024917320999520598,
+      "n": 240
+    },
+    {
+      "fold": 3,
+      "inner": 0,
+      "stage": "inner_valid",
+      "features_scaler_s": 2.449297838998973,
+      "inference_s": 0.006049792000339949,
+      "n": 600
+    },
+    {
+      "fold": 3,
+      "inner": 1,
+      "stage": "fit_clean",
+      "fit_transformer_s": 0.3693032539995329,
+      "features_scaler_s": 0.9317826420010533,
+      "ridge_s": 0.023167022998677567,
+      "n": 240
+    },
+    {
+      "fold": 3,
+      "inner": 1,
+      "stage": "inner_valid",
+      "features_scaler_s": 2.8318137180012855,
+      "inference_s": 0.006109288999141427,
+      "n": 600
+    },
+    {
+      "fold": 3,
+      "inner": 2,
+      "stage": "fit_clean",
+      "fit_transformer_s": 0.3733579190011369,
+      "features_scaler_s": 1.0146814780000568,
+      "ridge_s": 0.02793823399952089,
+      "n": 240
+    },
+    {
+      "fold": 3,
+      "inner": 2,
+      "stage": "inner_valid",
+      "features_scaler_s": 2.9169239189996006,
+      "inference_s": 0.009943254999598139,
+      "n": 600
+    },
+    {
+      "fold": 3,
+      "inner": 0,
+      "stage": "fit_aug",
+      "features_scaler_s": 1.8159073280003213,
+      "ridge_s": 0.1097932539996691,
+      "n": 720
+    },
+    {
+      "fold": 3,
+      "inner": 1,
+      "stage": "fit_aug",
+      "features_scaler_s": 2.0583710840001004,
+      "ridge_s": 0.12310280599922407,
+      "n": 720
+    },
+    {
+      "fold": 3,
+      "inner": 2,
+      "stage": "fit_aug",
+      "features_scaler_s": 2.0080380290000903,
+      "ridge_s": 0.12808045899873832,
+      "n": 720
+    },
+    {
+      "fold": 3,
+      "inner": 3,
+      "stage": "fit_clean",
+      "fit_transformer_s": 0.3533140680010547,
+      "features_scaler_s": 1.2666668250003568,
+      "ridge_s": 0.0410468439986289,
+      "n": 360
+    },
+    {
+      "fold": 3,
+      "inner": 3,
+      "stage": "fit_aug",
+      "features_scaler_s": 2.995440561000578,
+      "ridge_s": 0.23241478799900506,
+      "n": 1080
+    }
+  ]
+}

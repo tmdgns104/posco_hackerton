@@ -1,0 +1,187 @@
+{
+  "split": {
+    "fold_id": 2,
+    "train": [
+      1,
+      3,
+      4,
+      5,
+      7,
+      8,
+      9,
+      11,
+      12,
+      13,
+      15,
+      16
+    ],
+    "test": [
+      2,
+      6,
+      10,
+      14
+    ],
+    "inner": [
+      {
+        "train": [
+          1,
+          3,
+          5,
+          7,
+          9,
+          11,
+          13,
+          15
+        ],
+        "val": [
+          4,
+          8,
+          12,
+          16
+        ]
+      },
+      {
+        "train": [
+          1,
+          4,
+          5,
+          8,
+          9,
+          12,
+          13,
+          16
+        ],
+        "val": [
+          3,
+          7,
+          11,
+          15
+        ]
+      },
+      {
+        "train": [
+          3,
+          4,
+          7,
+          8,
+          11,
+          12,
+          15,
+          16
+        ],
+        "val": [
+          1,
+          5,
+          9,
+          13
+        ]
+      }
+    ],
+    "base_sha256": "fd7397e4691abd9a4a3d3b5984e8b2ba0cf0b26aceecb1f80895414b121fd536"
+  },
+  "thresholds": {
+    "R0": 0.6470818544280235,
+    "R1": 0.9432608381869869
+  },
+  "features": 9996,
+  "scale": [
+    1.9224725199836357,
+    3.5582118416786295,
+    2.897431444417062
+  ],
+  "feature_sha256": "4161c5d8b9d8703fb7f6654a0e932a2fad9547f4a8550ae49fa42dbffff516fb",
+  "timings": [
+    {
+      "fold": 2,
+      "inner": 0,
+      "stage": "fit_clean",
+      "fit_transformer_s": 0.360637385998416,
+      "features_scaler_s": 0.8693249770003604,
+      "ridge_s": 0.024876912000763696,
+      "n": 240
+    },
+    {
+      "fold": 2,
+      "inner": 0,
+      "stage": "inner_valid",
+      "features_scaler_s": 2.448690520999662,
+      "inference_s": 0.006264079000175116,
+      "n": 600
+    },
+    {
+      "fold": 2,
+      "inner": 1,
+      "stage": "fit_clean",
+      "fit_transformer_s": 0.3604421309992176,
+      "features_scaler_s": 0.8651152639995416,
+      "ridge_s": 0.0333920160010166,
+      "n": 240
+    },
+    {
+      "fold": 2,
+      "inner": 1,
+      "stage": "inner_valid",
+      "features_scaler_s": 2.3722713900006056,
+      "inference_s": 0.006681737000690191,
+      "n": 600
+    },
+    {
+      "fold": 2,
+      "inner": 2,
+      "stage": "fit_clean",
+      "fit_transformer_s": 0.35480164299951866,
+      "features_scaler_s": 0.8366199460015196,
+      "ridge_s": 0.028578981999089592,
+      "n": 240
+    },
+    {
+      "fold": 2,
+      "inner": 2,
+      "stage": "inner_valid",
+      "features_scaler_s": 2.5169105919994763,
+      "inference_s": 0.006259412000872544,
+      "n": 600
+    },
+    {
+      "fold": 2,
+      "inner": 0,
+      "stage": "fit_aug",
+      "features_scaler_s": 1.9843372359991918,
+      "ridge_s": 0.1356189110010746,
+      "n": 720
+    },
+    {
+      "fold": 2,
+      "inner": 1,
+      "stage": "fit_aug",
+      "features_scaler_s": 2.0092575660000875,
+      "ridge_s": 0.13401417800014315,
+      "n": 720
+    },
+    {
+      "fold": 2,
+      "inner": 2,
+      "stage": "fit_aug",
+      "features_scaler_s": 1.9213038210000377,
+      "ridge_s": 0.14403456000036385,
+      "n": 720
+    },
+    {
+      "fold": 2,
+      "inner": 3,
+      "stage": "fit_clean",
+      "fit_transformer_s": 0.3894097030006378,
+      "features_scaler_s": 1.7962275229983788,
+      "ridge_s": 0.0388692530013941,
+      "n": 360
+    },
+    {
+      "fold": 2,
+      "inner": 3,
+      "stage": "fit_aug",
+      "features_scaler_s": 3.2432200759994885,
+      "ridge_s": 0.26370942200082936,
+      "n": 1080
+    }
+  ]
+}

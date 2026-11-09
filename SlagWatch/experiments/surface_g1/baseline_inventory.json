@@ -1,0 +1,31 @@
+{
+  "run_id": "0d28bc5a8fb370f2041f03583d1998fdfe3faffd8f68d7f50fd81f5f9e5de69f",
+  "code_sha256": {
+    "surface_data.py": "ebf75645aea994ae19049e00431ac2319c1b04153ca794b4c71a5b6a9b09ac5d",
+    "surface_detector.py": "0811d2cc4f909e2a4d2e10b46d9cc93c02a444270fa17376bd7a4504d95577c8",
+    "surface_study.py": "9111065e42498f6ddf949ea06f4e080c9b4c10c3fadc3861d9ce6825161e671c"
+  },
+  "files": {
+    "duplicates.json": "392da6147eafa3c3cfcf23a16480e81a2a04cd5601490fab311d084cd311516d",
+    "examples/fixed.zip": "ce400b0d05e7c1aa32cfc7296f34e0f85ee00346793f52e961c5408556172348",
+    "examples/new_error.zip": "e679293a14a2b0dd9432ea08d91de40d5a20b2df5b3b4769af21b97aced705f4",
+    "manifest.json": "cdb6a732a52a793abe848cca4c6ea6d23e39c2ac61b4ef83727ca5dae44557fe",
+    "models/V0.joblib": "ded86c7e929eff9aed8c1b78a9e784fffa08b87f06cfb68478894c040eb9eb3f",
+    "models/V1.joblib": "72d02bae5610e63f0e02b9e656a8c2e2398a294ab2133a4ff5dde503361de877",
+    "models/V2.joblib": "a8b2fb7b9b768d203eba62b24dd8d82ff712f3b6cdc79d8659115e5cc8d5e7d2",
+    "models/resnet18-f37072fd.pth": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+    "protocol.json": "1e0649b1fb85416f94fa268aeeb09e55e368bb184baf3dee764c065d9aec8785",
+    "selection.json": "205789479fb996d6c96cb5235e8ee255c8c477c672c6be44a1e8577aac7c8fc1",
+    "split_manifest.csv": "139bef29ba80ab6d0de0d8972cf77924aa83515ebe9f12859c02a91eb3229676",
+    "test_status.json": "5fa9884c5f9431ec5ae5e9bde976b84634ccd5ecf8100750d332060994dac7f0",
+    "validation_by_parent.csv": "3b4d199e4d5765e483404d7296107d11bcd410384b3a0de6e8e65d3cb64a1550",
+    "validation_changes.csv": "bde59c680a06dc18f32879d5e88499d7e03a30063a09817befc1c3c5ece2a889",
+    "validation_classes.csv": "ce38a62d0c05ee6927dfde428aacbd82e41cdf118fbaa2e22de5167a53a713af",
+    "validation_confusion.csv": "f07c169a7e13ecdc08e2e8e8f3eb3762781743915da23b28f1c8be10672bd808",
+    "validation_discovered_inputs.zip": "e79c002d4e6ab90d8334a3524f838f5f619d1d6479f65695fea48fcf936ecd50",
+    "validation_discoveries.csv.gz": "71ada0c87e7f4a4e1b35a2a9e13ac1efca97c78dda16a5bc025e4913ed75b443",
+    "validation_pairs.csv.gz": "46f9f5f6581a034d2493ae0971ad4040d4f5b5e740373d106e1418660e3be97e",
+    "validation_predictions.csv.gz": "d08490c6b1d567953e949af8a13f72c22e3fc63fc8bd99c5ee349eeb8ec67e63",
+    "validation_summary.csv": "f8c56659417748d10ded7fe4f75f2abf51b7a0a955bdc337de27d108aaa3d43b"
+  }
+}

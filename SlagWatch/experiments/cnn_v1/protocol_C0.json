@@ -1,0 +1,15 @@
+{
+  "input": "raw 3200x3 one window; axes xyz; time, condition, position, truth and file ID excluded; optionally perturb once before patching",
+  "patch_starts": [0,448,896,1344,1792,2240,2688],
+  "patch_size":512, "seed":42, "epochs":30,"patience":5,"batch_size":24,
+  "normalization":"per-axis population mean and standard deviation on raw fit groups only; floor sigma at 1e-8",
+  "encoder":"Conv1d 3->32 k7 s2 p3, ReLU, MaxPool4, Conv32->64 k5 s1 p2, ReLU, MaxPool4, Conv64->64 k3 s1 p1, ReLU, global average pool, dropout .2, linear64->1; shared weights; average seven logits then sigmoid",
+  "optimizer":"AdamW lr=.001, decay=.001, BCEWithLogits at window level; positive weight=training negatives/positives; shuffled clean windows; one fixed seed; CPU float32",
+  "epoch_selection":"minimum clean inner validation class-balanced BCE; earliest minimum, patience 5, no minimum delta; refit all outer training groups for median of three best epochs",
+  "cutoff":"saved detector v1 rule: maximize clean inner OOF TP with <=15% FP, tie fewer FP then highest score; final threshold identical for all five conditions",
+  "splits":"exact four outer and 3 inner from experiments/hi_v1/protocol.json; full-data experimental checkpoint has own three grouped folds",
+  "C1_trigger":"Within each training partition only: if clean inner recall <.70, AUC(S,B) at least .05 below AUC(S,E), and B contributes more than half the FP, allow ONE scoring-objective change, relative negative example weights B=1.5 E=.5. Same model, positive weight, epochs, seeds, optimizer updates per epoch and budgets. Compare clean inner TP, then fewer FP with C0; if no improvement keep C0. Otherwise C0 only. No outer result enters this choice.",
+  "score_atol":0.00001, "stress":"unchanged detector_v1 wave generator for noise/X/Y/Z and outer fit scale; no HOLD",
+  "goals":{"clean":{"min_tp":112,"max_fp":48},"stress":{"min_tp":96,"max_fp":64}},
+  "scope":"development group CV; no changes after looking at outer scores; full checkpoint for separate CLI use"
+}

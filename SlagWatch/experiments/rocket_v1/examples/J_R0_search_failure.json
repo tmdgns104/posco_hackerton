@@ -1,0 +1,79 @@
+{
+  "schema": 2,
+  "case_id": "042d0fb11da43c8b967849e7b5d4e2869c42723beb0026357ae9e5bfb738e242",
+  "execution_id": "99f71ac9d1e090f416749b927018c1eaf7add9225ceb4ec783471885945c41bd",
+  "dataset_sha256": "1c204ce9357214782dc6bb94982841edd041a58cc8bcc45aeccf135936ea2e82",
+  "file_id": "S-6.csv",
+  "window_idx": 8,
+  "group_id": 6,
+  "fold_id": 2,
+  "phase": "S",
+  "y_true": 1,
+  "source_sha256": "b0560a3b6116d6e86a8533f094d8d0bd9d2889a51e2edb2077c9428e08f24695",
+  "input_sha256": "dc28de6d2aa29257d195c4adbabbc2e3e7b284fd17647527601be7d4ffa70b75",
+  "fault": {
+    "kind": "grid",
+    "type": "noise",
+    "axis": "x",
+    "scale": 0.4,
+    "count": 0,
+    "seed": 42,
+    "positions": [],
+    "signs": []
+  },
+  "before": "J",
+  "after": "R0",
+  "outputs": {
+    "J": {
+      "model": "J",
+      "fold": "2",
+      "model_sha256": "aa1790fa83d06629fb955448a4f71ea8d34eb71e10b7b1fb62ff88914babb5fe",
+      "run_id": "c72f5acf8cf45597092854ba5fcad63e9e108804fe96d6b30ccbd59a460cf7c6",
+      "threshold": 0.4408266715003914,
+      "clean": {
+        "score": 0.655527515946243,
+        "prediction": 1,
+        "input_status": "VALID"
+      },
+      "test": {
+        "score": 0.10490767790701522,
+        "prediction": 0,
+        "input_status": "VALID"
+      }
+    },
+    "R0": {
+      "model": "R0",
+      "fold": "2",
+      "model_sha256": "476117a1ab916735ee1ceba2436af969466e17620dccee7e69759c1930647d63",
+      "run_id": "2c890cf695a0e21ff28fc3cc1e27eb3d5409c27d260ceb5948fcb186e27fd1d6",
+      "threshold": 0.6470818544280235,
+      "bundle_sha256": "11e46e76d86da6e99b3185365dbf718037f028f2e60875ca2c826002f68b73a5",
+      "feature_sha256": "4161c5d8b9d8703fb7f6654a0e932a2fad9547f4a8550ae49fa42dbffff516fb",
+      "clean": {
+        "score": 1.8207440832439943,
+        "prediction": 1,
+        "input_status": "VALID"
+      },
+      "test": {
+        "score": 1.6130632608278006,
+        "prediction": 1,
+        "input_status": "VALID"
+      }
+    }
+  },
+  "change": "rescued_FN",
+  "before_induced": true,
+  "evidence": "기존 J의 fold 2 원본 학습 AUC 0.987, 학습 제외 그룹 AUC 0.653.",
+  "human_hypothesis": "다변량 파형의 국소 패턴을 변환하면 새로운 그룹의 S와 비슬래그를 더 잘 구분할 수 있다.",
+  "modification": "MiniRocket 특징과 Ridge 분류기를 원본 학습 그룹으로 적합했다.",
+  "regression": {
+    "table": "experiments/rocket_v1/changes.csv",
+    "before": "J",
+    "after": "R0",
+    "summary": "experiments/rocket_v1/summary.csv"
+  },
+  "study": "rocket_v1",
+  "manifest_sha256": "d7cbd4b50ed7eb36e3100a8ec99020d95a047aa29bf837090bf335f627100927",
+  "evaluation_origin": "outer_held_out",
+  "inner_evidence": null
+}

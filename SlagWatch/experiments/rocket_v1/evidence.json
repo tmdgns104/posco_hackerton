@@ -1,0 +1,94 @@
+{
+  "0": {
+    "inner_example": {
+      "origin": "inner_oof",
+      "outer_fold": 0,
+      "inner_id": 0,
+      "file_id": "B-11.csv",
+      "group_id": 11,
+      "window_idx": 4,
+      "phase": "B",
+      "y_true": 0,
+      "condition": "noise",
+      "clean_score": 0.5685570992384292,
+      "perturbed_score": 0.8248268360888247,
+      "threshold": 0.7188149638012291,
+      "input_sha256": "f350c8616b072f56fd1384d8791df875e22333a5a03ba4f00598d1062bfd3be1",
+      "seed": 3091652141548
+    },
+    "inner_trials": 1440,
+    "induced": 36,
+    "resolved": 27,
+    "j_train_auc": 0.9869791666666666,
+    "j_outer_auc": 0.6471875
+  },
+  "1": {
+    "inner_example": {
+      "origin": "inner_oof",
+      "outer_fold": 1,
+      "inner_id": 0,
+      "file_id": "B-4.csv",
+      "group_id": 4,
+      "window_idx": 9,
+      "phase": "B",
+      "y_true": 0,
+      "condition": "noise",
+      "clean_score": 0.563222106959163,
+      "perturbed_score": 1.0227421231731526,
+      "threshold": 0.5795286911871358,
+      "input_sha256": "936872b772940cfa47638a80d256f015678234b83edd27696fe1b3da2493fe22",
+      "seed": 3090645410026
+    },
+    "inner_trials": 1440,
+    "induced": 46,
+    "resolved": 47,
+    "j_train_auc": 0.9837152777777778,
+    "j_outer_auc": 0.7309375
+  },
+  "2": {
+    "inner_example": {
+      "origin": "inner_oof",
+      "outer_fold": 2,
+      "inner_id": 0,
+      "file_id": "B-16.csv",
+      "group_id": 16,
+      "window_idx": 2,
+      "phase": "B",
+      "y_true": 0,
+      "condition": "noise",
+      "clean_score": 0.16179320620100235,
+      "perturbed_score": 0.7954242508217808,
+      "threshold": 0.6470818544280235,
+      "input_sha256": "7ccb84ce748d5fc62434dcb7be731c2b3e5274e9b21b439e10ba433333fb1d86",
+      "seed": 3089419494041
+    },
+    "inner_trials": 1440,
+    "induced": 41,
+    "resolved": 27,
+    "j_train_auc": 0.9872222222222222,
+    "j_outer_auc": 0.6534375
+  },
+  "3": {
+    "inner_example": {
+      "origin": "inner_oof",
+      "outer_fold": 3,
+      "inner_id": 0,
+      "file_id": "B-8.csv",
+      "group_id": 8,
+      "window_idx": 9,
+      "phase": "B",
+      "y_true": 0,
+      "condition": "noise",
+      "clean_score": 0.30667307075744077,
+      "perturbed_score": 0.8562500379351761,
+      "threshold": 0.4268435741489469,
+      "input_sha256": "a12f0a5e86d0da19a119fe284a13a243f62e8a7c645346619b77fd5804151356",
+      "seed": 3090053106730
+    },
+    "inner_trials": 1440,
+    "induced": 26,
+    "resolved": 27,
+    "j_train_auc": 0.9875347222222222,
+    "j_outer_auc": 0.6678124999999999
+  }
+}

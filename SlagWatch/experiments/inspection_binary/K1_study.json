@@ -1,0 +1,148 @@
+{
+  "model_id": "K1",
+  "created_utc": "2026-11-08T19:33:17.802029+00:00",
+  "threshold": -2.148255,
+  "train_originals": 1865,
+  "training_views": 9325,
+  "validation_originals": 466,
+  "train_policies": [
+    [
+      "clean",
+      0
+    ],
+    [
+      "noise_weak",
+      731
+    ],
+    [
+      "noise_strong",
+      731
+    ],
+    [
+      "dark",
+      0
+    ],
+    [
+      "bright",
+      0
+    ]
+  ],
+  "validation_cells": [
+    {
+      "condition": "clean",
+      "seed": 0,
+      "TP": 39,
+      "FN": 10,
+      "FP": 30,
+      "TN": 387,
+      "defect_recall": 0.7959183673469388,
+      "normal_fpr": 0.07194244604316546,
+      "normal_specificity": 0.9280575539568345,
+      "normal_recall": 0.9280575539568345,
+      "defect_miss_rate": 0.20408163265306123
+    },
+    {
+      "condition": "noise_weak",
+      "seed": 101,
+      "TP": 36,
+      "FN": 13,
+      "FP": 32,
+      "TN": 385,
+      "defect_recall": 0.7346938775510204,
+      "normal_fpr": 0.07673860911270983,
+      "normal_specificity": 0.9232613908872902,
+      "normal_recall": 0.9232613908872902,
+      "defect_miss_rate": 0.2653061224489796
+    },
+    {
+      "condition": "noise_weak",
+      "seed": 102,
+      "TP": 38,
+      "FN": 11,
+      "FP": 32,
+      "TN": 385,
+      "defect_recall": 0.7755102040816326,
+      "normal_fpr": 0.07673860911270983,
+      "normal_specificity": 0.9232613908872902,
+      "normal_recall": 0.9232613908872902,
+      "defect_miss_rate": 0.22448979591836735
+    },
+    {
+      "condition": "noise_strong",
+      "seed": 101,
+      "TP": 40,
+      "FN": 9,
+      "FP": 40,
+      "TN": 377,
+      "defect_recall": 0.8163265306122449,
+      "normal_fpr": 0.09592326139088729,
+      "normal_specificity": 0.9040767386091128,
+      "normal_recall": 0.9040767386091128,
+      "defect_miss_rate": 0.1836734693877551
+    },
+    {
+      "condition": "noise_strong",
+      "seed": 102,
+      "TP": 37,
+      "FN": 12,
+      "FP": 54,
+      "TN": 363,
+      "defect_recall": 0.7551020408163265,
+      "normal_fpr": 0.12949640287769784,
+      "normal_specificity": 0.8705035971223022,
+      "normal_recall": 0.8705035971223022,
+      "defect_miss_rate": 0.24489795918367346
+    },
+    {
+      "condition": "dark",
+      "seed": 0,
+      "TP": 39,
+      "FN": 10,
+      "FP": 36,
+      "TN": 381,
+      "defect_recall": 0.7959183673469388,
+      "normal_fpr": 0.08633093525179857,
+      "normal_specificity": 0.9136690647482014,
+      "normal_recall": 0.9136690647482014,
+      "defect_miss_rate": 0.20408163265306123
+    },
+    {
+      "condition": "bright",
+      "seed": 0,
+      "TP": 38,
+      "FN": 11,
+      "FP": 39,
+      "TN": 378,
+      "defect_recall": 0.7755102040816326,
+      "normal_fpr": 0.09352517985611511,
+      "normal_specificity": 0.9064748201438849,
+      "normal_recall": 0.9064748201438849,
+      "defect_miss_rate": 0.22448979591836735
+    }
+  ],
+  "minimum_clean_recall_met": false,
+  "naive_each_cell": {
+    "all_normal": {
+      "TP": 0,
+      "FN": 49,
+      "FP": 0,
+      "TN": 417,
+      "defect_recall": 0.0,
+      "normal_fpr": 0.0,
+      "normal_specificity": 1.0,
+      "normal_recall": 1.0,
+      "defect_miss_rate": 1.0
+    },
+    "all_defect": {
+      "TP": 49,
+      "FN": 0,
+      "FP": 417,
+      "TN": 0,
+      "defect_recall": 1.0,
+      "normal_fpr": 1.0,
+      "normal_specificity": 0.0,
+      "normal_recall": 0.0,
+      "defect_miss_rate": 0.0
+    }
+  }
+}

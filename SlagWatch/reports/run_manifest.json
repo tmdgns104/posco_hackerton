@@ -1,0 +1,113 @@
+{
+  "dataset_sha256": "5af42e60d823cedb381d647fa3a943980e50df7fd9cef0f335c6e0a270a71279",
+  "model_sha256": {
+    "0": "84ca18153bf25f59092ab0ba9b637d8af8cdd8e5678d15173ce53676070dc86d",
+    "1": "aaf962d6a96eb60e03013c40a98d6c5760b4237351b280064eacfd12cfbf1038",
+    "2": "fd7397e4691abd9a4a3d3b5984e8b2ba0cf0b26aceecb1f80895414b121fd536",
+    "3": "7d3a2d5435a9dd00a441da8fb4abaa4fe15cc4f723611be9e98ca8b1439e25d7"
+  },
+  "default_model": "rf",
+  "feature_versions": {
+    "rf": "v2-12",
+    "spectral": "v2-36"
+  },
+  "rf_parameters": {
+    "bootstrap": true,
+    "ccp_alpha": 0.0,
+    "class_weight": "balanced",
+    "criterion": "gini",
+    "max_depth": 6,
+    "max_features": "sqrt",
+    "max_leaf_nodes": null,
+    "max_samples": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 3,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "n_estimators": 100,
+    "n_jobs": 1,
+    "oob_score": false,
+    "random_state": 42,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "training_parameters": {
+    "n_estimators": 100,
+    "max_depth": 6,
+    "min_samples_leaf": 3,
+    "class_weight": "balanced",
+    "random_state": 42,
+    "n_jobs": -1
+  },
+  "groups": {
+    "0": [
+      4,
+      8,
+      12,
+      16
+    ],
+    "1": [
+      3,
+      7,
+      11,
+      15
+    ],
+    "2": [
+      2,
+      6,
+      10,
+      14
+    ],
+    "3": [
+      1,
+      5,
+      9,
+      13
+    ]
+  },
+  "train_scales": {
+    "0": [
+      2.088230910558088,
+      3.80916450718288,
+      3.0866510594084158
+    ],
+    "1": [
+      2.0976561982850246,
+      3.8121275605448735,
+      3.1523506003644783
+    ],
+    "2": [
+      1.9224725199836357,
+      3.5582118416786295,
+      2.897431444417062
+    ],
+    "3": [
+      2.128113785014397,
+      3.6873378570552315,
+      3.137645995886962
+    ]
+  },
+  "default_margin": 0.1,
+  "margin_grid": [
+    0.0,
+    0.05,
+    0.1,
+    0.15,
+    0.2
+  ],
+  "policy_evaluation": "fixed settings, descriptive OOF comparison",
+  "elapsed_trial_ms": 20580,
+  "trials": 2000,
+  "unique_windows": 40,
+  "budget": {
+    "max_trials": 2000,
+    "max_seconds": 90
+  },
+  "run_id": "b0a874239edd024e",
+  "python": "3.12.14",
+  "original_report_sha256": {
+    "predictions.csv": "f30af71c55041bfb954decdf506e70f2dea6f35e4f2f98e4c249f265a86a92f3",
+    "metrics.json": "dd5d6f00c6117b4ff171cbc4d9d77c6d924efdb5516a0e1ce983327c18622653"
+  }
+}

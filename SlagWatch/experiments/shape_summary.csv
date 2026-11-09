@@ -1,0 +1,5 @@
+scenario,family,variant,n,tp,fn,fp,tn,balanced_accuracy,macro_f1
+clean,spectral,F,480,101,59,122,198,0.625,0.6068618179020865
+new_y_spike,spectral,F,480,138,22,245,75,0.5484375,0.43399976151675346
+noise,spectral,F,480,103,57,130,190,0.61875,0.5971835157585794
+spike,spectral,F,480,104,56,111,209,0.6515625,0.6345982905982905

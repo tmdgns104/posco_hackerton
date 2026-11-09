@@ -1,0 +1,52 @@
+{
+  "adopt": null,
+  "reference": "A1",
+  "candidates": {
+    "H": {
+      "checks": {
+        "clean_extra_tp": true,
+        "clean_no_extra_fp": false,
+        "clean_fp_limit": true,
+        "clean_fold_spread": true,
+        "stress_recall": false,
+        "stress_fpr": false
+      },
+      "eligible": false,
+      "fold_tp_delta": {
+        "0": 2,
+        "1": 7,
+        "2": 4,
+        "3": -2
+      },
+      "bad_recall_conditions": [
+        "new_y_spike",
+        "spike"
+      ],
+      "bad_fp_conditions": [
+        "new_z_spike",
+        "noise"
+      ]
+    },
+    "I": {
+      "checks": {
+        "clean_extra_tp": true,
+        "clean_no_extra_fp": true,
+        "clean_fp_limit": true,
+        "clean_fold_spread": true,
+        "stress_recall": true,
+        "stress_fpr": false
+      },
+      "eligible": false,
+      "fold_tp_delta": {
+        "0": 2,
+        "1": 6,
+        "2": 2,
+        "3": 1
+      },
+      "bad_recall_conditions": [],
+      "bad_fp_conditions": [
+        "noise"
+      ]
+    }
+  }
+}

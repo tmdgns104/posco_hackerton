@@ -1,0 +1,17 @@
+scope,condition,seed,n_originals,planned,completed,failed,fixed_fn,new_fn,fixed_fp,new_fp,both_wrong,both_right,class_label
+all,ALL,-1,417,2919,2919,0,0,0,409,71,192,2247,normal
+all,ALL,-1,49,343,343,0,6,34,0,0,42,261,defect
+cell,clean,0,417,417,417,0,0,0,13,10,20,374,normal
+cell,clean,0,49,49,49,0,0,3,0,0,7,39,defect
+cell,noise_weak,101,417,417,417,0,0,0,21,17,15,364,normal
+cell,noise_weak,101,49,49,49,0,0,4,0,0,9,36,defect
+cell,noise_weak,102,417,417,417,0,0,0,13,11,21,372,normal
+cell,noise_weak,102,49,49,49,0,2,5,0,0,6,36,defect
+cell,noise_strong,101,417,417,417,0,0,0,185,4,36,192,normal
+cell,noise_strong,101,49,49,49,0,0,4,0,0,5,40,defect
+cell,noise_strong,102,417,417,417,0,0,0,143,8,46,220,normal
+cell,noise_strong,102,49,49,49,0,2,9,0,0,3,35,defect
+cell,dark,0,417,417,417,0,0,0,5,17,19,376,normal
+cell,dark,0,49,49,49,0,2,2,0,0,8,37,defect
+cell,bright,0,417,417,417,0,0,0,29,4,35,349,normal
+cell,bright,0,49,49,49,0,0,7,0,0,4,38,defect

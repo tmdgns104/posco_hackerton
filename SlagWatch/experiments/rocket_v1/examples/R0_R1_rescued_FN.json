@@ -1,0 +1,90 @@
+{
+  "schema": 2,
+  "case_id": "9336caf535a0538aa536215a94c4daae02b9c656eb98d00a28f72eb697ce8a5c",
+  "execution_id": "512758d8b486fd33543dd8b21d9d9d5340a32aeeea7dcf1977bd47d7ec1025eb",
+  "dataset_sha256": "1c204ce9357214782dc6bb94982841edd041a58cc8bcc45aeccf135936ea2e82",
+  "file_id": "S-12.csv",
+  "window_idx": 9,
+  "group_id": 12,
+  "fold_id": 0,
+  "phase": "S",
+  "y_true": 1,
+  "source_sha256": "1fa9b6a47ce034491b62fb15ce57646abcfccf588d2aa11ef618b7dc87db7fb6",
+  "input_sha256": "1fa9b6a47ce034491b62fb15ce57646abcfccf588d2aa11ef618b7dc87db7fb6",
+  "fault": {
+    "kind": "fixed",
+    "scenario": "clean"
+  },
+  "before": "R0",
+  "after": "R1",
+  "outputs": {
+    "R0": {
+      "model": "R0",
+      "fold": "0",
+      "model_sha256": "0936df9d2fa5120c218f100ff8464cbaf90eb1108d86a2b5f73713af44f171b2",
+      "run_id": "60c83068ecba0679e67ee07446668e7e151b9736e971b87dae55a521a5b3e7c6",
+      "threshold": 0.7188149638012291,
+      "bundle_sha256": "fae1b361e6078d3c20c0f5b2a8ac5239138cb63f6f708dff8473fd259e97aac6",
+      "feature_sha256": "3d064e3cfa2aaeea26710002d9f5dd71f2233ef7e987523e8b2450224a959fe5",
+      "clean": {
+        "score": -0.39926549048526283,
+        "prediction": 0,
+        "input_status": "VALID"
+      },
+      "test": {
+        "score": -0.39926549048526283,
+        "prediction": 0,
+        "input_status": "VALID"
+      }
+    },
+    "R1": {
+      "model": "R1",
+      "fold": "0",
+      "model_sha256": "efbdb580c699279b94e7bce2cfe996600af32882048a504fa5b803e9ae22503c",
+      "run_id": "00f5d8c3306bb7dc2e74019bb61d3f5e1d3d6f14385cd9cc8982762e53fd777c",
+      "threshold": 0.7056919683034906,
+      "bundle_sha256": "fae1b361e6078d3c20c0f5b2a8ac5239138cb63f6f708dff8473fd259e97aac6",
+      "feature_sha256": "3d064e3cfa2aaeea26710002d9f5dd71f2233ef7e987523e8b2450224a959fe5",
+      "clean": {
+        "score": 1.170193661378117,
+        "prediction": 1,
+        "input_status": "VALID"
+      },
+      "test": {
+        "score": 1.170193661378117,
+        "prediction": 1,
+        "input_status": "VALID"
+      }
+    }
+  },
+  "change": "rescued_FN",
+  "before_induced": false,
+  "evidence": "이 fold의 학습 그룹 내부 교란 1440회에서 R0 정답이 오답으로 바뀐 경우 36회, 오답이 정답으로 바뀐 경우 27회.",
+  "human_hypothesis": "같은 특징에서 교란 입력을 Ridge 학습에 포함하면 유발 오판을 줄일 수 있다.",
+  "modification": "변환기와 scaler를 동결하고 원본·잡음·단축 충격을 0.5/0.25/0.25로 가중해 Ridge만 재학습했다.",
+  "regression": {
+    "table": "experiments/rocket_v1/changes.csv",
+    "before": "R0",
+    "after": "R1",
+    "summary": "experiments/rocket_v1/summary.csv"
+  },
+  "study": "rocket_v1",
+  "manifest_sha256": "d7cbd4b50ed7eb36e3100a8ec99020d95a047aa29bf837090bf335f627100927",
+  "evaluation_origin": "outer_held_out",
+  "inner_evidence": {
+    "origin": "inner_oof",
+    "outer_fold": 0,
+    "inner_id": 0,
+    "file_id": "B-11.csv",
+    "group_id": 11,
+    "window_idx": 4,
+    "phase": "B",
+    "y_true": 0,
+    "condition": "noise",
+    "clean_score": 0.5685570992384292,
+    "perturbed_score": 0.8248268360888247,
+    "threshold": 0.7188149638012291,
+    "input_sha256": "f350c8616b072f56fd1384d8791df875e22333a5a03ba4f00598d1062bfd3be1",
+    "seed": 3091652141548
+  }
+}

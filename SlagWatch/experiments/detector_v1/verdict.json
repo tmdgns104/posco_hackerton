@@ -1,0 +1,11 @@
+{
+  "targets_pass": {
+    "clean": false,
+    "new_y_spike": false,
+    "new_z_spike": false,
+    "noise": false,
+    "spike": false
+  },
+  "fair_clean_improvement": false,
+  "adopt": false
+}

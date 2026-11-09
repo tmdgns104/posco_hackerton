@@ -4,6 +4,8 @@
 
 ## 시작
 
+**전체 GitHub 배포본 안내:** 현재 `main`에는 아래 실행본 설명보다 넓은 범위인 KSDD2 전체 학습·시험 원본과 모든 동봉 모델·NEU·SSFD 데이터가 포함됩니다. GitHub ZIP만 풀면 되며 별도 실행본 병합이나 원자료 복원은 필요하지 않습니다. 아래 과거 실행본의 제외 항목 설명은 348 MB ZIP에 대한 기록입니다. 전체 배포 범위·무결성 확인은 저장소 루트 `README.md`와 `PROJECT_FILES.sha256`을 확인하세요.
+
 Windows는 ZIP 전체를 풀고 `SlagWatch/START_WINDOWS.cmd`를 실행합니다. Python 3.11 64비트, Windows py 런처, 첫 패키지 설치 시 인터넷이 필요합니다. Linux에서는 `SlagWatch`에서 Python 3.11 가상환경을 활성화한 후 `python start_demo.py --bootstrap`을 실행합니다. 설치된 환경은 `python start_demo.py` 또는 `python -m streamlit run app_demo.py`로 시작합니다. 첫 화면은 **검사 AI 교체 검증**입니다. 기존 강판 6종 G1 시연은 사이드바의 **NEU · 기존 G1 검증**에서 열 수 있습니다. Windows 실기 검증은 대기 상태입니다.
 
 1. **교체 판단**에서 KolektorSDD2 프로젝트의 전체 검증 기록을 엽니다. 저장 기록을 볼 때는 모델을 학습하거나 새 실행을 만들지 않습니다.

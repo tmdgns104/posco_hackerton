@@ -1,0 +1,17 @@
+{
+  "pixels_unique": 1799,
+  "parents": 1799,
+  "retained_images": 1800,
+  "links": [
+    {
+      "first": "Pa_105",
+      "second": "Pa_101",
+      "basis": "exact pixel or D4 permutation"
+    }
+  ],
+  "split_counts": {
+    "train": 1080,
+    "validation": 360,
+    "test": 360
+  }
+}

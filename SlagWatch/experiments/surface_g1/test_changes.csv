@@ -1,0 +1,11 @@
+task_id,sample_unit,evaluation,n_originals,before,after,sigma,seed,fixed,new_error,both_wrong,both_correct
+neu_cls6,one_original_surface_image,test,360,V0,G1,0.0,0,0,2,1,357
+neu_cls6,one_original_surface_image,test,360,V0,G1,0.02,201,8,0,0,352
+neu_cls6,one_original_surface_image,test,360,V0,G1,0.02,202,7,0,1,352
+neu_cls6,one_original_surface_image,test,360,V0,G1,0.02,203,6,0,0,354
+neu_cls6,one_original_surface_image,test,360,V0,G1,0.05,201,35,1,3,321
+neu_cls6,one_original_surface_image,test,360,V0,G1,0.05,202,28,1,3,328
+neu_cls6,one_original_surface_image,test,360,V0,G1,0.05,203,32,2,5,321
+neu_cls6,one_original_surface_image,test,360,V0,G1,0.1,201,96,1,12,251
+neu_cls6,one_original_surface_image,test,360,V0,G1,0.1,202,103,0,8,249
+neu_cls6,one_original_surface_image,test,360,V0,G1,0.1,203,103,3,10,244

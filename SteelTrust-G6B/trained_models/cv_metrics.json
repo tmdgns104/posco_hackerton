@@ -1,0 +1,156 @@
+{
+  "model": "G6B_refspec_v1",
+  "protocol": "B2",
+  "n": 240,
+  "n_slag": 160,
+  "n_non_slag": 80,
+  "slag_tp": 86,
+  "slag_fn": 74,
+  "non_slag_fp": 5,
+  "non_slag_tn": 75,
+  "slag_recall": 0.5375,
+  "non_slag_fpr": 0.0625,
+  "roc_auc": 0.788984375,
+  "average_precision": 0.8936926301899379,
+  "folds": [
+    {
+      "fold": 0,
+      "train_groups": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15
+      ],
+      "test_groups": [
+        4,
+        8,
+        12,
+        16
+      ],
+      "threshold": 0.6576556776556778,
+      "inner_oof_auc": 0.8023611111111111,
+      "test_auc_exploratory": 0.8287500000000001
+    },
+    {
+      "fold": 1,
+      "train_groups": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        16
+      ],
+      "test_groups": [
+        3,
+        7,
+        11,
+        15
+      ],
+      "threshold": 0.7130769230769229,
+      "inner_oof_auc": 0.7369444444444444,
+      "test_auc_exploratory": 0.82375
+    },
+    {
+      "fold": 2,
+      "train_groups": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        15,
+        16
+      ],
+      "test_groups": [
+        2,
+        6,
+        10,
+        14
+      ],
+      "threshold": 0.8387912087912088,
+      "inner_oof_auc": 0.7456944444444444,
+      "test_auc_exploratory": 0.82875
+    },
+    {
+      "fold": 3,
+      "train_groups": [
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16
+      ],
+      "test_groups": [
+        1,
+        5,
+        9,
+        13
+      ],
+      "threshold": 0.7228571428571432,
+      "inner_oof_auc": 0.7651388888888889,
+      "test_auc_exploratory": 0.785
+    }
+  ],
+  "comparison": {
+    "existing_g5_tp": 81,
+    "existing_g5_fp": 5,
+    "fixed_previous_errors": 20,
+    "new_errors": 15,
+    "fixed_examples": [
+      "(1, 'S', 1.0)",
+      "(1, 'S', 2.0)",
+      "(1, 'S', 3.0)",
+      "(4, 'S', 1.5)",
+      "(6, 'S', 2.0)",
+      "(6, 'S', 2.5)",
+      "(6, 'S', 3.0)",
+      "(11, 'B', 2.5)",
+      "(11, 'B', 3.0)",
+      "(11, 'B', 3.5)",
+      "(11, 'S', 0.0)",
+      "(11, 'S', 0.5)"
+    ],
+    "new_error_examples": [
+      "(1, 'S', 2.5)",
+      "(2, 'S', 1.0)",
+      "(2, 'S', 1.5)",
+      "(2, 'S', 2.0)",
+      "(2, 'S', 2.5)",
+      "(2, 'S', 3.0)",
+      "(2, 'S', 3.5)",
+      "(5, 'B', 3.0)",
+      "(9, 'B', 2.5)",
+      "(11, 'B', 4.5)",
+      "(11, 'S', 3.5)",
+      "(14, 'S', 2.0)"
+    ]
+  },
+  "reporting_warning": "Repeat development on same 16 groups. NOT independent model certification."
+}

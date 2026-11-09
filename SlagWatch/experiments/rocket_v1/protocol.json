@@ -1,0 +1,480 @@
+{
+  "baseline_commit": "cfa088b",
+  "dataset_sha256": "1c204ce9357214782dc6bb94982841edd041a58cc8bcc45aeccf135936ea2e82",
+  "dataset": "SSFD v3; all 48 file labels inherited by 480 nonoverlapping windows (S/E/B = 160 each). No onset, spill or incident labels. Repeated-group development CV.",
+  "code_sha256": {
+    "src/rocket_study.py": "38e264035d701926539997f58f8c140e3d8411e2068c3b7881055802bc4f39c9",
+    "src/rocket_detector.py": "2979bb6eeaa10474862f96995ae87ad6928cced048509b53aa1e339485f0dceb",
+    "src/hi_study.py": "f28ae485d3818c13221f4fad8a980af7fb113f9a9da3d7bdd21c03b205b93efc",
+    "src/data.py": "c7e56d2c88010799f0a67e4a5ef6aec111cb20df64723ff4f4d82cdb28aa540e",
+    "src/faults.py": "c8f113c1ed3206085fe5af36a935c787ab1639a5e2fe26a62beb741ed1f78048",
+    "src/improve.py": "3879d78477c822e621b774c107834b178c909fefe9c02dde1ea8fbe4e80ffa35",
+    "src/multi_axis.py": "e57583853bd58a8041e1a3c573b76411ba78b8f8f28b76686237fa940405b09e"
+  },
+  "versions": {
+    "aeon": "1.6.0",
+    "numba": "0.63.1",
+    "llvmlite": "0.46.0",
+    "numpy": "2.3.5",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.17.0",
+    "joblib": "1.5.3",
+    "torch": "2.8.0+cpu",
+    "pandas": "2.2.3",
+    "streamlit": "1.67.0"
+  },
+  "seed": 42,
+  "model": {
+    "n_kernels": 10000,
+    "n_jobs": 4,
+    "random_state": 42,
+    "standard_scaler_with_mean": false,
+    "ridge_alpha": 1.0
+  },
+  "actual_features_from_synthetic_fit": 9996,
+  "training": "float32 N,3,3200 only raw xyz; clean fit groups only for MiniRocket and scaler; float64 scaled features for Ridge and signed decision_function classes [0,1]; no waveform normalization or HOLD",
+  "target_fp_rate": 0.15,
+  "threshold": "each model own clean inner OOF: maximize TP under floor(0.15*N_nonS), then minimize FP then largest cutoff; fixed for all scenarios",
+  "splits": [
+    {
+      "fold_id": 0,
+      "train": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15
+      ],
+      "test": [
+        4,
+        8,
+        12,
+        16
+      ],
+      "inner": [
+        {
+          "train": [
+            1,
+            2,
+            5,
+            6,
+            9,
+            10,
+            13,
+            14
+          ],
+          "val": [
+            3,
+            7,
+            11,
+            15
+          ]
+        },
+        {
+          "train": [
+            1,
+            3,
+            5,
+            7,
+            9,
+            11,
+            13,
+            15
+          ],
+          "val": [
+            2,
+            6,
+            10,
+            14
+          ]
+        },
+        {
+          "train": [
+            2,
+            3,
+            6,
+            7,
+            10,
+            11,
+            14,
+            15
+          ],
+          "val": [
+            1,
+            5,
+            9,
+            13
+          ]
+        }
+      ],
+      "base_sha256": "84ca18153bf25f59092ab0ba9b637d8af8cdd8e5678d15173ce53676070dc86d"
+    },
+    {
+      "fold_id": 1,
+      "train": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        16
+      ],
+      "test": [
+        3,
+        7,
+        11,
+        15
+      ],
+      "inner": [
+        {
+          "train": [
+            1,
+            2,
+            5,
+            6,
+            9,
+            10,
+            13,
+            14
+          ],
+          "val": [
+            4,
+            8,
+            12,
+            16
+          ]
+        },
+        {
+          "train": [
+            1,
+            4,
+            5,
+            8,
+            9,
+            12,
+            13,
+            16
+          ],
+          "val": [
+            2,
+            6,
+            10,
+            14
+          ]
+        },
+        {
+          "train": [
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16
+          ],
+          "val": [
+            1,
+            5,
+            9,
+            13
+          ]
+        }
+      ],
+      "base_sha256": "aaf962d6a96eb60e03013c40a98d6c5760b4237351b280064eacfd12cfbf1038"
+    },
+    {
+      "fold_id": 2,
+      "train": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        15,
+        16
+      ],
+      "test": [
+        2,
+        6,
+        10,
+        14
+      ],
+      "inner": [
+        {
+          "train": [
+            1,
+            3,
+            5,
+            7,
+            9,
+            11,
+            13,
+            15
+          ],
+          "val": [
+            4,
+            8,
+            12,
+            16
+          ]
+        },
+        {
+          "train": [
+            1,
+            4,
+            5,
+            8,
+            9,
+            12,
+            13,
+            16
+          ],
+          "val": [
+            3,
+            7,
+            11,
+            15
+          ]
+        },
+        {
+          "train": [
+            3,
+            4,
+            7,
+            8,
+            11,
+            12,
+            15,
+            16
+          ],
+          "val": [
+            1,
+            5,
+            9,
+            13
+          ]
+        }
+      ],
+      "base_sha256": "fd7397e4691abd9a4a3d3b5984e8b2ba0cf0b26aceecb1f80895414b121fd536"
+    },
+    {
+      "fold_id": 3,
+      "train": [
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16
+      ],
+      "test": [
+        1,
+        5,
+        9,
+        13
+      ],
+      "inner": [
+        {
+          "train": [
+            2,
+            3,
+            6,
+            7,
+            10,
+            11,
+            14,
+            15
+          ],
+          "val": [
+            4,
+            8,
+            12,
+            16
+          ]
+        },
+        {
+          "train": [
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16
+          ],
+          "val": [
+            3,
+            7,
+            11,
+            15
+          ]
+        },
+        {
+          "train": [
+            3,
+            4,
+            7,
+            8,
+            11,
+            12,
+            15,
+            16
+          ],
+          "val": [
+            2,
+            6,
+            10,
+            14
+          ]
+        }
+      ],
+      "base_sha256": "7d3a2d5435a9dd00a441da8fb4abaa4fe15cc4f723611be9e98ca8b1439e25d7"
+    },
+    {
+      "fold_id": "full",
+      "train": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "test": [],
+      "inner": [
+        {
+          "train": [
+            2,
+            3,
+            5,
+            6,
+            8,
+            9,
+            11,
+            12,
+            14,
+            15
+          ],
+          "val": [
+            1,
+            4,
+            7,
+            10,
+            13,
+            16
+          ]
+        },
+        {
+          "train": [
+            1,
+            2,
+            4,
+            5,
+            7,
+            8,
+            10,
+            11,
+            13,
+            14,
+            16
+          ],
+          "val": [
+            3,
+            6,
+            9,
+            12,
+            15
+          ]
+        },
+        {
+          "train": [
+            1,
+            3,
+            4,
+            6,
+            7,
+            9,
+            10,
+            12,
+            13,
+            15,
+            16
+          ],
+          "val": [
+            2,
+            5,
+            8,
+            11,
+            14
+          ]
+        }
+      ]
+    }
+  ],
+  "conditions": [
+    "clean",
+    "noise",
+    "spike",
+    "new_y_spike",
+    "new_z_spike"
+  ],
+  "changes": "R1 freezes every R0 transformer/scaler and changes only supervised Ridge training inputs and weights: clean/noise/impulse=.5/.25/.25 per source window, all classes",
+  "augmentation": "axes std median of clean fit windows only; independent all-axis Gaussian sigma U[.1,.3]*scale and single-axis uniform xyz, 8..24 unique signed spike positions, amplitude U[3,6]*scale. Training namespace 313; inner diagnostics namespace 719. Fixed outer make_wave untouched, uses archived J fold scale. All derived windows stay in parent group.",
+  "inner_diagnostic": "R0 own inner OOF threshold, clean vs noise, x/y/z fixed strengths and independent seeds. Save scores, raw input hash, positions, group, induced and resolved errors. No outer labels in selection.",
+  "goals": {
+    "clean": {
+      "min_tp": 112,
+      "max_fp": 48
+    },
+    "stress": {
+      "min_tp": 96,
+      "max_fp": 64
+    }
+  },
+  "adoption": "R0: all five goals AND clean TP>J and FP<=J. R1: all five goals AND TP>=R0 and FP<=R0 in each condition, at least one strict. No post-hoc tuning.",
+  "score_atol": 1e-05,
+  "references": [
+    "https://github.com/angus924/minirocket",
+    "https://www.aeon-toolkit.org/en/stable/api_reference/auto_generated/aeon.transformations.collection.convolution_based.MiniRocket.html",
+    "https://arxiv.org/pdf/2509.00034",
+    "https://www.sciencedirect.com/science/article/abs/pii/S0925400514007035",
+    "https://www.sciencedirect.com/science/article/pii/S2405896317300824",
+    "https://data.mendeley.com/datasets/mjnpsbs6fs/3"
+  ]
+}

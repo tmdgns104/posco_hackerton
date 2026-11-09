@@ -1,0 +1,433 @@
+{
+  "seed": 42,
+  "baseline": "spectral from v4, predicate score >= threshold",
+  "target_fp_rate": 0.1,
+  "threshold_rule": "clean inner group-OOF only; enumerate unique scores plus nextafter(max,+inf); maximize TP, then minimize FP, then largest threshold",
+  "candidates": [
+    "H",
+    "I"
+  ],
+  "svm": {
+    "kernel": "rbf",
+    "C": 1.0,
+    "gamma": "scale",
+    "class_weight": "balanced",
+    "probability": false,
+    "random_state": 42
+  },
+  "augmentation": "none; train clean only",
+  "hold": false,
+  "features_H": [
+    "x_rms",
+    "x_std",
+    "x_range",
+    "x_absmax",
+    "y_rms",
+    "y_std",
+    "y_range",
+    "y_absmax",
+    "z_rms",
+    "z_std",
+    "z_range",
+    "z_absmax",
+    "x_power_share_2_25Hz",
+    "x_power_share_25_50Hz",
+    "x_power_share_50_100Hz",
+    "x_power_share_100_200Hz",
+    "x_power_share_200_400Hz",
+    "x_power_share_400_800Hz",
+    "x_power_share_800_1600Hz",
+    "x_power_share_1600_3200Hz",
+    "y_power_share_2_25Hz",
+    "y_power_share_25_50Hz",
+    "y_power_share_50_100Hz",
+    "y_power_share_100_200Hz",
+    "y_power_share_200_400Hz",
+    "y_power_share_400_800Hz",
+    "y_power_share_800_1600Hz",
+    "y_power_share_1600_3200Hz",
+    "z_power_share_2_25Hz",
+    "z_power_share_25_50Hz",
+    "z_power_share_50_100Hz",
+    "z_power_share_100_200Hz",
+    "z_power_share_200_400Hz",
+    "z_power_share_400_800Hz",
+    "z_power_share_800_1600Hz",
+    "z_power_share_1600_3200Hz"
+  ],
+  "features_I": {
+    "welch": {
+      "fs": 6400,
+      "window": "hann",
+      "nperseg": 512,
+      "noverlap": 256,
+      "detrend": "constant",
+      "average": "median",
+      "scaling": "density"
+    },
+    "band_starts_hz": [
+      2,
+      25,
+      50,
+      100,
+      200,
+      400,
+      800,
+      1600
+    ],
+    "eps": 1e-12,
+    "zero": "for zero total use zero relative powers then natural log after floor eps; same floor for total",
+    "dc": "exclude below 2 Hz, include Nyquist",
+    "trimmed_rms": "per axis inclusive 5th to 95th percentiles",
+    "order": "x then y then z; MAD, IQR, trimmed RMS, eight log relative band energies, log of total band energy"
+  },
+  "conditions": [
+    "clean",
+    "noise",
+    "spike",
+    "new_y_spike",
+    "new_z_spike"
+  ],
+  "conditions_recipe": "use v4 signal/z_check; per-source-array SHA256 and v4 A scores compared across all conditions",
+  "folds": [
+    {
+      "fold_id": 0,
+      "train": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15
+      ],
+      "test": [
+        4,
+        8,
+        12,
+        16
+      ],
+      "inner": [
+        {
+          "train": [
+            1,
+            2,
+            5,
+            6,
+            9,
+            10,
+            13,
+            14
+          ],
+          "val": [
+            3,
+            7,
+            11,
+            15
+          ]
+        },
+        {
+          "train": [
+            1,
+            3,
+            5,
+            7,
+            9,
+            11,
+            13,
+            15
+          ],
+          "val": [
+            2,
+            6,
+            10,
+            14
+          ]
+        },
+        {
+          "train": [
+            2,
+            3,
+            6,
+            7,
+            10,
+            11,
+            14,
+            15
+          ],
+          "val": [
+            1,
+            5,
+            9,
+            13
+          ]
+        }
+      ],
+      "base_sha256": "84ca18153bf25f59092ab0ba9b637d8af8cdd8e5678d15173ce53676070dc86d"
+    },
+    {
+      "fold_id": 1,
+      "train": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        16
+      ],
+      "test": [
+        3,
+        7,
+        11,
+        15
+      ],
+      "inner": [
+        {
+          "train": [
+            1,
+            2,
+            5,
+            6,
+            9,
+            10,
+            13,
+            14
+          ],
+          "val": [
+            4,
+            8,
+            12,
+            16
+          ]
+        },
+        {
+          "train": [
+            1,
+            4,
+            5,
+            8,
+            9,
+            12,
+            13,
+            16
+          ],
+          "val": [
+            2,
+            6,
+            10,
+            14
+          ]
+        },
+        {
+          "train": [
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16
+          ],
+          "val": [
+            1,
+            5,
+            9,
+            13
+          ]
+        }
+      ],
+      "base_sha256": "aaf962d6a96eb60e03013c40a98d6c5760b4237351b280064eacfd12cfbf1038"
+    },
+    {
+      "fold_id": 2,
+      "train": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        15,
+        16
+      ],
+      "test": [
+        2,
+        6,
+        10,
+        14
+      ],
+      "inner": [
+        {
+          "train": [
+            1,
+            3,
+            5,
+            7,
+            9,
+            11,
+            13,
+            15
+          ],
+          "val": [
+            4,
+            8,
+            12,
+            16
+          ]
+        },
+        {
+          "train": [
+            1,
+            4,
+            5,
+            8,
+            9,
+            12,
+            13,
+            16
+          ],
+          "val": [
+            3,
+            7,
+            11,
+            15
+          ]
+        },
+        {
+          "train": [
+            3,
+            4,
+            7,
+            8,
+            11,
+            12,
+            15,
+            16
+          ],
+          "val": [
+            1,
+            5,
+            9,
+            13
+          ]
+        }
+      ],
+      "base_sha256": "fd7397e4691abd9a4a3d3b5984e8b2ba0cf0b26aceecb1f80895414b121fd536"
+    },
+    {
+      "fold_id": 3,
+      "train": [
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16
+      ],
+      "test": [
+        1,
+        5,
+        9,
+        13
+      ],
+      "inner": [
+        {
+          "train": [
+            2,
+            3,
+            6,
+            7,
+            10,
+            11,
+            14,
+            15
+          ],
+          "val": [
+            4,
+            8,
+            12,
+            16
+          ]
+        },
+        {
+          "train": [
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16
+          ],
+          "val": [
+            3,
+            7,
+            11,
+            15
+          ]
+        },
+        {
+          "train": [
+            3,
+            4,
+            7,
+            8,
+            11,
+            12,
+            15,
+            16
+          ],
+          "val": [
+            2,
+            6,
+            10,
+            14
+          ]
+        }
+      ],
+      "base_sha256": "7d3a2d5435a9dd00a441da8fb4abaa4fe15cc4f723611be9e98ca8b1439e25d7"
+    }
+  ],
+  "selection": {
+    "min_clean_extra_tp": 8,
+    "max_clean_extra_fp": 0,
+    "max_fp_rate": 0.1,
+    "min_nondeclining_folds": 3,
+    "min_improving_folds": 2,
+    "max_stress_lost_tp": 8,
+    "max_stress_extra_fp": 16,
+    "tie": "if both eligible choose higher clean recall, then fewer clean FP, then H"
+  },
+  "hypotheses": [
+    "H tests whether classification boundary is a limitation while retaining the same features",
+    "I versus H tests robust feature representation without changing waveform samples; success judged by class-specific outcomes"
+  ],
+  "versions": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "sklearn": "1.8.0"
+  }
+}

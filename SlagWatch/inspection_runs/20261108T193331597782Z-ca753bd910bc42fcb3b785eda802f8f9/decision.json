@@ -1,0 +1,369 @@
+{
+  "criteria": [
+    {
+      "condition": "clean",
+      "id": "absolute_recall",
+      "limit": 0.8,
+      "metric": "recall",
+      "operator": ">=",
+      "passed": false,
+      "reason": "clean / 0 · 후보 불량 재현율: 미달 (0.79592 >= 0.8)",
+      "seed": 0,
+      "value": 0.7959183673469388
+    },
+    {
+      "condition": "clean",
+      "id": "relative_recall",
+      "limit": 0.02,
+      "metric": "recall_deterioration",
+      "operator": "<=",
+      "passed": false,
+      "reason": "clean / 0 · 후보 불량 재현율 악화 폭: 미달 (0.061224 <= 0.02)",
+      "seed": 0,
+      "value": 0.061224489795918324
+    },
+    {
+      "condition": "clean",
+      "id": "absolute_fpr",
+      "limit": 0.1,
+      "metric": "fpr",
+      "operator": "<=",
+      "passed": true,
+      "reason": "clean / 0 · 후보 정상 오경보율: 충족 (0.071942 <= 0.1)",
+      "seed": 0,
+      "value": 0.07194244604316546
+    },
+    {
+      "condition": "clean",
+      "id": "relative_fpr",
+      "limit": 0.02,
+      "metric": "fpr_deterioration",
+      "operator": "<=",
+      "passed": true,
+      "reason": "clean / 0 · 후보 정상 오경보율 악화 폭: 충족 (-0.0071942 <= 0.02)",
+      "seed": 0,
+      "value": -0.007194244604316544
+    },
+    {
+      "condition": "noise_weak",
+      "id": "absolute_recall",
+      "limit": 0.8,
+      "metric": "recall",
+      "operator": ">=",
+      "passed": false,
+      "reason": "noise_weak / 101 · 후보 불량 재현율: 미달 (0.73469 >= 0.8)",
+      "seed": 101,
+      "value": 0.7346938775510204
+    },
+    {
+      "condition": "noise_weak",
+      "id": "relative_recall",
+      "limit": 0.05,
+      "metric": "recall_deterioration",
+      "operator": "<=",
+      "passed": false,
+      "reason": "noise_weak / 101 · 후보 불량 재현율 악화 폭: 미달 (0.081633 <= 0.05)",
+      "seed": 101,
+      "value": 0.08163265306122447
+    },
+    {
+      "condition": "noise_weak",
+      "id": "absolute_fpr",
+      "limit": 0.1,
+      "metric": "fpr",
+      "operator": "<=",
+      "passed": true,
+      "reason": "noise_weak / 101 · 후보 정상 오경보율: 충족 (0.076739 <= 0.1)",
+      "seed": 101,
+      "value": 0.07673860911270983
+    },
+    {
+      "condition": "noise_weak",
+      "id": "relative_fpr",
+      "limit": 0.05,
+      "metric": "fpr_deterioration",
+      "operator": "<=",
+      "passed": true,
+      "reason": "noise_weak / 101 · 후보 정상 오경보율 악화 폭: 충족 (-0.0095923 <= 0.05)",
+      "seed": 101,
+      "value": -0.009592326139088739
+    },
+    {
+      "condition": "noise_weak",
+      "id": "absolute_recall",
+      "limit": 0.8,
+      "metric": "recall",
+      "operator": ">=",
+      "passed": false,
+      "reason": "noise_weak / 102 · 후보 불량 재현율: 미달 (0.77551 >= 0.8)",
+      "seed": 102,
+      "value": 0.7755102040816326
+    },
+    {
+      "condition": "noise_weak",
+      "id": "relative_recall",
+      "limit": 0.05,
+      "metric": "recall_deterioration",
+      "operator": "<=",
+      "passed": false,
+      "reason": "noise_weak / 102 · 후보 불량 재현율 악화 폭: 미달 (0.061224 <= 0.05)",
+      "seed": 102,
+      "value": 0.061224489795918435
+    },
+    {
+      "condition": "noise_weak",
+      "id": "absolute_fpr",
+      "limit": 0.1,
+      "metric": "fpr",
+      "operator": "<=",
+      "passed": true,
+      "reason": "noise_weak / 102 · 후보 정상 오경보율: 충족 (0.076739 <= 0.1)",
+      "seed": 102,
+      "value": 0.07673860911270983
+    },
+    {
+      "condition": "noise_weak",
+      "id": "relative_fpr",
+      "limit": 0.05,
+      "metric": "fpr_deterioration",
+      "operator": "<=",
+      "passed": true,
+      "reason": "noise_weak / 102 · 후보 정상 오경보율 악화 폭: 충족 (-0.0047962 <= 0.05)",
+      "seed": 102,
+      "value": -0.004796163069544376
+    },
+    {
+      "condition": "noise_strong",
+      "id": "absolute_recall",
+      "limit": 0.8,
+      "metric": "recall",
+      "operator": ">=",
+      "passed": true,
+      "reason": "noise_strong / 101 · 후보 불량 재현율: 충족 (0.81633 >= 0.8)",
+      "seed": 101,
+      "value": 0.8163265306122449
+    },
+    {
+      "condition": "noise_strong",
+      "id": "relative_recall",
+      "limit": 0.05,
+      "metric": "recall_deterioration",
+      "operator": "<=",
+      "passed": false,
+      "reason": "noise_strong / 101 · 후보 불량 재현율 악화 폭: 미달 (0.081633 <= 0.05)",
+      "seed": 101,
+      "value": 0.08163265306122447
+    },
+    {
+      "condition": "noise_strong",
+      "id": "absolute_fpr",
+      "limit": 0.1,
+      "metric": "fpr",
+      "operator": "<=",
+      "passed": true,
+      "reason": "noise_strong / 101 · 후보 정상 오경보율: 충족 (0.095923 <= 0.1)",
+      "seed": 101,
+      "value": 0.09592326139088729
+    },
+    {
+      "condition": "noise_strong",
+      "id": "relative_fpr",
+      "limit": 0.05,
+      "metric": "fpr_deterioration",
+      "operator": "<=",
+      "passed": true,
+      "reason": "noise_strong / 101 · 후보 정상 오경보율 악화 폭: 충족 (-0.43405 <= 0.05)",
+      "seed": 101,
+      "value": -0.434052757793765
+    },
+    {
+      "condition": "noise_strong",
+      "id": "absolute_recall",
+      "limit": 0.8,
+      "metric": "recall",
+      "operator": ">=",
+      "passed": false,
+      "reason": "noise_strong / 102 · 후보 불량 재현율: 미달 (0.7551 >= 0.8)",
+      "seed": 102,
+      "value": 0.7551020408163265
+    },
+    {
+      "condition": "noise_strong",
+      "id": "relative_recall",
+      "limit": 0.05,
+      "metric": "recall_deterioration",
+      "operator": "<=",
+      "passed": false,
+      "reason": "noise_strong / 102 · 후보 불량 재현율 악화 폭: 미달 (0.14286 <= 0.05)",
+      "seed": 102,
+      "value": 0.1428571428571429
+    },
+    {
+      "condition": "noise_strong",
+      "id": "absolute_fpr",
+      "limit": 0.1,
+      "metric": "fpr",
+      "operator": "<=",
+      "passed": false,
+      "reason": "noise_strong / 102 · 후보 정상 오경보율: 미달 (0.1295 <= 0.1)",
+      "seed": 102,
+      "value": 0.12949640287769784
+    },
+    {
+      "condition": "noise_strong",
+      "id": "relative_fpr",
+      "limit": 0.05,
+      "metric": "fpr_deterioration",
+      "operator": "<=",
+      "passed": true,
+      "reason": "noise_strong / 102 · 후보 정상 오경보율 악화 폭: 충족 (-0.32374 <= 0.05)",
+      "seed": 102,
+      "value": -0.3237410071942446
+    },
+    {
+      "condition": "dark",
+      "id": "absolute_recall",
+      "limit": 0.8,
+      "metric": "recall",
+      "operator": ">=",
+      "passed": false,
+      "reason": "dark / 0 · 후보 불량 재현율: 미달 (0.79592 >= 0.8)",
+      "seed": 0,
+      "value": 0.7959183673469388
+    },
+    {
+      "condition": "dark",
+      "id": "relative_recall",
+      "limit": 0.05,
+      "metric": "recall_deterioration",
+      "operator": "<=",
+      "passed": true,
+      "reason": "dark / 0 · 후보 불량 재현율 악화 폭: 충족 (0 <= 0.05)",
+      "seed": 0,
+      "value": 0.0
+    },
+    {
+      "condition": "dark",
+      "id": "absolute_fpr",
+      "limit": 0.1,
+      "metric": "fpr",
+      "operator": "<=",
+      "passed": true,
+      "reason": "dark / 0 · 후보 정상 오경보율: 충족 (0.086331 <= 0.1)",
+      "seed": 0,
+      "value": 0.08633093525179857
+    },
+    {
+      "condition": "dark",
+      "id": "relative_fpr",
+      "limit": 0.05,
+      "metric": "fpr_deterioration",
+      "operator": "<=",
+      "passed": true,
+      "reason": "dark / 0 · 후보 정상 오경보율 악화 폭: 충족 (0.028777 <= 0.05)",
+      "seed": 0,
+      "value": 0.02877697841726619
+    },
+    {
+      "condition": "bright",
+      "id": "absolute_recall",
+      "limit": 0.8,
+      "metric": "recall",
+      "operator": ">=",
+      "passed": false,
+      "reason": "bright / 0 · 후보 불량 재현율: 미달 (0.77551 >= 0.8)",
+      "seed": 0,
+      "value": 0.7755102040816326
+    },
+    {
+      "condition": "bright",
+      "id": "relative_recall",
+      "limit": 0.05,
+      "metric": "recall_deterioration",
+      "operator": "<=",
+      "passed": false,
+      "reason": "bright / 0 · 후보 불량 재현율 악화 폭: 미달 (0.14286 <= 0.05)",
+      "seed": 0,
+      "value": 0.1428571428571429
+    },
+    {
+      "condition": "bright",
+      "id": "absolute_fpr",
+      "limit": 0.1,
+      "metric": "fpr",
+      "operator": "<=",
+      "passed": true,
+      "reason": "bright / 0 · 후보 정상 오경보율: 충족 (0.093525 <= 0.1)",
+      "seed": 0,
+      "value": 0.09352517985611511
+    },
+    {
+      "condition": "bright",
+      "id": "relative_fpr",
+      "limit": 0.05,
+      "metric": "fpr_deterioration",
+      "operator": "<=",
+      "passed": true,
+      "reason": "bright / 0 · 후보 정상 오경보율 악화 폭: 충족 (-0.059952 <= 0.05)",
+      "seed": 0,
+      "value": -0.059952038369304544
+    },
+    {
+      "condition": "ALL",
+      "id": "representative_improvement",
+      "limit": 1,
+      "metric": "fn_fp_pareto",
+      "operator": ">=",
+      "passed": false,
+      "reason": "전체 조건 동일 비중 · FN 또는 FP 감소 및 다른 오류 비증가: 미달",
+      "seed": -1,
+      "value": 0
+    }
+  ],
+  "decision_scope": "해당 프로젝트·모델·분할에서 실행한 시제품 기준; 현장 채택 또는 배포를 의미하지 않습니다.",
+  "frozen_status": null,
+  "label": "기준 미달",
+  "official": true,
+  "project_id": "ksdd2",
+  "reasons": [
+    "clean / 0 · 후보 불량 재현율: 미달 (0.79592 >= 0.8)",
+    "clean / 0 · 후보 불량 재현율 악화 폭: 미달 (0.061224 <= 0.02)",
+    "noise_weak / 101 · 후보 불량 재현율: 미달 (0.73469 >= 0.8)",
+    "noise_weak / 101 · 후보 불량 재현율 악화 폭: 미달 (0.081633 <= 0.05)",
+    "noise_weak / 102 · 후보 불량 재현율: 미달 (0.77551 >= 0.8)",
+    "noise_weak / 102 · 후보 불량 재현율 악화 폭: 미달 (0.061224 <= 0.05)",
+    "noise_strong / 101 · 후보 불량 재현율 악화 폭: 미달 (0.081633 <= 0.05)",
+    "noise_strong / 102 · 후보 불량 재현율: 미달 (0.7551 >= 0.8)",
+    "noise_strong / 102 · 후보 불량 재현율 악화 폭: 미달 (0.14286 <= 0.05)",
+    "noise_strong / 102 · 후보 정상 오경보율: 미달 (0.1295 <= 0.1)",
+    "dark / 0 · 후보 불량 재현율: 미달 (0.79592 >= 0.8)",
+    "bright / 0 · 후보 불량 재현율: 미달 (0.77551 >= 0.8)",
+    "bright / 0 · 후보 불량 재현율 악화 폭: 미달 (0.14286 <= 0.05)",
+    "전체 조건 동일 비중 · FN 또는 FP 감소 및 다른 오류 비증가: 미달"
+  ],
+  "representative": {
+    "cell_count": 7,
+    "models": {
+      "K0": {
+        "fn_cell_count": 48,
+        "fp_cell_count": 601,
+        "weighted_fn": 6.857142857142857,
+        "weighted_fp": 85.85714285714286
+      },
+      "K1": {
+        "fn_cell_count": 76,
+        "fp_cell_count": 263,
+        "weighted_fn": 10.857142857142858,
+        "weighted_fp": 37.57142857142857
+      }
+    },
+    "n_originals": 466,
+    "passed": false,
+    "planned_pairs": 3262,
+    "rule": "Each original has equal weight; average all declared condition/seed cells within each original.",
+    "weight_per_cell": 0.14285714285714285
+  },
+  "scope": "full",
+  "split": "validation",
+  "status": "fail"
+}

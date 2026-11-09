@@ -1,0 +1,114 @@
+{
+  "schema": "steeltrust.binary.selection.v1",
+  "created_utc": "2026-11-08T19:33:17.802742+00:00",
+  "development_scope": "train and validation only; no official test model access",
+  "test_eligible": false,
+  "eligible": false,
+  "validation_gate_reasons": [
+    {
+      "condition": "clean",
+      "seed": 0,
+      "criterion": "minimum recall"
+    },
+    {
+      "condition": "clean",
+      "seed": 0,
+      "criterion": "recall loss vs K0"
+    },
+    {
+      "condition": "noise_weak",
+      "seed": 101,
+      "criterion": "minimum recall"
+    },
+    {
+      "condition": "noise_weak",
+      "seed": 101,
+      "criterion": "recall loss vs K0"
+    },
+    {
+      "condition": "noise_weak",
+      "seed": 102,
+      "criterion": "minimum recall"
+    },
+    {
+      "condition": "noise_weak",
+      "seed": 102,
+      "criterion": "recall loss vs K0"
+    },
+    {
+      "condition": "noise_strong",
+      "seed": 101,
+      "criterion": "recall loss vs K0"
+    },
+    {
+      "condition": "noise_strong",
+      "seed": 102,
+      "criterion": "minimum recall"
+    },
+    {
+      "condition": "noise_strong",
+      "seed": 102,
+      "criterion": "maximum FPR"
+    },
+    {
+      "condition": "noise_strong",
+      "seed": 102,
+      "criterion": "recall loss vs K0"
+    },
+    {
+      "condition": "dark",
+      "seed": 0,
+      "criterion": "minimum recall"
+    },
+    {
+      "condition": "bright",
+      "seed": 0,
+      "criterion": "minimum recall"
+    },
+    {
+      "condition": "bright",
+      "seed": 0,
+      "criterion": "recall loss vs K0"
+    },
+    {
+      "condition": "all",
+      "criterion": "No strict FN/FP Pareto improvement"
+    }
+  ],
+  "delta_total_K1_minus_K0": {
+    "FN": 28,
+    "FP": -338
+  },
+  "thresholds": {
+    "K0": -2.223765,
+    "K1": -2.148255
+  },
+  "frozen_files": {
+    "protocol.json": "ac90a2b313631dfa50a4d889e0bab29e0197f9b33d96d6c903b25400a2765ed0",
+    "protocol_receipt.json": "ff14d17a051a30c262b6f168c84d8138ba301554e4d08feb94f8ca209fbb580f",
+    "hypothesis.json": "7c371f1a4fb3260da956df7029b80456d5849bf105c337c42e6084ff05128b43",
+    "models/K0.joblib": "837e82f23d5c77a4cddea97b6b2b07ff1274b13127cd396974ace0c450efb618",
+    "models/K1.joblib": "615eb79b9b3490d33d21d21da8f0de4fcddfbeb08d2454818cef5d50df722fc7",
+    "K0_study.json": "005cb4a74f24e01b1a0112ede9307b420faada5f36c9fd2085a261aaae09ddb3",
+    "K1_study.json": "f39d499b28d550617f3db8dd5156054e8a615dcf99acff8b95b8e9f4f9b286e7",
+    "K0_validation_diagnostics.csv": "89a3ab6a27a80e4dd837a9607b075ecf948289af9931811cab0de231c1339f0b",
+    "K1_validation_diagnostics.csv": "7c0e0c7aed6a79b987023624cc847f79d94aecb7a6268d738d08ca2c94249022",
+    "study.py": "f8c1eada8e7a23d02d89b358be9b3c3aadb0547bb027298344b71066e64d5f58"
+  },
+  "encoder_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+  "split_manifest_sha256": "8c85620d838a4916afc94c365593bf351e09588d65b733f8bbc96e67d44faa68",
+  "model_source_sha256": "4f48393b78e7f96209281af0a24b86be57e647f2b7ae29187c1a9a8c2667b822",
+  "input_source_sha256": "ea926f9d543b3229c4db9f81d03c747291ae4c7ea9c7aac3743508dc1e9233a5",
+  "runtime": {
+    "python": "3.11.17",
+    "system": "Linux",
+    "device": "cpu",
+    "torch": "2.8.0+cpu",
+    "torchvision": "0.23.0+cpu",
+    "numpy": "2.3.5",
+    "opencv-python-headless": "4.13.0.92",
+    "scikit-learn": "1.8.0",
+    "Pillow": "13.0.0",
+    "joblib": "1.5.3"
+  }
+}

@@ -1,0 +1,410 @@
+{
+  "schema": "steeltrust.binary.hypothesis.v1",
+  "created_utc": "2026-11-08T19:28:59.495149+00:00",
+  "stage": "after K0 validation, before K1 fit or predictions",
+  "protocol_sha256": "ac90a2b313631dfa50a4d889e0bab29e0197f9b33d96d6c903b25400a2765ed0",
+  "baseline_head_sha256": "837e82f23d5c77a4cddea97b6b2b07ff1274b13127cd396974ace0c450efb618",
+  "baseline_diagnostics_sha256": "89a3ab6a27a80e4dd837a9607b075ecf948289af9931811cab0de231c1339f0b",
+  "baseline_study_sha256": "005cb4a74f24e01b1a0112ede9307b420faada5f36c9fd2085a261aaae09ddb3",
+  "observed": {
+    "validation_cells": [
+      {
+        "condition": "clean",
+        "seed": 0,
+        "TP": 42,
+        "FN": 7,
+        "FP": 33,
+        "TN": 384,
+        "defect_recall": 0.8571428571428571,
+        "normal_fpr": 0.07913669064748201,
+        "normal_specificity": 0.920863309352518,
+        "normal_recall": 0.920863309352518,
+        "defect_miss_rate": 0.14285714285714285
+      },
+      {
+        "condition": "noise_weak",
+        "seed": 101,
+        "TP": 40,
+        "FN": 9,
+        "FP": 36,
+        "TN": 381,
+        "defect_recall": 0.8163265306122449,
+        "normal_fpr": 0.08633093525179857,
+        "normal_specificity": 0.9136690647482014,
+        "normal_recall": 0.9136690647482014,
+        "defect_miss_rate": 0.1836734693877551
+      },
+      {
+        "condition": "noise_weak",
+        "seed": 102,
+        "TP": 41,
+        "FN": 8,
+        "FP": 34,
+        "TN": 383,
+        "defect_recall": 0.8367346938775511,
+        "normal_fpr": 0.0815347721822542,
+        "normal_specificity": 0.9184652278177458,
+        "normal_recall": 0.9184652278177458,
+        "defect_miss_rate": 0.16326530612244897
+      },
+      {
+        "condition": "noise_strong",
+        "seed": 101,
+        "TP": 44,
+        "FN": 5,
+        "FP": 221,
+        "TN": 196,
+        "defect_recall": 0.8979591836734694,
+        "normal_fpr": 0.5299760191846523,
+        "normal_specificity": 0.47002398081534774,
+        "normal_recall": 0.47002398081534774,
+        "defect_miss_rate": 0.10204081632653061
+      },
+      {
+        "condition": "noise_strong",
+        "seed": 102,
+        "TP": 44,
+        "FN": 5,
+        "FP": 189,
+        "TN": 228,
+        "defect_recall": 0.8979591836734694,
+        "normal_fpr": 0.45323741007194246,
+        "normal_specificity": 0.5467625899280576,
+        "normal_recall": 0.5467625899280576,
+        "defect_miss_rate": 0.10204081632653061
+      },
+      {
+        "condition": "dark",
+        "seed": 0,
+        "TP": 39,
+        "FN": 10,
+        "FP": 24,
+        "TN": 393,
+        "defect_recall": 0.7959183673469388,
+        "normal_fpr": 0.05755395683453238,
+        "normal_specificity": 0.9424460431654677,
+        "normal_recall": 0.9424460431654677,
+        "defect_miss_rate": 0.20408163265306123
+      },
+      {
+        "condition": "bright",
+        "seed": 0,
+        "TP": 45,
+        "FN": 4,
+        "FP": 64,
+        "TN": 353,
+        "defect_recall": 0.9183673469387755,
+        "normal_fpr": 0.15347721822541965,
+        "normal_specificity": 0.8465227817745803,
+        "normal_recall": 0.8465227817745803,
+        "defect_miss_rate": 0.08163265306122448
+      }
+    ],
+    "paired_evidence": [
+      {
+        "sample_id": "ksdd2-10006",
+        "condition": "clean",
+        "seed": "0",
+        "true_label": "normal",
+        "predicted_label": "normal",
+        "defect_score": "-7.277003",
+        "error": ""
+      },
+      {
+        "sample_id": "ksdd2-10014",
+        "condition": "clean",
+        "seed": "0",
+        "true_label": "normal",
+        "predicted_label": "normal",
+        "defect_score": "-9.245898",
+        "error": ""
+      },
+      {
+        "sample_id": "ksdd2-10039",
+        "condition": "clean",
+        "seed": "0",
+        "true_label": "normal",
+        "predicted_label": "normal",
+        "defect_score": "-2.837092",
+        "error": ""
+      },
+      {
+        "sample_id": "ksdd2-10583",
+        "condition": "clean",
+        "seed": "0",
+        "true_label": "defect",
+        "predicted_label": "normal",
+        "defect_score": "-7.108979",
+        "error": "FN"
+      },
+      {
+        "sample_id": "ksdd2-10743",
+        "condition": "clean",
+        "seed": "0",
+        "true_label": "defect",
+        "predicted_label": "defect",
+        "defect_score": "4.737078",
+        "error": ""
+      },
+      {
+        "sample_id": "ksdd2-11800",
+        "condition": "clean",
+        "seed": "0",
+        "true_label": "defect",
+        "predicted_label": "defect",
+        "defect_score": "-0.318692",
+        "error": ""
+      },
+      {
+        "sample_id": "ksdd2-10006",
+        "condition": "noise_strong",
+        "seed": "101",
+        "true_label": "normal",
+        "predicted_label": "defect",
+        "defect_score": "-0.738574",
+        "error": "FP"
+      },
+      {
+        "sample_id": "ksdd2-10014",
+        "condition": "noise_strong",
+        "seed": "101",
+        "true_label": "normal",
+        "predicted_label": "defect",
+        "defect_score": "-0.178022",
+        "error": "FP"
+      },
+      {
+        "sample_id": "ksdd2-10039",
+        "condition": "noise_strong",
+        "seed": "101",
+        "true_label": "normal",
+        "predicted_label": "defect",
+        "defect_score": "0.687019",
+        "error": "FP"
+      },
+      {
+        "sample_id": "ksdd2-10583",
+        "condition": "noise_strong",
+        "seed": "101",
+        "true_label": "defect",
+        "predicted_label": "normal",
+        "defect_score": "-3.889975",
+        "error": "FN"
+      },
+      {
+        "sample_id": "ksdd2-10743",
+        "condition": "noise_strong",
+        "seed": "101",
+        "true_label": "defect",
+        "predicted_label": "normal",
+        "defect_score": "-2.818525",
+        "error": "FN"
+      },
+      {
+        "sample_id": "ksdd2-11800",
+        "condition": "noise_strong",
+        "seed": "101",
+        "true_label": "defect",
+        "predicted_label": "defect",
+        "defect_score": "6.114257",
+        "error": ""
+      },
+      {
+        "sample_id": "ksdd2-10006",
+        "condition": "noise_strong",
+        "seed": "102",
+        "true_label": "normal",
+        "predicted_label": "normal",
+        "defect_score": "-4.788772",
+        "error": ""
+      },
+      {
+        "sample_id": "ksdd2-10014",
+        "condition": "noise_strong",
+        "seed": "102",
+        "true_label": "normal",
+        "predicted_label": "defect",
+        "defect_score": "-1.85565",
+        "error": "FP"
+      },
+      {
+        "sample_id": "ksdd2-10039",
+        "condition": "noise_strong",
+        "seed": "102",
+        "true_label": "normal",
+        "predicted_label": "normal",
+        "defect_score": "-4.052681",
+        "error": ""
+      },
+      {
+        "sample_id": "ksdd2-10583",
+        "condition": "noise_strong",
+        "seed": "102",
+        "true_label": "defect",
+        "predicted_label": "defect",
+        "defect_score": "6.413946",
+        "error": ""
+      },
+      {
+        "sample_id": "ksdd2-10743",
+        "condition": "noise_strong",
+        "seed": "102",
+        "true_label": "defect",
+        "predicted_label": "defect",
+        "defect_score": "2.135792",
+        "error": ""
+      },
+      {
+        "sample_id": "ksdd2-11800",
+        "condition": "noise_strong",
+        "seed": "102",
+        "true_label": "defect",
+        "predicted_label": "defect",
+        "defect_score": "10.460594",
+        "error": ""
+      },
+      {
+        "sample_id": "ksdd2-10006",
+        "condition": "dark",
+        "seed": "0",
+        "true_label": "normal",
+        "predicted_label": "normal",
+        "defect_score": "-7.208558",
+        "error": ""
+      },
+      {
+        "sample_id": "ksdd2-10014",
+        "condition": "dark",
+        "seed": "0",
+        "true_label": "normal",
+        "predicted_label": "normal",
+        "defect_score": "-8.205673",
+        "error": ""
+      },
+      {
+        "sample_id": "ksdd2-10039",
+        "condition": "dark",
+        "seed": "0",
+        "true_label": "normal",
+        "predicted_label": "normal",
+        "defect_score": "-4.480736",
+        "error": ""
+      },
+      {
+        "sample_id": "ksdd2-10583",
+        "condition": "dark",
+        "seed": "0",
+        "true_label": "defect",
+        "predicted_label": "normal",
+        "defect_score": "-7.748981",
+        "error": "FN"
+      },
+      {
+        "sample_id": "ksdd2-10743",
+        "condition": "dark",
+        "seed": "0",
+        "true_label": "defect",
+        "predicted_label": "defect",
+        "defect_score": "0.530276",
+        "error": ""
+      },
+      {
+        "sample_id": "ksdd2-11800",
+        "condition": "dark",
+        "seed": "0",
+        "true_label": "defect",
+        "predicted_label": "normal",
+        "defect_score": "-4.581398",
+        "error": "FN"
+      },
+      {
+        "sample_id": "ksdd2-10006",
+        "condition": "bright",
+        "seed": "0",
+        "true_label": "normal",
+        "predicted_label": "normal",
+        "defect_score": "-6.805469",
+        "error": ""
+      },
+      {
+        "sample_id": "ksdd2-10014",
+        "condition": "bright",
+        "seed": "0",
+        "true_label": "normal",
+        "predicted_label": "normal",
+        "defect_score": "-8.448165",
+        "error": ""
+      },
+      {
+        "sample_id": "ksdd2-10039",
+        "condition": "bright",
+        "seed": "0",
+        "true_label": "normal",
+        "predicted_label": "defect",
+        "defect_score": "-1.310137",
+        "error": "FP"
+      },
+      {
+        "sample_id": "ksdd2-10583",
+        "condition": "bright",
+        "seed": "0",
+        "true_label": "defect",
+        "predicted_label": "normal",
+        "defect_score": "-5.765165",
+        "error": "FN"
+      },
+      {
+        "sample_id": "ksdd2-10743",
+        "condition": "bright",
+        "seed": "0",
+        "true_label": "defect",
+        "predicted_label": "defect",
+        "defect_score": "8.622252",
+        "error": ""
+      },
+      {
+        "sample_id": "ksdd2-11800",
+        "condition": "bright",
+        "seed": "0",
+        "true_label": "defect",
+        "predicted_label": "defect",
+        "defect_score": "5.535744",
+        "error": ""
+      }
+    ],
+    "visual_review": "Viewed clean, strong-noise 101 and bright registered images at their native pixel crop alongside whole frames for 10006, 10014, 10743, 10583. Normal texture changes appearance under synthetic colour noise; genuine localized marks at 10743/10583 remain spatially aligned with annotations but can be difficult to distinguish. Observed score changes do not prove mechanism."
+  },
+  "hypothesis": "A head trained on clean texture alone can use acquisition-dependent appearance as defect evidence: K0 normal false alarms rise from 33/417 clean to 221/417 and 189/417 under strong noise, and 64/417 when bright; dark yields 39/49 defect recall. Giving the head the same original labels under controlled appearance variation may reduce these errors without reducing clean capability.",
+  "one_change": "Add fixed acquisition-condition views to the TRAINING split only. No inference-time filter, extra features, changed encoder or altered cutoff policy. One K1; interpret combined augmentation, not separate noise vs brightness causal effects.",
+  "training_views": [
+    [
+      "clean",
+      0
+    ],
+    [
+      "noise_weak",
+      731
+    ],
+    [
+      "noise_strong",
+      731
+    ],
+    [
+      "dark",
+      0
+    ],
+    [
+      "bright",
+      0
+    ]
+  ],
+  "training_weight": "each original contributes one row per view; equal views then balanced class weights across rows",
+  "fixed": [
+    "originals and split",
+    "ResNet18 weights, stage/pooling and full-frame input",
+    "StandardScaler + balanced C=.1 logistic head",
+    "positive class, threshold selection rule, budget, eval conditions and seeds",
+    "prototype pass criteria, candidate count, test lock"
+  ],
+  "test_policy": "If validation fails any criterion, official test remains sealed. No second candidate or retrospective threshold change."
+}

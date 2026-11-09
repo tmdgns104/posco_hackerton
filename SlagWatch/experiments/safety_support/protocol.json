@@ -1,0 +1,14 @@
+{
+ "direct_user":"공정 AI 개발·검증 담당자", "adopt_by_default":false,
+ "matched_pass_fraction":0.8,"fold_size":120,"pass_per_fold":96,
+ "random_seeds":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31],
+ "random_variation":"mean, sample SD, min, max across all fixed seeds; not a confidence interval",
+ "random_inputs":"same uniform draws, per fold and seed on a stable record order, shared by models and conditions; no label or fault input",
+ "models":["A0","A1","H","I","E","G"],"conditions":["clean","noise","spike","new_y_spike","new_z_spike"],
+ "legacy_E_G":"use saved margin80 / risk80 and pass masks, previous detector threshold 0.5; E/Z recompute from stored model, gate and training cut because that table omitted Z",
+ "HI_family":"existing decision_score/threshold preserved. margin priority = 1/(1+abs(score-threshold)); proposed priority = margin priority + 1 for disagreement with a prespecified peer. Larger priority is reviewed first. Peer is H for A0/A1 and A1 for H/I. This is an untrained adaptation of the existing disagreement rule, not the E/G risk estimator.",
+ "HI_fixed":"clean inner training-group OOF priority quantile(.8) for each fold, reused for every condition; pass if priority<=cut",
+ "matched":"partition by the stored outer fold within each separate 480-window test run, pass lowest 96 priorities out of 120; no condition or truth is a policy input; offline comparison only",
+ "random_fixed":"independent uniform score <= .8, actual count reported",
+ "primary_comparison":"same detector, same original decisions, same coverage; no held output is a corrected diagnosis. Report TP_pass,FN_pass,FP_pass,H_TP,H_FN, hold burden, subgroup coverage and count denominators. No field safety inference."
+}

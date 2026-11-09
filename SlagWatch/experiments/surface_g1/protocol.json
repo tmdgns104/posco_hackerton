@@ -1,0 +1,172 @@
+{
+  "task_id": "neu_cls6",
+  "sample_unit": "one_original_surface_image",
+  "experiment": "surface_g1",
+  "model_id": "G1",
+  "preprocessing_policy": "V0",
+  "baseline_run_id": "0d28bc5a8fb370f2041f03583d1998fdfe3faffd8f68d7f50fd81f5f9e5de69f",
+  "baseline": "ded86c7e929eff9aed8c1b78a9e784fffa08b87f06cfb68478894c040eb9eb3f",
+  "baseline_manifest_sha256": "cdb6a732a52a793abe848cca4c6ea6d23e39c2ac61b4ef83727ca5dae44557fe",
+  "baseline_protocol_sha256": "1e0649b1fb85416f94fa268aeeb09e55e368bb184baf3dee764c065d9aec8785",
+  "split_sha256": "139bef29ba80ab6d0de0d8972cf77924aa83515ebe9f12859c02a91eb3229676",
+  "encoder_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+  "scaler_fingerprint": "7d7ea5bd236982de5ea92c55c84e00c5561ce9c2b591af10e1b2adb8a298aaba",
+  "views": [
+    [
+      "clean",
+      0.0,
+      0,
+      0.5
+    ],
+    [
+      "noise_002",
+      0.02,
+      301,
+      0.16666666666666666
+    ],
+    [
+      "noise_005",
+      0.05,
+      301,
+      0.16666666666666666
+    ],
+    [
+      "noise_010",
+      0.1,
+      301,
+      0.16666666666666666
+    ]
+  ],
+  "source_train_ids": "55e7ab6375f1c235222b44efc05878c6ae72e9bcfd6e85ea095990b5f3e7e876",
+  "logistic_params": {
+    "C": 1,
+    "class_weight": "balanced",
+    "dual": false,
+    "fit_intercept": true,
+    "intercept_scaling": 1,
+    "l1_ratio": 0.0,
+    "max_iter": 2000,
+    "n_jobs": null,
+    "penalty": "deprecated",
+    "random_state": null,
+    "solver": "lbfgs",
+    "tol": 0.0001,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "conditions": {
+    "validation": [
+      [
+        0.0,
+        0
+      ],
+      [
+        0.02,
+        101
+      ],
+      [
+        0.02,
+        102
+      ],
+      [
+        0.02,
+        103
+      ],
+      [
+        0.05,
+        101
+      ],
+      [
+        0.05,
+        102
+      ],
+      [
+        0.05,
+        103
+      ],
+      [
+        0.1,
+        101
+      ],
+      [
+        0.1,
+        102
+      ],
+      [
+        0.1,
+        103
+      ]
+    ],
+    "test": [
+      [
+        0.0,
+        0
+      ],
+      [
+        0.02,
+        201
+      ],
+      [
+        0.02,
+        202
+      ],
+      [
+        0.02,
+        203
+      ],
+      [
+        0.05,
+        201
+      ],
+      [
+        0.05,
+        202
+      ],
+      [
+        0.05,
+        203
+      ],
+      [
+        0.1,
+        201
+      ],
+      [
+        0.1,
+        202
+      ],
+      [
+        0.1,
+        203
+      ]
+    ]
+  },
+  "goals": {
+    "min_baseline_clean": 0.85,
+    "min_clean": 0.85,
+    "max_clean_loss": 0.02,
+    "min_noise_gain": 0.03,
+    "min_noise_mean": 0.8,
+    "max_class_clean_recall_loss": 0.05,
+    "max_per_sigma_loss": 0.02
+  },
+  "score_atol": 0.0003,
+  "core_sha256": {
+    "surface_data.py": "ebf75645aea994ae19049e00431ac2319c1b04153ca794b4c71a5b6a9b09ac5d",
+    "surface_detector.py": "0811d2cc4f909e2a4d2e10b46d9cc93c02a444270fa17376bd7a4504d95577c8",
+    "surface_study.py": "9111065e42498f6ddf949ea06f4e080c9b4c10c3fadc3861d9ce6825161e671c"
+  },
+  "code_sha256": {
+    "surface_g1.py": "d9736efcf6131affe2a6122d8815c30d571d1d41ccfd925786d546cc7af421c1",
+    "surface_g1_study.py": "85873851481302bd210bc7b6244600a4f32529fb1f840cdbd08aa600c9de2d6a"
+  },
+  "versions": {
+    "torch": "2.8.0+cpu",
+    "torchvision": "0.23.0+cpu",
+    "opencv-python-headless": "4.13.0.92",
+    "numpy": "2.3.5",
+    "scikit-learn": "1.8.0",
+    "Pillow": "13.0.0",
+    "streamlit": "1.67.0",
+    "filelock": "4.2.9"
+  }
+}

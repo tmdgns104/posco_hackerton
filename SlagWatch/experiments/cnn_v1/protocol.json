@@ -1,0 +1,39 @@
+{
+  "input": "raw 3200x3 one window; axes xyz; time, condition, position, truth and file ID excluded; optionally perturb once before patching",
+  "patch_starts": [
+    0,
+    448,
+    896,
+    1344,
+    1792,
+    2240,
+    2688
+  ],
+  "patch_size": 512,
+  "seed": 42,
+  "epochs": 30,
+  "patience": 5,
+  "batch_size": 24,
+  "normalization": "per-axis population mean and standard deviation on raw fit groups only; floor sigma at 1e-8",
+  "encoder": "Conv1d 3->32 k7 s2 p3, ReLU, MaxPool4, Conv32->64 k5 s1 p2, ReLU, MaxPool4, Conv64->64 k3 s1 p1, ReLU, global average pool, dropout .2, linear64->1; shared weights; average seven logits then sigmoid",
+  "optimizer": "AdamW lr=.001, decay=.001, BCEWithLogits at window level; positive weight=training negatives/positives; shuffled clean windows; one fixed seed; CPU float32",
+  "epoch_selection": "minimum clean inner validation class-balanced BCE; earliest minimum, patience 5, no minimum delta; refit all outer training groups for median of three best epochs",
+  "cutoff": "saved detector v1 rule: maximize clean inner OOF TP with <=15% FP, tie fewer FP then highest score; final threshold identical for all five conditions",
+  "splits": "exact four outer and 3 inner from experiments/hi_v1/protocol.json; full-data experimental checkpoint has own three grouped folds",
+  "score_atol": 1e-05,
+  "stress": "unchanged detector_v1 wave generator for noise/X/Y/Z and outer fit scale; no HOLD",
+  "goals": {
+    "clean": {
+      "min_tp": 112,
+      "max_fp": 48
+    },
+    "stress": {
+      "min_tp": 96,
+      "max_fp": 64
+    }
+  },
+  "scope": "development group CV; no changes after looking at outer scores; full checkpoint for separate CLI use",
+  "C1_decision": "After C0 inner evaluation only, the provisional B weighting trigger in protocol_C0.json never fired. No weighted model was trained. CNN score correlation with vibration RMS changed sign across internal fits; high/low window RMS differed by about 2-4x. One C1 input-only experiment was frozen before scoring any outer groups.",
+  "C1": "After training-only axis normalization, divide each 3200x3 window by its own single RMS over all axes (floor 1e-6); then same seven patches, net, loss, optimizer, seed, training schedule. This uses only the current window ending at the decision time. Potential regression: absolute process amplitude may be useful.",
+  "primary_pair": "J vs C1 fixed; also report A1, C0 and C0 vs C1. Compare all on same fixed stress and clean populations. Candidate adoption requires all five targets, clean TP gain vs J at no greater FP, and stress TP gain under stress budget. A0 is unvalidated previous default."
+}

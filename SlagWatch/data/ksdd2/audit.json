@@ -1,0 +1,82 @@
+{
+  "dataset": "KolektorSDD2-ViCoS-2023-09-28",
+  "source_url": "https://www.vicos.si/resources/kolektorsdd2/",
+  "archive_url": "https://data.vicos.si/datasets/KSDD/KolektorSDD2.zip",
+  "archive_sha256": "edcdb486809b24f1d17b785e30c52fafc5999554dd5fe18ddf77b61ceb6f36a8",
+  "archive_bytes": 853126555,
+  "archive_files": 6677,
+  "archive_png_pairs": 3336,
+  "official_ids": 3335,
+  "archive_http_last_modified_utc": "2023-09-28T10:40:04Z",
+  "archive_http_etag": "\"65155804-32d9ad9b\"",
+  "release_paper_year": 2021,
+  "version_note": "No semantic version published; pinned publisher archive SHA-256.",
+  "official_split_metadata_sha256": {
+    "split_weakly_0.pyb": "b77b5258cc3702b243e6aee7f4eef0f5db3cffe1e96d3d51956b089d4c1b5309",
+    "split_weakly_126.pyb": "382e8159ce06be1655eca6cc705af611db382ca8825c298340391f353e50f8fd",
+    "split_weakly_16.pyb": "a23f4afbc13186c7fc74b0853889b907bfbd1e62cae6417e965d5a28aa6f4084",
+    "split_weakly_246.pyb": "3d714c0c9b37a960016ac6807ca8d2ae44c447ac61077429189c5ed3d00460f9",
+    "split_weakly_53.pyb": "5d9dbe9f3cbae1f0e90fbc76679fc6a02f008b8ec663e119420ab07e04010e85"
+  },
+  "canonical_official_counts": {
+    "test": {
+      "normal": 894,
+      "defect": 110
+    },
+    "train": {
+      "normal": 2085,
+      "defect": 246
+    }
+  },
+  "counts": {
+    "excluded": {
+      "defect": 1
+    },
+    "test": {
+      "normal": 894,
+      "defect": 110
+    },
+    "train": {
+      "normal": 1668,
+      "defect": 197
+    },
+    "validation": {
+      "normal": 417,
+      "defect": 49
+    }
+  },
+  "unique_image_file_hashes": 3335,
+  "unique_image_pixel_hashes": 3335,
+  "unique_d4_groups": 3335,
+  "split_seed": 42,
+  "manifest_sha256": "8c85620d838a4916afc94c365593bf351e09588d65b733f8bbc96e67d44faa68",
+  "width_minmax": [
+    184,
+    241
+  ],
+  "height_minmax": [
+    597,
+    665
+  ],
+  "train_defect_pixels_nearest_rank": {
+    "0": 23,
+    "0.1": 500,
+    "0.25": 959,
+    "0.5": 2293,
+    "0.75": 5032,
+    "0.9": 8788,
+    "1": 43011
+  },
+  "train_defect_area_percent_nearest_rank": {
+    "0": 0.017085382341143086,
+    "0.1": 0.33674568965517243,
+    "0.25": 0.6487558107738584,
+    "0.5": 1.5606854553179437,
+    "0.75": 3.40220248195096,
+    "0.9": 6.167524311321593,
+    "1": 29.83870408269451
+  },
+  "cross_split_train_excluded": 0,
+  "product_or_coil_group": "not supplied",
+  "license": "CC BY-NC-SA 4.0"
+}

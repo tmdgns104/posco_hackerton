@@ -1,0 +1,28 @@
+{
+  "source": "SSFD v3; data/raw/manifest.json; existing experiments/hi_v1/protocol.json for the exact outer and inner groups, baseline features, seeds and perturbations",
+  "population": "480 nonoverlapping 3200x3 windows; all 16 occurrence IDs and all 48 files; S=1, E/B=0 inherited per file; time of decision=end_s",
+  "models_in_tie_order": ["A1","H","I","R","J","K"],
+  "configurations": {
+    "A1": "original 36 features / existing RF",
+    "H": "original 36 features / existing standardized RBF SVC",
+    "I": "robust 36 features / same SVC",
+    "R": "robust 36 features / same RF as A1",
+    "J": "same I SVC, append 3x64 median-centered log subband powers; preserve original robust 36 features",
+    "K": "same J representation and SVC, componentwise median across current and up to 3 preceding vectors in the same file"
+  },
+  "fine_spectrum": "Welch fs=6400, Hann, nperseg=1024, noverlap=512, constant detrend, median average, density; bins 1..512, 8 per band (50 Hz); 64 bands per axis; ln(max(sum PSD * 6.25, 1e-12)), subtract median over 64 log bands per axis; order x,y,z then increasing frequency",
+  "hypotheses": {
+    "J": "Training-group high-band log spectral profiles show positive and negative S-minus-nonS differences inside the last broad band. Preserve within-band structure. Compare J vs I for inner/outer recall and FP at fixed budgets.",
+    "K": "In every training split within-file deviations are smaller than between-file deviations. A trailing median may reduce short noise but can erase informative changes. Compare K vs J on the same 480 endpoints in every condition."
+  },
+  "history": "no padding or warm-up exclusion; reset between files and at invalid input; every prior endpoint uses the same tested scenario and training-only scale",
+  "seed": 42,
+  "budgets": [0.1,0.15],
+  "primary_budget": 0.15,
+  "threshold": "only clean 3-fold grouped inner OOF scores; maximize TP subject to floor(budget*N_nonS); ties minimize FP then highest cutoff; score >= cutoff",
+  "selection": "choose within each outer training split separately for each budget, greatest inner TP then fewest FP then models_in_tie_order; freeze before scoring the outer test data. Full-data model repeats group 3-fold selection on all 16 groups with deployment budget 0.15",
+  "targets": {"clean": {"recall":0.7,"fpr":0.15},"stress":{"recall":0.6,"fpr":0.2}},
+  "adopt": "require primary nested selection to meet both targets on clean and all four perturbations and at least as many clean TP and no more FP than A1 at 15%, with one strict improvement; otherwise retain A0 default",
+  "waveform": "no smoothing, clipping, repair, waveform normalization, training augmentation or abstention; fixed v4 perturbations only in evaluation",
+  "metrics": "same held-out windows paired to A1 and I at the same budget; rates from counts; AUC and AP per outer fold with unweighted means across four folds"
+}

@@ -1,0 +1,15 @@
+streamlit==1.67.0
+numpy==2.3.5
+pandas==2.2.3
+scikit-learn==1.8.0
+joblib==1.5.3
+plotly==6.9.0
+scipy==1.17.0
+# Install the official CPU build first (see START_WINDOWS.cmd or README).
+torch==2.8.0
+aeon==1.6.0
+numba==0.63.1
+llvmlite==0.46.0
+torchvision==0.23.0
+opencv-python-headless==4.13.0.92
+filelock==4.2.9

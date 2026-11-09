@@ -1,0 +1,9 @@
+scope,condition,seed,n_originals,planned,completed,failed,fixed_fn,new_fn,fixed_fp,new_fp,both_wrong,both_right
+all,ALL,-1,466,3262,3262,0,6,34,409,71,234,2508
+cell,clean,0,466,466,466,0,0,3,13,10,27,413
+cell,noise_weak,101,466,466,466,0,0,4,21,17,24,400
+cell,noise_weak,102,466,466,466,0,2,5,13,11,27,408
+cell,noise_strong,101,466,466,466,0,0,4,185,4,41,232
+cell,noise_strong,102,466,466,466,0,2,9,143,8,49,255
+cell,dark,0,466,466,466,0,2,2,5,17,27,413
+cell,bright,0,466,466,466,0,0,7,29,4,39,387

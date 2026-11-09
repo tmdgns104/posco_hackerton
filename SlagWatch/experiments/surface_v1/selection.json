@@ -1,0 +1,95 @@
+{
+  "task_id": "neu_cls6",
+  "selection_source": "validation",
+  "selected": null,
+  "results": {
+    "V1": {
+      "clean_macro_f1": 1.0,
+      "baseline_clean": 0.9972220293075909,
+      "clean_delta": 0.0027779706924091485,
+      "noise_macro_f1": 0.8368378043843951,
+      "noise_gain": -0.011126580196404187,
+      "clean_recall_delta": {
+        "crazing": 0.0,
+        "inclusion": 0.0,
+        "patches": 0.0,
+        "pitted_surface": 0.0,
+        "rolled_in_scale": 0.0,
+        "scratches": 0.01666666666666672
+      },
+      "noise_delta_by_sigma": {
+        "0.02": 0.030485558699661186,
+        "0.05": 0.007650006509678398,
+        "0.1": -0.07151530579855214
+      },
+      "checks": {
+        "clean_f1": true,
+        "clean_drop": true,
+        "avg_gain": false,
+        "avg_noise_f1": true,
+        "class_recall": true,
+        "per_sigma": false
+      },
+      "eligible": false
+    },
+    "V2": {
+      "clean_macro_f1": 0.9972220293075909,
+      "baseline_clean": 0.9972220293075909,
+      "clean_delta": 0.0,
+      "noise_macro_f1": 0.8189577838088136,
+      "noise_gain": -0.029006600771985764,
+      "clean_recall_delta": {
+        "crazing": 0.0,
+        "inclusion": -0.01666666666666672,
+        "patches": 0.0,
+        "pitted_surface": 0.0,
+        "rolled_in_scale": 0.0,
+        "scratches": 0.01666666666666672
+      },
+      "noise_delta_by_sigma": {
+        "0.02": 0.02955963277373519,
+        "0.05": -0.008551070041479814,
+        "0.1": -0.10802836504821267
+      },
+      "checks": {
+        "clean_f1": true,
+        "clean_drop": true,
+        "avg_gain": false,
+        "avg_noise_f1": true,
+        "class_recall": true,
+        "per_sigma": false
+      },
+      "eligible": false
+    }
+  },
+  "models": {
+    "V0": {
+      "model_id": "V0",
+      "head_sha256": "ded86c7e929eff9aed8c1b78a9e784fffa08b87f06cfb68478894c040eb9eb3f",
+      "encoder_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+      "train_id": "55e7ab6375f1c235222b44efc05878c6ae72e9bcfd6e85ea095990b5f3e7e876",
+      "preprocessing_sha256": "476a7274083cb6ee41dd021f16fc72480994eb6dee4c330d2065e40674664df8"
+    },
+    "V1": {
+      "model_id": "V1",
+      "head_sha256": "72d02bae5610e63f0e02b9e656a8c2e2398a294ab2133a4ff5dde503361de877",
+      "encoder_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+      "train_id": "55e7ab6375f1c235222b44efc05878c6ae72e9bcfd6e85ea095990b5f3e7e876",
+      "preprocessing_sha256": "d01a150a3f20d4ca5bb84e78e3db858050335e7b27c5b2e963d354b5999388b5"
+    },
+    "V2": {
+      "model_id": "V2",
+      "head_sha256": "a8b2fb7b9b768d203eba62b24dd8d82ff712f3b6cdc79d8659115e5cc8d5e7d2",
+      "encoder_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+      "train_id": "55e7ab6375f1c235222b44efc05878c6ae72e9bcfd6e85ea095990b5f3e7e876",
+      "preprocessing_sha256": "907878ce91feb68051728bc7e9f6c9f3bffbf93334e19918da9218fc543a503a"
+    }
+  },
+  "protocol_sha": "1e0649b1fb85416f94fa268aeeb09e55e368bb184baf3dee764c065d9aec8785",
+  "split_sha": "139bef29ba80ab6d0de0d8972cf77924aa83515ebe9f12859c02a91eb3229676",
+  "test_seeds": [
+    201,
+    202,
+    203
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "baseline_run": "0d28bc5a8fb370f2041f03583d1998fdfe3faffd8f68d7f50fd81f5f9e5de69f",
+  "csv_sha": "71ada0c87e7f4a4e1b35a2a9e13ac1efca97c78dda16a5bc025e4913ed75b443",
+  "inputs_zip_sha": "e79c002d4e6ab90d8334a3524f838f5f619d1d6479f65695fea48fcf936ecd50",
+  "source_split": "validation",
+  "definition": "V0 correct on clean, wrong on exactly the same source under Gaussian noise",
+  "affected_originals": 132,
+  "trials": 446,
+  "by_sigma": {
+    "0.02": 33,
+    "0.05": 92,
+    "0.1": 321
+  },
+  "example_ids": [
+    {
+      "sample_id": "In_103",
+      "sigma": 0.02,
+      "seed": 101,
+      "raw_input_hash": "8653220d9ebabea99921dd9fdce8a2e8d87d41a344ea9e37960e9713de89fcac",
+      "npy_member": "In_103_0.02_101.npy"
+    },
+    {
+      "sample_id": "In_127",
+      "sigma": 0.05,
+      "seed": 101,
+      "raw_input_hash": "4e30591487ab283c0e86de95234675ae268f0bf69854a274e46cb8cbdcff9f2e",
+      "npy_member": "In_127_0.05_101.npy"
+    },
+    {
+      "sample_id": "In_1",
+      "sigma": 0.1,
+      "seed": 101,
+      "raw_input_hash": "e868182b749b0254fc812cc4be8f7707ef1b6b285ec06c55249145c6a865d36a",
+      "npy_member": "In_1_0.10_101.npy"
+    }
+  ],
+  "response": "Same sigma levels on train parents only, training seed 301; no validation originals are used in training"
+}

@@ -1,0 +1,14 @@
+{
+ "task_id":"neu_cls6","sample_unit":"one_original_surface_image","classes":{"Cr":"crazing","In":"inclusion","Pa":"patches","PS":"pitted_surface","RS":"rolled_in_scale","Sc":"scratches"},
+ "official":"https://faculty.neu.edu.cn/songkc/en/zdylm/263265/","official_archive":"https://drive.google.com/open?id=1NGlXT9sIaQpyxUoT6MLKm1Pr6x8oxOvc","archive_sha256":"a85bcc6bfa1a40e76f28079e135694aaf5f6a4ee01203f7eaacff0ebafaa96f8","ignored_non_image":"Thumbs.db",
+ "split_seed":42,"split_fractions":[0.6,0.2,0.2],"split_rule":"original NEU-CLS BMP only. Merge equal decoded pixel hashes, all dihedral equivalents, and near-identical grey-level variants (normalized 32x32 thumbnail NCC>=.985 then full 200x200 NCC>=.99 under same D4 transform). Link groups transitively. Assign largest first with deterministic class-capacity-weighted random allocation. Derived images inherit parent. No coil metadata available.",
+ "validation_seeds":[101,102,103],"test_seeds":[201,202,203],"sigmas":[0.02,0.05,0.10],
+ "noise":"PCG64 from first 8 SHA256 bytes big endian of task|split|parent_image_id|sigma(two decimals)|seed. Normal noise independently sampled per pixel, cast float32, add to native-resolution float32 grayscale and clip to [0,1]. Generate once per paired evaluation batch.",
+ "preprocessing":{"V0":null,"V1":[3,0.8],"V2":[5,1.0]},"order":"float32 grey 0..1, optional noise, optional cv2.GaussianBlur BORDER_REFLECT_101, cv2.resize INTER_LINEAR to 224x224 whole frame, replicate grey to RGB, ImageNet channel mean/std",
+ "encoder":"torchvision ResNet18_Weights.IMAGENET1K_V1, eval, identity fc, 512 features, float32 CPU, frozen, no crop","weight_url":"https://download.pytorch.org/models/resnet18-f37072fd.pth","weight_sha256":"f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+ "head":"StandardScaler defaults, then balanced LogisticRegression C=1.0, solver=lbfgs, max_iter=2000, trained on clean train originals only, same IDs for all three policies",
+ "selection":"Validation only. Score every image in each of nine conditions; unweighted mean of their macro F1. Among passing candidates choose highest noise mean, ties smaller kernel. If none pass leave test sealed; allow exploratory validation replay. Freeze weights, selected ID, protocol, split and preprocessing before test. Final test uses only V0 and chosen candidate and the same six checks.",
+ "goals":{"min_baseline_clean":0.85,"min_clean":0.85,"max_clean_loss":0.02,"min_noise_gain":0.03,"min_noise_mean":0.8,"max_class_clean_recall_loss":0.05,"max_per_sigma_loss":0.02},
+ "score_atol":0.0003,"score":"6 uncalibrated classifier decision scores in head.classes_ order; argmax; exact classes and tolerant score replay",
+ "time_limit":"First SSFD check <=2 hours, immediate pivot on failure; total <=12 hours. No test-driven tuning."
+}

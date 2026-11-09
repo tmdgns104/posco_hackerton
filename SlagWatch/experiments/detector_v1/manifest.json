@@ -1,0 +1,56 @@
+{
+  "python": "3.11.17",
+  "platform": "Linux",
+  "versions": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "scikit-learn": "1.8.0",
+    "joblib": "1.5.3",
+    "streamlit": "1.67.0"
+  },
+  "seed": 42,
+  "settings": {
+    "kernel": "rbf",
+    "C": 1.0,
+    "gamma": "scale",
+    "class_weight": "balanced",
+    "probability": false,
+    "random_state": 42
+  },
+  "rf": {
+    "bootstrap": true,
+    "ccp_alpha": 0.0,
+    "class_weight": "balanced",
+    "criterion": "gini",
+    "max_depth": 6,
+    "max_features": "sqrt",
+    "max_leaf_nodes": null,
+    "max_samples": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 3,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "n_estimators": 100,
+    "n_jobs": 1,
+    "oob_score": false,
+    "random_state": 42,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "source_sha256": {
+    "protocol.json": "2f522736ad9932d7fa84abba2158faed593ad389ef70249fa553f0c48f4898e8",
+    "../hi_v1/protocol.json": "4d5adbbb3f0ff7f7ca6655b085568c76f07de1c715fd5e6543d82d90123b1b3e",
+    "../hi_v1/inner_oof_clean.csv": "c017297edbf663bb09cb786d370cb349509bbe99352e7066654e4df83ff38f99",
+    "control_R_inner.csv": "5a9088178e3e91837910084a9ddbe55ab9fb36e1b14800cb8b1510757b196c4b",
+    "../../data/raw/manifest.json": "1c204ce9357214782dc6bb94982841edd041a58cc8bcc45aeccf135936ea2e82"
+  },
+  "artifacts_sha256": {
+    "fold_0.joblib": "bc1821ca7e6345216178fe6eabd49f3f829ae72198fb8008f81c9a53d666a278",
+    "fold_1.joblib": "cbb92ab54703f23504c19926daadc7b20bfa0951cdd4aa1aaf53244c25fdbc6d",
+    "fold_2.joblib": "aa1790fa83d06629fb955448a4f71ea8d34eb71e10b7b1fb62ff88914babb5fe",
+    "fold_3.joblib": "815e9f9421ed4c75d03538ced8a388781a015c05032a7c898702632c31ee0b3a",
+    "full.joblib": "ebd691b1bc254c87dfcf9fc769c5c9d667f23ab276b276a99ceacb988c850301"
+  }
+}

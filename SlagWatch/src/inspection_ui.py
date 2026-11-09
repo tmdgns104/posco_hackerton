@@ -956,6 +956,11 @@ def workbench():
     if section=="보고서":
         reports(project,split,path,m)
         return
+    if section=="모델 비교" and project.id == "neu_cls6" and split == "validation":
+        from .neu_dashboard_ui import render_recent_comparisons
+        render_recent_comparisons()
+        st.divider()
+        st.subheader("기존 모델 비교")
     if m is None:
         st.info("이 분할에 저장된 실행 기록이 없습니다. 새 추론으로 첫 검증 결과를 만드세요.")
         st.button("새 검증 실행으로 이동",type="primary",on_click=section_jump,args=(pid,split,"새 검증 실행"),key=k("go-run",pid,split))

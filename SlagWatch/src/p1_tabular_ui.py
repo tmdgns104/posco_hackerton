@@ -11,6 +11,7 @@ from . import p1_tabular as lab
 from . import p1_abstention as policy_lab
 from . import p1_confidence
 from . import neu_image_demo
+from . import neu_uploaded_models
 from . import security
 from .inspection_event_log import read_events
 from .surface_data import ROOT as APP_ROOT
@@ -21,6 +22,47 @@ NEU_DEMO_ROOT = ROOT / "neu_image_demo"
 
 def _show_error(title, exc):
     st.error(f"{title}: {exc}")
+
+
+def _neu_upload():
+    st.subheader("강판 이미지 모델 업로드 및 V0 비교")
+    st.warning("joblib 로드 시 임의 코드가 실행될 수 있습니다. 출처를 신뢰하는 파일만 등록하세요. 해시는 안전성 검사가 아닙니다.")
+    st.caption("기존 NEU 번들(.joblib): 동일 ResNet18 인코더, 지원 전처리, 512차원 분류기 및 6개 클래스 순서가 필요합니다. 다른 형식이나 인코더는 지원하지 않습니다.")
+    with st.form("neu-upload-form"):
+        model_id = st.text_input("이미지 모델 ID", help="영문으로 시작하는 영문·숫자·_·- 2~40자")
+        upload = st.file_uploader("신뢰한 NEU 이미지 번들", type=["joblib"], max_upload_size=128)
+        trusted = st.checkbox("파일을 신뢰하며 로드할 때 코드가 실행될 수 있음을 이해합니다.")
+        submitted = st.form_submit_button("이미지 모델 등록")
+    if submitted:
+        try:
+            if upload is None:
+                raise ValueError("모델 파일을 선택하세요.")
+            neu_uploaded_models.register(neu_uploaded_models.REGISTRY, model_id, upload.getvalue(), upload.name,
+                                         trusted=trusted, auth_token=st.session_state.get("security-token"))
+        except (ValueError, OSError, TypeError, KeyError) as exc:
+            _show_error("이미지 모델 등록 실패", exc)
+        else:
+            st.success("이미지 모델이 등록되었습니다. 아래에서 V0와 실제 비교를 실행하세요.")
+    models = neu_uploaded_models.list_models(neu_uploaded_models.REGISTRY)
+    if not models:
+        st.info("등록된 업로드 이미지 모델이 없습니다.")
+        return
+    names = [item["model_id"] for item in models]
+    chosen = st.selectbox("V0와 비교할 업로드 모델", names, key="neu-upload-candidate")
+    scope = st.radio("이미지 비교 표본", ["전체 검증 이미지", "클래스별 시연 표본"], horizontal=True)
+    st.caption("모든 선택 표본을 원본과 9개 잡음·seed 조건에서 V0와 동일한 입력으로 평가합니다. 전체 실행은 시간이 걸릴 수 있습니다.")
+    if st.button("업로드 모델과 V0 실제 비교 실행"):
+        try:
+            from .inspection_projects import load_project
+            ids = None if scope == "전체 검증 이미지" else load_project("neu_cls6").demo_ids("validation")
+            with st.spinner("V0와 업로드 모델로 동일 입력을 추론합니다."):
+                path = neu_uploaded_models.evaluate(neu_uploaded_models.REGISTRY, chosen,
+                    auth_token=st.session_state.get("security-token"), sample_ids=ids)
+            cfg, _ = neu_uploaded_models.load_run(neu_uploaded_models.REGISTRY, path.name)
+        except (ValueError, OSError, TypeError, KeyError, RuntimeError) as exc:
+            _show_error("이미지 모델 비교 실패", exc)
+        else:
+            st.success(f"비교 기록 {path.name} 저장 · 완료 {cfg['completed_pairs']}/{cfg['planned_pairs']} · 실패 {cfg['failed_pairs']}회. 모델 비교에서 확인하세요.")
 
 
 def _neu_image_demo():
@@ -409,6 +451,7 @@ def page():
     st.title("표형 모델 검증 실험실")
     st.warning("별도 개발 시연 공간입니다. NEU 이미지 검증과 기존 시험 잠금은 변경하지 않습니다. 임시 로컬 감사 저장소는 외부 독립 저장소가 아닙니다.")
     try:
+        _neu_upload()
         _neu_image_demo()
         models = _registered()
         _registry(models)

@@ -1,0 +1,30 @@
+name: Publish verified KolektorSDD2 data
+on:
+  push:
+    paths:
+      - .github/workflows/publish-ksdd2.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - name: Obtain the official archive and check its digest
+        run: |
+          curl --fail --location --retry 3 --output KolektorSDD2.zip https://data.vicos.si/datasets/KSDD/KolektorSDD2.zip
+          echo 'edcdb486809b24f1d17b785e30c52fafc5999554dd5fe18ddf77b61ceb6f36a8  KolektorSDD2.zip' | sha256sum --check
+      - name: Publish the original archive and its attribution
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -eu
+          tag=ksdd2-original-v1
+          curl --fail --location --output DATA-LICENSE.txt "https://raw.githubusercontent.com/$GH_REPO/$GITHUB_SHA/SlagWatch/data/ksdd2/inspection_license/CC-BY-NC-SA-4.0.txt"
+          curl --fail --location --output KSDD2-SOURCES.md "https://raw.githubusercontent.com/$GH_REPO/$GITHUB_SHA/SlagWatch/data/ksdd2/SOURCES.md"
+          echo 'edcdb486809b24f1d17b785e30c52fafc5999554dd5fe18ddf77b61ceb6f36a8  KolektorSDD2.zip' > SHA256SUMS.txt
+          if gh release view "$tag" --json assets --jq '.assets[].name' | grep -Fxq KolektorSDD2.zip; then exit 0; fi
+          gh release create "$tag" KolektorSDD2.zip KSDD2-SOURCES.md DATA-LICENSE.txt SHA256SUMS.txt --target "$GITHUB_SHA" --title 'KolektorSDD2 · 원본 이미지와 마스크' --notes 'Original unmodified dataset by Kolektor Group d.o.o. and ViCoS, University of Ljubljana. CC BY-NC-SA 4.0. Source and citation: https://www.vicos.si/resources/kolektorsdd2/. This is the upstream archive for full data restoration, including training and test images.'

@@ -36,16 +36,6 @@ def check_files(root):
         for path in [*(folder/n for n in man["files"]), *(root/"src"/n for n in man["code_sha256"])]:
             if not path.is_file():
                 raise FileNotFoundError(path)
-    binary = root/"experiments/inspection_binary"
-    for name in ("protocol.json", "selection.json", "test_access.json", "models/K0.joblib", "models/K1.joblib"):
-        if not (binary/name).is_file():
-            raise FileNotFoundError(binary/name)
-    with (root/"data/ksdd2/manifest.csv").open(encoding="utf8", newline="") as fp:
-        for row in csv.DictReader(fp):
-            if row["split"] == "validation":
-                for column in ("image_path","mask_path"):
-                    if not (root/row[column]).is_file():
-                        raise FileNotFoundError(root/row[column])
     sources = root/"experiments/surface_v1"
     extras = [sources/"models/resnet18-f37072fd.pth",*(root/f"experiments/surface_g1/examples/{k}.zip" for k in ("fixed","new_error"))]
     with (sources/"split_manifest.csv").open(encoding="utf8",newline="") as fp:
@@ -135,7 +125,7 @@ def main():
         prepare(ROOT,args.bootstrap)
         if not args.check:
             stage="Streamlit"
-            logging.info("Opening SteelTrust inspection regression · app_demo.py")
+            logging.info("Opening SteelTrust G2 · app_demo.py")
             subprocess.run([sys.executable,"-m","streamlit","run",str(ROOT/"app_demo.py")],cwd=ROOT,check=True)
     except (OSError,ValueError,ImportError,KeyError,RuntimeError,subprocess.CalledProcessError) as exc:
         logging.exception("FAILED at %s: %s. Log: %s",stage,exc,log)

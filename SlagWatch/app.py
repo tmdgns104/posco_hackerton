@@ -68,13 +68,25 @@ def waveform(original, changed, start_s, scenario):
 
 
 st.set_page_config(page_title="SteelTrust · 철강 AI 검증",layout="wide")
-section=st.sidebar.radio("화면 선택",["철강 표면 결함","실패 재검증","슬래그 유동 판정","안전 지원 검증","검증 도구"],key="hi_workspace")
+section=st.sidebar.radio("화면 선택",["철강 표면 결함","Adaptive Red Team","슬래그 G3 개선 실험","슬래그 G5·G6 모델 검증","실패 재검증","슬래그 유동 판정","안전 지원 검증","검증 도구"],key="hi_workspace")
 if section=="철강 표면 결함":
     from src.surface_ui import workbench
     try:
         workbench()
     except (OSError,KeyError,ValueError,RuntimeError) as err:
         st.error(f"영상 사례 재현 중단 · {err}")
+    st.stop()
+if section=="Adaptive Red Team":
+    from src.adaptive_ui import workbench as adaptive_workbench
+    adaptive_workbench()
+    st.stop()
+if section=="슬래그 G5·G6 모델 검증":
+    from src.slag_compare_ui import workbench
+    workbench()
+    st.stop()
+if section=="슬래그 G3 개선 실험":
+    from src.slag_g3_ui import workbench as g3_workbench
+    g3_workbench()
     st.stop()
 if section=="실패 재검증":
     from src.pair_ui import workbench

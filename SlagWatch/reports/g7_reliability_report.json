@@ -1,0 +1,119 @@
+{
+  "summary": [
+    {
+      "model": "G5-B SVM",
+      "TP": 81,
+      "FN": 79,
+      "FP": 5,
+      "TN": 75,
+      "recall": 0.50625,
+      "fpr": 0.0625,
+      "accuracy": 0.65,
+      "balanced_accuracy": 0.721875,
+      "f1_B": 0.6410256410256411,
+      "f1_S": 0.6585365853658537,
+      "macro_f1": 0.6497811131957474,
+      "roc_auc": 0.7549609374999999,
+      "pr_auc": 0.8840812705713734
+    },
+    {
+      "model": "G6-B ExtraTrees",
+      "TP": 86,
+      "FN": 74,
+      "FP": 5,
+      "TN": 75,
+      "recall": 0.5375,
+      "fpr": 0.0625,
+      "accuracy": 0.6708333333333333,
+      "balanced_accuracy": 0.7375,
+      "f1_B": 0.6550218340611353,
+      "f1_S": 0.6852589641434262,
+      "macro_f1": 0.6701403991022807,
+      "roc_auc": 0.788984375,
+      "pr_auc": 0.8936926301899379
+    },
+    {
+      "model": "G6 Deep MLP",
+      "TP": 49,
+      "FN": 111,
+      "FP": 7,
+      "TN": 73,
+      "recall": 0.30625,
+      "fpr": 0.0875,
+      "accuracy": 0.5083333333333333,
+      "balanced_accuracy": 0.609375,
+      "f1_B": 0.553030303030303,
+      "f1_S": 0.4537037037037037,
+      "macro_f1": 0.5033670033670034,
+      "roc_auc": 0.69375,
+      "pr_auc": 0.8214242114366394
+    }
+  ],
+  "g6b_vs_deep": {
+    "delta_recall_95pct": [
+      -0.41874999999999996,
+      -0.04984375000000084
+    ],
+    "delta_fpr_95pct": [
+      -0.037500000000000006,
+      0.1
+    ],
+    "n_independent_occurrences": 16,
+    "note": "Exploratory group bootstrap, repeated model development on 16 SSFD occurrences."
+  },
+  "regression_changes": {
+    "unchanged": 181,
+    "new_error": 49,
+    "fixed": 10
+  },
+  "adoption": {
+    "research_deep_better_than_g6b": false,
+    "g6b_meets_aspirational_window_gate": false,
+    "g6deep_meets_aspirational_window_gate": false,
+    "independent_site_validation": false,
+    "industrial_approved": false,
+    "warning": "All group-held-out records are from 16 repeatedly studied SSFD occurrences. Confirmed B reference is mandatory."
+  },
+  "integrity": [
+    {
+      "artifact": "G5B_oof.csv",
+      "exists": true,
+      "sha256": "32c257f5c2d62649d0bf502ee35d32d2f779f5100973741af28f4ea878d7d07f",
+      "size_bytes": 12739
+    },
+    {
+      "artifact": "G6B_oof.csv",
+      "exists": true,
+      "sha256": "9a0b6c5cc89092c2066991db9091d2c75529ca1f86d94046258352a2dffd1c9b",
+      "size_bytes": 13741
+    },
+    {
+      "artifact": "G6Deep_oof.csv",
+      "exists": true,
+      "sha256": "ed5e58ec2d9d21aa53a2f048f5d3d655fe597ede70d411fbb3f61bca4639efe6",
+      "size_bytes": 13663
+    },
+    {
+      "artifact": "G6B_model.joblib",
+      "exists": true,
+      "sha256": "7994b16ec702633b47d542c15746b4effab2c9ba19ca5b30e9d60fc1733217bf",
+      "size_bytes": 178190
+    },
+    {
+      "artifact": "G5B_model.joblib",
+      "exists": true,
+      "sha256": "8a883ef6d4519e5d12374960438a4351d9e8a39f6561fe9daa2e8492b10a4d46",
+      "size_bytes": 46195
+    },
+    {
+      "artifact": "G6Deep_summary.json",
+      "exists": true,
+      "sha256": "c2a042b5fc93b6325d9203126f73593aa51526e3b01333582f8d0d9c9d81a664",
+      "size_bytes": 785
+    }
+  ],
+  "legacy_sealed_files": {
+    "tested": 82,
+    "failures": 0
+  }
+}

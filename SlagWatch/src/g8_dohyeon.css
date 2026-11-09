@@ -1,0 +1,104 @@
+/* SteelTrust G8.1 – UI-only refresh, inspired by dohyeon branch's light workspace.
+   Do not modify model inputs, metrics, thresholds or training routines. */
+:root {
+  --g8-ink: #1f2937; --g8-muted: #6b7280; --g8-purple: #7856f7;
+  --g8-border: #e5e7eb; --g8-bg: #f6f7fc; --g8-positive:#087e76;
+  --g8-warning:#a85a06;
+}
+html, body, [class*="css"] { font-family: system-ui, "Malgun Gothic", "Apple SD Gothic Neo", sans-serif; }
+[data-testid="stAppViewContainer"] {
+    background: linear-gradient(137deg, #f6f7fc 0%, #fafaff 60%, #f1faf8 100%);
+    color: var(--g8-ink);
+}
+[data-testid="stHeader"] {background:rgba(246,247,252,.92);}
+[data-testid="stSidebar"] {
+    background: #fff; border-right: 1px solid var(--g8-border);
+}
+[data-testid="stSidebar"] [data-testid="stSidebarUserContent"] {padding-top: 1.8rem;}
+[data-testid="stSidebar"] hr {border-color:#e7e8f0;}
+.block-container {
+    max-width: 1330px; padding: 1.9rem clamp(1rem,2vw,2.5rem) 4rem;
+}
+h1,h2,h3 {letter-spacing: -.036em; color:#20283a;}
+h1 {font-size: clamp(1.75rem, 2.6vw, 2.4rem) !important; font-weight: 780 !important;}
+h2 {font-size: 1.4rem !important; font-weight: 740 !important;}
+h3 {font-size: 1.12rem !important; font-weight: 700 !important;}
+p, label {word-break: keep-all;}
+[data-testid="stCaptionContainer"] p, .stCaption p {color:var(--g8-muted);}
+[data-testid="stMetric"] {
+    background:#fff; border:1px solid var(--g8-border); border-top:2px solid #7856f7;
+    padding: 1.05rem 1.2rem; border-radius: 14px;
+    box-shadow:0 4px 22px rgba(28,38,74,.035);
+}
+[data-testid="stMetricLabel"] {font-size: .89rem; font-weight:650;}
+[data-testid="stMetricValue"] {font-weight:770; letter-spacing:-.04em; color:#182b45;}
+[data-testid="stVerticalBlockBorderWrapper"] > div {border-radius:16px !important;}
+[data-testid="stVerticalBlockBorderWrapper"] [data-testid="stVerticalBlock"] {min-width:0;}
+[data-testid="stExpander"] {
+    border:1px solid var(--g8-border); border-radius:14px; background:#fff;
+}
+[data-testid="stDataFrame"], [data-testid="stFileUploader"], [data-testid="stAlert"] {border-radius:12px;}
+[data-testid="stButton"] button, [data-testid="stDownloadButton"] button {
+    border-radius:10px; font-weight:660; border-color:#dedce9;
+    transition: border-color .15s ease, background .15s ease, transform .15s ease;
+}
+[data-testid="stButton"] button:hover, [data-testid="stDownloadButton"] button:hover {
+    border-color:#8f79ed; color:#6742d9;
+}
+[data-testid="stButton"] button[kind="primary"], [data-testid="stDownloadButton"] button[kind="primary"] {
+    color:#fff; background:#7856f7; border-color:#7856f7;
+}
+[data-testid="stButton"] button[kind="primary"]:hover {color:#fff;background:#6442da;border-color:#6442da;}
+[data-testid="stRadio"] [role="radiogroup"] {gap: .45rem .75rem;}
+[data-testid="stRadio"] [role="radiogroup"] label {
+    background:#fff; border:1px solid #e5e7eb; padding: .35rem .7rem; border-radius:9px;
+}
+[data-testid="stRadio"] [role="radiogroup"] label:has(input:checked) {
+    background:#f0edff; border-color:#7856f7;
+}
+[data-testid="stSidebar"] [data-testid="stRadio"] [role="radiogroup"] {
+    display:flex; flex-direction:column; gap:.28rem;
+}
+[data-testid="stSidebar"] [data-testid="stRadio"] [role="radiogroup"] label {
+    padding: .52rem .72rem; background:transparent; border-color:transparent;
+    border-radius:10px; font-weight:620;
+}
+[data-testid="stSidebar"] [data-testid="stRadio"] [role="radiogroup"] label:hover {background:#f6f3ff;}
+[data-testid="stSidebar"] [data-testid="stRadio"] [role="radiogroup"] label:has(input:checked) {
+    background:#eeeaff; border-color:#ded6ff; color:#5536c2;
+}
+.g8-sidebar-brand {
+    margin: 0 0 1.1rem; padding: .25rem 0 1.3rem;
+    border-bottom:1px solid #eceaf2;
+}
+.g8-posco-logo {margin:0 0 1.05rem; min-height:35px; display:flex; align-items:center;}
+.g8-posco-logo img {display:block;width:137px;max-width:82%;height:auto;object-fit:contain;}
+.g8-brand-line {display:flex;align-items:center;gap:.75rem;}
+.g8-symbol {width:39px;height:39px;display:grid;place-content:center;gap:3px;
+    background:#efebff;border:1px solid #ddd6fe;border-radius:11px;flex:none;}
+.g8-symbol i {height:4px;background:#7856f7;width:18px;border-radius:1px;transform:skewX(-26deg);}
+.g8-symbol i:nth-child(2){width:15px}.g8-symbol i:nth-child(3){width:11px}
+.g8-brand-title {font-weight:800;letter-spacing:-.045em;font-size:1.58rem;color:#20283a;line-height:1.16;}
+.g8-brand-subtitle {font-size:.78rem;color:#7c8595;margin-top:.25rem;line-height:1.6;}
+.g8-page-header {background:#fff;border:1px solid #e5e7eb;border-left:3px solid #7856f7;
+   border-radius:16px;padding:1.24rem 1.5rem;margin-bottom:1.2rem;
+   box-shadow:0 3px 16px rgba(26,37,77,.035);}
+.g8-eyebrow {display:block;color:#6b5bd1;font-size:.69rem;font-weight:800;letter-spacing:.11em;
+   text-transform:uppercase;margin-bottom:.4rem;}
+.g8-page-header h1 {font-size:clamp(1.55rem,2.1vw,2.15rem) !important;line-height:1.27;margin:0 !important;}
+.g8-page-header p {margin:.48rem 0 0;color:#6b7280;line-height:1.65;font-size:.89rem;}
+.g8-hero {background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:1.4rem 1.55rem;
+   box-shadow:0 4px 22px rgba(28,38,74,.04);margin-bottom:.6rem;}
+.g8-hero h2 {font-size:clamp(1.35rem,2vw,1.75rem) !important;letter-spacing:-.04em;margin:.15rem 0 .5rem !important;}
+.g8-hero p {color:#647082;font-size:.94rem;line-height:1.72;max-width:740px;margin:0;}
+.g8-flow {display:flex;gap:.5rem;flex-wrap:wrap;margin:.9rem 0 0;align-items:center;}
+.g8-step {font-size:.73rem;border:1px solid #e5e7eb;color:#575f70;background:#f8f8fc;
+   border-radius:8px;padding:.35rem .62rem;font-weight:650;}
+.g8-step-arrow {color:#b6b0c4;font-size:.85rem;}
+.steel-note {color:#6b7280;font-size:.85rem;}
+@media (max-width: 760px) {
+  .block-container {padding:1rem .8rem 3rem;}
+  .g8-page-header,.g8-hero {padding:1.05rem;}
+  [data-testid="stMetric"] {padding:.65rem .78rem;}
+  .g8-step {font-size:.69rem;}
+}

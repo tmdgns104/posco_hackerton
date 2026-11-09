@@ -1,0 +1,10 @@
+# SteelTrust G8 novice-first dashboard (Python 3.12)
+streamlit==1.67.0
+numpy==2.3.5
+pandas==2.2.3
+scipy==1.17.0
+scikit-learn==1.8.0
+joblib==1.5.3
+Pillow==13.0.0
+opencv-python-headless==4.13.0.92
+plotly==6.9.0

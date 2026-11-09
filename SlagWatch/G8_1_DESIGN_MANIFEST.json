@@ -1,0 +1,15 @@
+{
+  "name": "SteelTrust G8.1 Dohyeon-Style UI",
+  "base": "SteelTrust G8 Simple Fusion",
+  "scope": "Presentation only: theme, sidebar logo, header, landing cards",
+  "model_weights_modified": false,
+  "model_evaluation_modified": false,
+  "logo_source": "https://raw.githubusercontent.com/tmdgns104/posco_hackerton/dohyeon/SlagWatch/assets/posco-logo.png",
+  "file_hashes": {
+    "src/g8_easy.py": "80ffc43bfedaab94af0627a065ced570f66b10c3fad6bdf88fb3f777ee672641",
+    "src/g8_dohyeon.css": "91c76fa6e1e0105c802c1bac41916e9ffd82aaf1c7d991eda4b9f56ce4e44a8d",
+    "GET_POSCO_LOGO_WINDOWS.cmd": "10e0f30773c89c8b7b33afff20a98572a521b41e22ae0a306966cc1fc12ddfed",
+    "README_G8_1_DESIGN_KO.md": "d335dff0c880d066042b9b17b49e48ab4a58b6c5d4553f33b3e8ed4cb5b6ca5b"
+  },
+  "compatibility": "G8 Windows Python 3.12 Streamlit environment"
+}

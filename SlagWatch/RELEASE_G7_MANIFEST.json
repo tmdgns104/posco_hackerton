@@ -1,0 +1,322 @@
+{
+  "release": "SteelTrust G7 Integrated Reliability Benchmark",
+  "date": "2026-11-09",
+  "protocol": "SSFD grouped B/S 240 matched OOF windows; research only",
+  "model_metrics": [
+    {
+      "model": "G5-B SVM",
+      "TP": 81,
+      "FN": 79,
+      "FP": 5,
+      "TN": 75,
+      "recall": 0.50625,
+      "fpr": 0.0625,
+      "accuracy": 0.65,
+      "balanced_accuracy": 0.721875,
+      "f1_B": 0.6410256410256411,
+      "f1_S": 0.6585365853658537,
+      "macro_f1": 0.6497811131957474,
+      "roc_auc": 0.7549609374999999,
+      "pr_auc": 0.8840812705713734
+    },
+    {
+      "model": "G6-B ExtraTrees",
+      "TP": 86,
+      "FN": 74,
+      "FP": 5,
+      "TN": 75,
+      "recall": 0.5375,
+      "fpr": 0.0625,
+      "accuracy": 0.6708333333333333,
+      "balanced_accuracy": 0.7375,
+      "f1_B": 0.6550218340611353,
+      "f1_S": 0.6852589641434262,
+      "macro_f1": 0.6701403991022807,
+      "roc_auc": 0.788984375,
+      "pr_auc": 0.8936926301899379
+    },
+    {
+      "model": "G6 Deep MLP",
+      "TP": 49,
+      "FN": 111,
+      "FP": 7,
+      "TN": 73,
+      "recall": 0.30625,
+      "fpr": 0.0875,
+      "accuracy": 0.5083333333333333,
+      "balanced_accuracy": 0.609375,
+      "f1_B": 0.553030303030303,
+      "f1_S": 0.4537037037037037,
+      "macro_f1": 0.5033670033670034,
+      "roc_auc": 0.69375,
+      "pr_auc": 0.8214242114366394
+    }
+  ],
+  "legacy_experiment_integrity": {
+    "checked": 82,
+    "failed": 0
+  },
+  "checks": {
+    "new_comparison_tests_passed": 9,
+    "targeted_regression_tests_passed": 33,
+    "checkpoint_count": 20,
+    "checkpoint_safe_loading": "all 20 checked with explicit trusted NumPy globals whitelist and weights_only=True",
+    "independent_field_validation": false,
+    "browser_streamlit_tested": false,
+    "python312_windows_runtime_tested": false
+  },
+  "constraints": [
+    "Same SSFD 16 occurrences used across model iterations",
+    "G6 Deep fold checkpoints are not a full-data deployment model",
+    "G5/G6 B-reference must be independently confirmed for each occurrence",
+    "No model approved for industrial automatic safety control",
+    "Existing test suite has Streamlit/aeon missing on packaging host; some legacy Python 3.11 tests incompatible with host Python 3.13"
+  ],
+  "new_or_modified_file_hashes": [
+    {
+      "path": "app.py",
+      "sha256": "c0a9e510604a511962845b64dc995db06c5e64d6a71c6c1ad93c67048c2e8226",
+      "bytes": 10740
+    },
+    {
+      "path": "app_demo.py",
+      "sha256": "28b1b6e2fb6eaa52075487903bac2e250e80d0773ee1eb1d5f2db22ef10ef485",
+      "bytes": 2039
+    },
+    {
+      "path": "START_WINDOWS.cmd",
+      "sha256": "283cb2be53966277fa9abc69cc5dbcff4a14b8e11ca64f8e664d8375ec01c8cd",
+      "bytes": 45
+    },
+    {
+      "path": "START_G3_LEGACY_WINDOWS.cmd",
+      "sha256": "8e07b6af062d59885a8601215993e1415d947a62ac9d1f150128fa0f9813f77a",
+      "bytes": 1335
+    },
+    {
+      "path": "START_G7_WINDOWS.cmd",
+      "sha256": "43cdb65df8e70f2046cd9ede9b9a219d986b2f028276cb41596924e6e29389eb",
+      "bytes": 617
+    },
+    {
+      "path": "SETUP_G7_PY312_WINDOWS.cmd",
+      "sha256": "53c884bfd316c886acec3ff9b3e2c24f9b56a98a497cf8b88998759de4665d5a",
+      "bytes": 911
+    },
+    {
+      "path": "CHECK_G7_WINDOWS.cmd",
+      "sha256": "d8679efa9b38062f561e5f9c37331bfaf7eefd4dd8189ccf334975d1d3410b56",
+      "bytes": 316
+    },
+    {
+      "path": "src/slag_compare.py",
+      "sha256": "a73d219bd820ab11c661af40d5e214d709efe420ee7e0134d31078858f6cb151",
+      "bytes": 10768
+    },
+    {
+      "path": "src/slag_compare_ui.py",
+      "sha256": "365f8f163c0fa7a683052341df2bed0c343d9e6d17ce3faac8041770dfaf6574",
+      "bytes": 11480
+    },
+    {
+      "path": "src/slag_compare_cli.py",
+      "sha256": "7b5e7d272e6d592d60399c689ba3d44d0c2251802092399282f381bf96c853f5",
+      "bytes": 1716
+    },
+    {
+      "path": "src/slag_g6_core.py",
+      "sha256": "3ef86fb53799419e41301120e5b0de59f9ebee766f19dc912db453fef558bbfb",
+      "bytes": 13324
+    },
+    {
+      "path": "src/g7_home_ui.py",
+      "sha256": "e6c661b4e1f55b3eaca716bece6038f201bb21e5bfa3feb4e4f3b1428027c442",
+      "bytes": 3323
+    },
+    {
+      "path": "tests/test_slag_compare.py",
+      "sha256": "8212b751463ced1e25e0a76ae88e1977305b722b56a466940934409e065952b9",
+      "bytes": 2736
+    },
+    {
+      "path": "README_G7_KO.md",
+      "sha256": "9eb48f38eb556db3e8bd5598eebd86522e8900c190b714f75dc692e872f61bf9",
+      "bytes": 9591
+    },
+    {
+      "path": "benchmarks/slag_b2/G5B_model.joblib",
+      "sha256": "8a883ef6d4519e5d12374960438a4351d9e8a39f6561fe9daa2e8492b10a4d46",
+      "bytes": 46195
+    },
+    {
+      "path": "benchmarks/slag_b2/G5B_oof.csv",
+      "sha256": "32c257f5c2d62649d0bf502ee35d32d2f779f5100973741af28f4ea878d7d07f",
+      "bytes": 12739
+    },
+    {
+      "path": "benchmarks/slag_b2/G6B_example.csv",
+      "sha256": "f6ab13f3977663aded6f427f10adf1cdd722861604c3165b3a6c9c81d052c23b",
+      "bytes": 687
+    },
+    {
+      "path": "benchmarks/slag_b2/G6B_final_metadata.json",
+      "sha256": "22a9f813c5f5a2a64c2d361048240c7371609ee47600223efe559a5e2736c0f4",
+      "bytes": 536
+    },
+    {
+      "path": "benchmarks/slag_b2/G6B_metrics.json",
+      "sha256": "1c5e479f0ee0f44a9f2877d28983e2dc5e88d8a733a4f9d2957d3f3432eb695d",
+      "bytes": 2758
+    },
+    {
+      "path": "benchmarks/slag_b2/G6B_model.joblib",
+      "sha256": "7994b16ec702633b47d542c15746b4effab2c9ba19ca5b30e9d60fc1733217bf",
+      "bytes": 178190
+    },
+    {
+      "path": "benchmarks/slag_b2/G6B_oof.csv",
+      "sha256": "9a0b6c5cc89092c2066991db9091d2c75529ca1f86d94046258352a2dffd1c9b",
+      "bytes": 13741
+    },
+    {
+      "path": "benchmarks/slag_b2/G6Deep_cv_checkpoints/fold0_seed47000.pt",
+      "sha256": "fe554d123337f51330ada277b51edf543a8622fc7da973611c6f0609d4b18284",
+      "bytes": 347575
+    },
+    {
+      "path": "benchmarks/slag_b2/G6Deep_cv_checkpoints/fold0_seed47001.pt",
+      "sha256": "2e8d98875e82d81617a29a309414a21944024f588cfd5f592c6ed01b1a0a81d5",
+      "bytes": 347575
+    },
+    {
+      "path": "benchmarks/slag_b2/G6Deep_cv_checkpoints/fold0_seed47002.pt",
+      "sha256": "185211c72f72f4147fc582ada21e3f6aab0793f4dc4f879c9b0fde7d33ce8841",
+      "bytes": 347575
+    },
+    {
+      "path": "benchmarks/slag_b2/G6Deep_cv_checkpoints/fold0_seed47003.pt",
+      "sha256": "f688a8adf4c2fe4a8bd4b8d320ce2367142ec1fabf8ec364c490d6bba18fe4c3",
+      "bytes": 347575
+    },
+    {
+      "path": "benchmarks/slag_b2/G6Deep_cv_checkpoints/fold0_seed47004.pt",
+      "sha256": "91c0fe7d152f4fd5c8d553a8c5f468b6256fcdd1bb79aed542c6b1d5a020b2ba",
+      "bytes": 347575
+    },
+    {
+      "path": "benchmarks/slag_b2/G6Deep_cv_checkpoints/fold1_seed47100.pt",
+      "sha256": "97ecfa34eeaffa99692b6a194913c6770c77a487829b7a4b36a4c3f3e5639b43",
+      "bytes": 347575
+    },
+    {
+      "path": "benchmarks/slag_b2/G6Deep_cv_checkpoints/fold1_seed47101.pt",
+      "sha256": "c247a08be65e320cf394b3ce08ed753d94b2504889c1be45fde8b6d197008a6a",
+      "bytes": 347575
+    },
+    {
+      "path": "benchmarks/slag_b2/G6Deep_cv_checkpoints/fold1_seed47102.pt",
+      "sha256": "73cf4ed3eb7ca604eedd6df7ac345680128fcf2804458270ab95eba187bf8986",
+      "bytes": 347575
+    },
+    {
+      "path": "benchmarks/slag_b2/G6Deep_cv_checkpoints/fold1_seed47103.pt",
+      "sha256": "ed7ec8133603058ea9ca340ac59f73be4dee92aa1006ee9ae88ecfb929efaa04",
+      "bytes": 347575
+    },
+    {
+      "path": "benchmarks/slag_b2/G6Deep_cv_checkpoints/fold1_seed47104.pt",
+      "sha256": "7bbbfc19a8556cbeed0f3b410adcabd4898230511ee97241636d1475648e2540",
+      "bytes": 347575
+    },
+    {
+      "path": "benchmarks/slag_b2/G6Deep_cv_checkpoints/fold2_seed47200.pt",
+      "sha256": "c6eefb6f0aebf2b212ac22bb81603031496f692c60f5e18b2071c56a80de66bc",
+      "bytes": 347575
+    },
+    {
+      "path": "benchmarks/slag_b2/G6Deep_cv_checkpoints/fold2_seed47201.pt",
+      "sha256": "7d0baa4524ae6059d4688b312f3ab0a44bee72ec275012ded605d52dc32b48b4",
+      "bytes": 347575
+    },
+    {
+      "path": "benchmarks/slag_b2/G6Deep_cv_checkpoints/fold2_seed47202.pt",
+      "sha256": "62bd9c53bfb22ba02c76623bba88d1f573e9ce1fca15210240e262a6b7e7b841",
+      "bytes": 347575
+    },
+    {
+      "path": "benchmarks/slag_b2/G6Deep_cv_checkpoints/fold2_seed47203.pt",
+      "sha256": "eb4f348890352eb5a85ca7e236360458f87de119c65940d78d1de8ab30bf4348",
+      "bytes": 347575
+    },
+    {
+      "path": "benchmarks/slag_b2/G6Deep_cv_checkpoints/fold2_seed47204.pt",
+      "sha256": "258e39ccfaac82771895fb74781e04316fae728555624c4b6b5e59fbf2645afd",
+      "bytes": 347575
+    },
+    {
+      "path": "benchmarks/slag_b2/G6Deep_cv_checkpoints/fold3_seed47300.pt",
+      "sha256": "c8af203b38463f54f9de7853b89f18b7799202b41690eee7a12768fb6caca0a1",
+      "bytes": 347575
+    },
+    {
+      "path": "benchmarks/slag_b2/G6Deep_cv_checkpoints/fold3_seed47301.pt",
+      "sha256": "693dd5ba5ac2ada50a03cd40630b05acbb93a73aaa896ab6be99310d8890cc15",
+      "bytes": 347575
+    },
+    {
+      "path": "benchmarks/slag_b2/G6Deep_cv_checkpoints/fold3_seed47302.pt",
+      "sha256": "16ebdacceb57c04b0a015cbf2442236d865ea26ddbe3aa3f0b3c3535db0f6bd2",
+      "bytes": 347575
+    },
+    {
+      "path": "benchmarks/slag_b2/G6Deep_cv_checkpoints/fold3_seed47303.pt",
+      "sha256": "9dad83659bd3e86219bb1c4b500d79d313edbfb0fe0229793e28a6a79c8afa88",
+      "bytes": 347575
+    },
+    {
+      "path": "benchmarks/slag_b2/G6Deep_cv_checkpoints/fold3_seed47304.pt",
+      "sha256": "8e0a5a3266008e4017f3605772da0fbc471d48619777911a238df141f9f6a801",
+      "bytes": 347575
+    },
+    {
+      "path": "benchmarks/slag_b2/G6Deep_fold_metrics.json",
+      "sha256": "d73e0991af7754cf0bdfa15bbc0cfc2606d571dbffa27ecf2e72083df1032917",
+      "bytes": 1448
+    },
+    {
+      "path": "benchmarks/slag_b2/G6Deep_gate.json",
+      "sha256": "2793422b888a7532be551afe65f6197a947504dfd4934f41484e371bee46de54",
+      "bytes": 567
+    },
+    {
+      "path": "benchmarks/slag_b2/G6Deep_oof.csv",
+      "sha256": "ed5e58ec2d9d21aa53a2f048f5d3d655fe597ede70d411fbb3f61bca4639efe6",
+      "bytes": 13663
+    },
+    {
+      "path": "benchmarks/slag_b2/G6Deep_summary.json",
+      "sha256": "c2a042b5fc93b6325d9203126f73593aa51526e3b01333582f8d0d9c9d81a664",
+      "bytes": 785
+    },
+    {
+      "path": "training/slag_g6/g6.py",
+      "sha256": "3ef86fb53799419e41301120e5b0de59f9ebee766f19dc912db453fef558bbfb",
+      "bytes": 13324
+    },
+    {
+      "path": "training/slag_g6/g6_deep.py",
+      "sha256": "dd7d9cde591892476f08bcdd8f73f26be018ac7da358be007ad022ac8bd53602",
+      "bytes": 8324
+    },
+    {
+      "path": "training/slag_g6/g6_gate.py",
+      "sha256": "b819cf786325759b8d878432291a95346100e8aeb79e3c7df9d0c56320d08268",
+      "bytes": 2050
+    },
+    {
+      "path": "training/slag_g6/g6_report.py",
+      "sha256": "1b02dbee7dfc0644109161a713b3dac4be7c9ec73cc9df16475beb59ed552003",
+      "bytes": 3891
+    }
+  ]
+}

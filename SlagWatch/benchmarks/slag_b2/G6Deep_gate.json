@@ -1,0 +1,23 @@
+{
+  "model_comparison": "same sample paired CV only",
+  "baseline": {
+    "TP": 86,
+    "S": 160,
+    "FP": 5,
+    "B": 80,
+    "slag_recall": 0.5375,
+    "false_alarm_rate": 0.0625
+  },
+  "candidate": {
+    "TP": 49,
+    "S": 160,
+    "FP": 7,
+    "B": 80,
+    "slag_recall": 0.30625,
+    "false_alarm_rate": 0.0875
+  },
+  "research_improvement": false,
+  "aspirational_95recall_5fpr_met": false,
+  "production_approved": false,
+  "reason": "Independent casting records and an operational B-reference validation are mandatory for deployment."
+}

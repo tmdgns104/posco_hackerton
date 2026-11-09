@@ -1,0 +1,80 @@
+{
+  "config": {
+    "name": "G3-Reference-Spectral",
+    "group_folds": 4,
+    "inner_folds": 3,
+    "target_inner_fpr": 0.15,
+    "calibration_windows": 5,
+    "primary": "R36F",
+    "candidates": {
+      "R36F": "robust 36 + fine spectral 192; difference from per-heat E reference",
+      "F192": "fine spectral 192; difference from per-heat E reference"
+    },
+    "estimator": {
+      "n_estimators": 180,
+      "min_samples_leaf": 6,
+      "max_features": 0.5,
+      "class_weight": "balanced",
+      "random_state": 42,
+      "n_jobs": 2
+    },
+    "limitations": "Exploratory reuse of 16 labelled heats; group-held-out, but model variants were compared on the same dataset. Fresh heats required for independent validation."
+  },
+  "source_sha256": "1c204ce9357214782dc6bb94982841edd041a58cc8bcc45aeccf135936ea2e82",
+  "dataset": "48 records x 5 sec; 16 E/B/S triplets; E first 2.5sec is calibration input",
+  "scored_windows": 400,
+  "excluded_reference_windows": 80,
+  "outer_models": [
+    {
+      "path": "experiments/slag_g3/models/fold_0_R36F.joblib",
+      "sha256": "7530cce6e89a5877cad91af96be89abce40ff9672dacf48f4ef4f98cf2bcb20e"
+    },
+    {
+      "path": "experiments/slag_g3/models/fold_0_F192.joblib",
+      "sha256": "e443c28ba19beb0239258f94e71bd37f5d337c9e69447472d663e43e75d4a49a"
+    },
+    {
+      "path": "experiments/slag_g3/models/fold_1_R36F.joblib",
+      "sha256": "3d1f8afb3fd668fe0f0e1a7d45868d7aeb9dfa01771c1ab4840a687605be3b79"
+    },
+    {
+      "path": "experiments/slag_g3/models/fold_1_F192.joblib",
+      "sha256": "6be83f57a10920cc565ca0a6c97a1a2ce47eb156e5a89a1f70d8e2e580fbe557"
+    },
+    {
+      "path": "experiments/slag_g3/models/fold_2_R36F.joblib",
+      "sha256": "6c181f29c5ddc1512185ff2954b3cb963c6f180ddc8e387b817d8acc1424d163"
+    },
+    {
+      "path": "experiments/slag_g3/models/fold_2_F192.joblib",
+      "sha256": "e1e32800749be6b7cf977443d1e97c84a889ced84ba4f11384a3e4fe6a5c95e7"
+    },
+    {
+      "path": "experiments/slag_g3/models/fold_3_R36F.joblib",
+      "sha256": "4ea17668addbcc13e785ce5b7d0d5fe930a5aaa836efc4810f4f10d5403021b1"
+    },
+    {
+      "path": "experiments/slag_g3/models/fold_3_F192.joblib",
+      "sha256": "d5cfb73314df87743b34fd34c9a81f185990b230df0cbb522d39671de5065bc0"
+    }
+  ],
+  "full_models": [
+    {
+      "path": "experiments/slag_g3/models/full_R36F.joblib",
+      "sha256": "e36be6554e3a6a312cebfd1e886f0dc982902d1ab8c08927697463edc0cd6f4d",
+      "cut": 0.5654788124963198
+    },
+    {
+      "path": "experiments/slag_g3/models/full_F192.joblib",
+      "sha256": "4f269de4cc1bb1a72e7eebb2b5d5e1bea2a1a7b4cb3ecfb577ed89d57c9428ac",
+      "cut": 0.5644672872925884
+    }
+  ],
+  "warnings": [
+    "Development/selection dataset; not a fresh locked independent test",
+    "Full models trained on all groups; their own predictions cannot establish generalization",
+    "Reference must be a certified early slag-free phase from the SAME heat",
+    "File-level phase labels do not measure precise slag onset time",
+    "Artificial stress simulations do not establish field safety"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "name": "G3R noise-aware reference-relative spectral model",
+  "model_family": "ExtraTreesClassifier (two robust/frequency representations concatenated)",
+  "data_source": "SSFD v3 provided by user",
+  "data_manifest_sha256": "1c204ce9357214782dc6bb94982841edd041a58cc8bcc45aeccf135936ea2e82",
+  "source_segments": 48,
+  "source_occurrences": 16,
+  "scored_windows": 400,
+  "calibration_only_windows": 80,
+  "n_outer_folds": 4,
+  "n_inner_folds": 3,
+  "reference": "E, first 5x0.5s windows, confirmed slag-free same heat",
+  "default_cut": 0.5686267059642346,
+  "random_state": 42,
+  "model_files": [
+    {
+      "path": "experiments/slag_g3_aug/models/fold_0_G3R.joblib",
+      "sha256": "c4b5414a74cc86bf78903c3b9e6493d983453a0f21f77e422192bd696368912e"
+    },
+    {
+      "path": "experiments/slag_g3_aug/models/fold_1_G3R.joblib",
+      "sha256": "f9e5b09aaf485e32f010bc49957f58d321d6b82875c3ae3a25e70c6d94796029"
+    },
+    {
+      "path": "experiments/slag_g3_aug/models/fold_2_G3R.joblib",
+      "sha256": "9f60570eebfec71ecb87f5fd2f8cf83768f6e01df62a26b3b46016a1d63b196f"
+    },
+    {
+      "path": "experiments/slag_g3_aug/models/fold_3_G3R.joblib",
+      "sha256": "2ee52b5e57fecc1020e0017bc4d92d7a7b334761579dece274942763752d44d3"
+    },
+    {
+      "path": "experiments/slag_g3_aug/models/full_G3R.joblib",
+      "sha256": "57d6260091bb4ce4e11b6c23bbb5ed9686e70dbf3cb52ac52387c012c0368e9e"
+    }
+  ],
+  "pipeline": "clean + Gaussian noise (.02,.05) training augmentation; threshold inner OOF mixed clean+.05 FPR<=15%; group-held-out outer clean/stress evaluation",
+  "protocol_limits": [
+    "Early E reference is explicitly supplied, not learned from held-out label at runtime.",
+    "Grouped 16 known heats only. Model family/variants explored on this dataset; no untouched external test.",
+    "Noise_0.05 is a seen perturbation family, noise_0.08 is a severity not used in training.",
+    "File-level E/B/S labels cannot validate exact onset timing.",
+    "Fails to meet industrial-grade S recall; never authorize automatic shutdown."
+  ]
+}

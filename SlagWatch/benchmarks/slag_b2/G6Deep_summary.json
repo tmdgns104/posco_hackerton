@@ -1,0 +1,24 @@
+{
+  "protocol": "B2",
+  "architecture": "G6 contrastive residual MLP",
+  "cv_complete": true,
+  "source_dataset": "SSFD v3",
+  "n_independent_occurrences": 16,
+  "notes": [
+    "Held-out groups excluded from scaler/training/threshold fitting",
+    "Validation used for both early stopping and cutoff; no claim of final unbiased production performance",
+    "Not automatically adopted unless held-out performance beats G5/G6 ExtraTrees",
+    "Original SSFD groups have been reused through multiple G1-G6 iterations"
+  ],
+  "n": 240,
+  "n_slag": 160,
+  "n_non_slag": 80,
+  "slag_tp": 49,
+  "slag_fn": 111,
+  "non_slag_fp": 7,
+  "non_slag_tn": 73,
+  "slag_recall": 0.30625,
+  "non_slag_fpr": 0.0875,
+  "roc_auc": 0.69375,
+  "average_precision": 0.8214242114366394
+}

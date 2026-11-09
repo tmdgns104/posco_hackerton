@@ -1,0 +1,30 @@
+{
+  "release": "SteelTrust_G2_AdaptiveRedTeam",
+  "date": "2026-11-09",
+  "model_weights_changed": false,
+  "existing_sealed_experiments_modified": false,
+  "qa": {
+    "hash_checks": 82,
+    "hash_failures": 0,
+    "new_and_existing_core_tests_passed": 18,
+    "cli_surface_inference": "V0,V1,V2,G1",
+    "cli_signal_inference": "C0,C1,A1,J",
+    "joblib_structure_load": "K0,K1 and 4 original fold artifacts",
+    "browser_ui": "not tested: Streamlit unavailable in verification environment",
+    "ksdd2_accuracy": "not tested: original images/masks absent"
+  },
+  "new_or_modified_source_hashes": {
+    "app.py": "47bcc9ec415f2529a0d86c5519d6f6d09558205b8622cba7e6e58429b2885d07",
+    "app_demo.py": "15dded4b900723b23c2dad2158c3fcf97237154693b4ecde2a846341ad8f0653",
+    "start_demo.py": "61824af13a772e6e3f3ba71b0e7ed6532194de1bf5c5e32a0c9681dbeaeb2f5f",
+    "src/adaptive_ui.py": "82a34ad3490db1b534653767f9584f2ce39161bd529ec4ff9da8ce6c0d74d38d",
+    "src/adaptive_audit.py": "fb5b00962f3dc1d4c35b63899bb07c00c9615ebd273f597f38ce4c6eda7bca59",
+    "src/adaptive_redteam.py": "17869ddd3a4177e97b1486af8ca9befe0f4aae518eeda0278bf26101bf3be9df",
+    "src/adaptive_signal.py": "b3518c2933c54b62cd338f69f20911ea763cdc343737be04e149868b5d1b255e",
+    "src/adaptive_cli.py": "4a27e68db7c54b77de7397d92c71e5d5dae0035a3c3daa575277bc2c418b885e",
+    "tests/test_adaptive_redteam.py": "460d059cb366937ea74941619f1a051583c2457455e6ca4d81456bbbdea67f05",
+    "README_ADAPTIVE_REDTEAM_KO.md": "90542a8933d63727cc0e504a99177f23ff41554566a10197e3c0ed9dd7fbe5ba",
+    "MODEL_REVIEW_ADAPTIVE_KO.md": "3b5ba17c443b1b8ce4a31f84c5f5f3c9b14a7b75e17704d1617cbd1c6371dcab"
+  },
+  "python_for_qa": "3.13.5"
+}

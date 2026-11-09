@@ -1,0 +1,597 @@
+{
+  "checks": [
+    {
+      "item": "experiments/surface_v1/protocol.json",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "1e0649b1fb85416f94fa268aeeb09e55e368bb184baf3dee764c065d9aec8785",
+      "expected_sha256": "1e0649b1fb85416f94fa268aeeb09e55e368bb184baf3dee764c065d9aec8785"
+    },
+    {
+      "item": "experiments/surface_v1/split_manifest.csv",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "139bef29ba80ab6d0de0d8972cf77924aa83515ebe9f12859c02a91eb3229676",
+      "expected_sha256": "139bef29ba80ab6d0de0d8972cf77924aa83515ebe9f12859c02a91eb3229676"
+    },
+    {
+      "item": "experiments/surface_v1/duplicates.json",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "392da6147eafa3c3cfcf23a16480e81a2a04cd5601490fab311d084cd311516d",
+      "expected_sha256": "392da6147eafa3c3cfcf23a16480e81a2a04cd5601490fab311d084cd311516d"
+    },
+    {
+      "item": "experiments/surface_v1/selection.json",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "205789479fb996d6c96cb5235e8ee255c8c477c672c6be44a1e8577aac7c8fc1",
+      "expected_sha256": "205789479fb996d6c96cb5235e8ee255c8c477c672c6be44a1e8577aac7c8fc1"
+    },
+    {
+      "item": "experiments/surface_v1/test_status.json",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "5fa9884c5f9431ec5ae5e9bde976b84634ccd5ecf8100750d332060994dac7f0",
+      "expected_sha256": "5fa9884c5f9431ec5ae5e9bde976b84634ccd5ecf8100750d332060994dac7f0"
+    },
+    {
+      "item": "experiments/surface_v1/validation_discoveries.csv.gz",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "71ada0c87e7f4a4e1b35a2a9e13ac1efca97c78dda16a5bc025e4913ed75b443",
+      "expected_sha256": "71ada0c87e7f4a4e1b35a2a9e13ac1efca97c78dda16a5bc025e4913ed75b443"
+    },
+    {
+      "item": "experiments/surface_v1/validation_discovered_inputs.zip",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "e79c002d4e6ab90d8334a3524f838f5f619d1d6479f65695fea48fcf936ecd50",
+      "expected_sha256": "e79c002d4e6ab90d8334a3524f838f5f619d1d6479f65695fea48fcf936ecd50"
+    },
+    {
+      "item": "experiments/surface_v1/validation_predictions.csv.gz",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "d08490c6b1d567953e949af8a13f72c22e3fc63fc8bd99c5ee349eeb8ec67e63",
+      "expected_sha256": "d08490c6b1d567953e949af8a13f72c22e3fc63fc8bd99c5ee349eeb8ec67e63"
+    },
+    {
+      "item": "experiments/surface_v1/validation_pairs.csv.gz",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "46f9f5f6581a034d2493ae0971ad4040d4f5b5e740373d106e1418660e3be97e",
+      "expected_sha256": "46f9f5f6581a034d2493ae0971ad4040d4f5b5e740373d106e1418660e3be97e"
+    },
+    {
+      "item": "experiments/surface_v1/validation_summary.csv",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "f8c56659417748d10ded7fe4f75f2abf51b7a0a955bdc337de27d108aaa3d43b",
+      "expected_sha256": "f8c56659417748d10ded7fe4f75f2abf51b7a0a955bdc337de27d108aaa3d43b"
+    },
+    {
+      "item": "experiments/surface_v1/validation_classes.csv",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "ce38a62d0c05ee6927dfde428aacbd82e41cdf118fbaa2e22de5167a53a713af",
+      "expected_sha256": "ce38a62d0c05ee6927dfde428aacbd82e41cdf118fbaa2e22de5167a53a713af"
+    },
+    {
+      "item": "experiments/surface_v1/validation_confusion.csv",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "f07c169a7e13ecdc08e2e8e8f3eb3762781743915da23b28f1c8be10672bd808",
+      "expected_sha256": "f07c169a7e13ecdc08e2e8e8f3eb3762781743915da23b28f1c8be10672bd808"
+    },
+    {
+      "item": "experiments/surface_v1/validation_changes.csv",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "bde59c680a06dc18f32879d5e88499d7e03a30063a09817befc1c3c5ece2a889",
+      "expected_sha256": "bde59c680a06dc18f32879d5e88499d7e03a30063a09817befc1c3c5ece2a889"
+    },
+    {
+      "item": "experiments/surface_v1/models/V0.joblib",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "ded86c7e929eff9aed8c1b78a9e784fffa08b87f06cfb68478894c040eb9eb3f",
+      "expected_sha256": "ded86c7e929eff9aed8c1b78a9e784fffa08b87f06cfb68478894c040eb9eb3f"
+    },
+    {
+      "item": "experiments/surface_v1/models/V1.joblib",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "72d02bae5610e63f0e02b9e656a8c2e2398a294ab2133a4ff5dde503361de877",
+      "expected_sha256": "72d02bae5610e63f0e02b9e656a8c2e2398a294ab2133a4ff5dde503361de877"
+    },
+    {
+      "item": "experiments/surface_v1/models/V2.joblib",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "a8b2fb7b9b768d203eba62b24dd8d82ff712f3b6cdc79d8659115e5cc8d5e7d2",
+      "expected_sha256": "a8b2fb7b9b768d203eba62b24dd8d82ff712f3b6cdc79d8659115e5cc8d5e7d2"
+    },
+    {
+      "item": "experiments/surface_v1/validation_by_parent.csv",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "3b4d199e4d5765e483404d7296107d11bcd410384b3a0de6e8e65d3cb64a1550",
+      "expected_sha256": "3b4d199e4d5765e483404d7296107d11bcd410384b3a0de6e8e65d3cb64a1550"
+    },
+    {
+      "item": "src/surface_data.py",
+      "description": "sealed source code",
+      "status": "pass",
+      "actual_sha256": "ebf75645aea994ae19049e00431ac2319c1b04153ca794b4c71a5b6a9b09ac5d",
+      "expected_sha256": "ebf75645aea994ae19049e00431ac2319c1b04153ca794b4c71a5b6a9b09ac5d"
+    },
+    {
+      "item": "src/surface_detector.py",
+      "description": "sealed source code",
+      "status": "pass",
+      "actual_sha256": "0811d2cc4f909e2a4d2e10b46d9cc93c02a444270fa17376bd7a4504d95577c8",
+      "expected_sha256": "0811d2cc4f909e2a4d2e10b46d9cc93c02a444270fa17376bd7a4504d95577c8"
+    },
+    {
+      "item": "src/surface_study.py",
+      "description": "sealed source code",
+      "status": "pass",
+      "actual_sha256": "9111065e42498f6ddf949ea06f4e080c9b4c10c3fadc3861d9ce6825161e671c",
+      "expected_sha256": "9111065e42498f6ddf949ea06f4e080c9b4c10c3fadc3861d9ce6825161e671c"
+    },
+    {
+      "item": "experiments/surface_g1/baseline_inventory.json",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "4c5dbb73de4063d4bbffcbe8fd51fbfd961dc20bfd8b8ae909f38b6bb91101a8",
+      "expected_sha256": "4c5dbb73de4063d4bbffcbe8fd51fbfd961dc20bfd8b8ae909f38b6bb91101a8"
+    },
+    {
+      "item": "experiments/surface_g1/protocol.json",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "fb7d571e6435a7e85de900c799e7fe35c8a065e0ce1631d5fcc512c06cc492c8",
+      "expected_sha256": "fb7d571e6435a7e85de900c799e7fe35c8a065e0ce1631d5fcc512c06cc492c8"
+    },
+    {
+      "item": "experiments/surface_g1/failure_conditions.json",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "60deb4b711f1e7bf672b8c753557df9eda8c5d254d9298ca11b407b86a7b83e6",
+      "expected_sha256": "60deb4b711f1e7bf672b8c753557df9eda8c5d254d9298ca11b407b86a7b83e6"
+    },
+    {
+      "item": "experiments/surface_g1/train_views.csv",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "7288f9e520c17008993d0d72438fe068eca49b1072836667c20f8a56cab3c7f1",
+      "expected_sha256": "7288f9e520c17008993d0d72438fe068eca49b1072836667c20f8a56cab3c7f1"
+    },
+    {
+      "item": "experiments/surface_g1/G1.joblib",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "784fd14c0be553c3e970f755eef07b2676b63fe453a570ecf2501ae9b2597d9d",
+      "expected_sha256": "784fd14c0be553c3e970f755eef07b2676b63fe453a570ecf2501ae9b2597d9d"
+    },
+    {
+      "item": "experiments/surface_g1/selection.json",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "d5b32f61d5c55cd5ceaa95c4525ffeb99523821b8bd10ff19e5a774c9e0dada5",
+      "expected_sha256": "d5b32f61d5c55cd5ceaa95c4525ffeb99523821b8bd10ff19e5a774c9e0dada5"
+    },
+    {
+      "item": "experiments/surface_g1/test_status.json",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "cf596870b6e6d54a792449605319e28cd79957fc2cd4646fe76ca601d464b442",
+      "expected_sha256": "cf596870b6e6d54a792449605319e28cd79957fc2cd4646fe76ca601d464b442"
+    },
+    {
+      "item": "experiments/surface_g1/validation_predictions.csv.gz",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "d0b2fdd7376936feb76600b443441af6d7984cc4b13e26ca610665657475f898",
+      "expected_sha256": "d0b2fdd7376936feb76600b443441af6d7984cc4b13e26ca610665657475f898"
+    },
+    {
+      "item": "experiments/surface_g1/validation_pairs.csv.gz",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "0c0f529c762d7e852708a6f701abfd9d5c2ab1e2972c08663c8cf91f1d4b7f0c",
+      "expected_sha256": "0c0f529c762d7e852708a6f701abfd9d5c2ab1e2972c08663c8cf91f1d4b7f0c"
+    },
+    {
+      "item": "experiments/surface_g1/validation_summary.csv",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "acc4c85cacdd43e8d36cc98dfd65802b95b48e984956aa37b9e87465db228155",
+      "expected_sha256": "acc4c85cacdd43e8d36cc98dfd65802b95b48e984956aa37b9e87465db228155"
+    },
+    {
+      "item": "experiments/surface_g1/validation_classes.csv",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "c6f04d2276f33062e4ebdab824026e3a9dcb4bc9afa97d28e8bd3c970e28da2c",
+      "expected_sha256": "c6f04d2276f33062e4ebdab824026e3a9dcb4bc9afa97d28e8bd3c970e28da2c"
+    },
+    {
+      "item": "experiments/surface_g1/validation_confusion.csv",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "125970ae42f77bfa24161ee74a0af85ce469ed7ebcf8b49761899146293ac143",
+      "expected_sha256": "125970ae42f77bfa24161ee74a0af85ce469ed7ebcf8b49761899146293ac143"
+    },
+    {
+      "item": "experiments/surface_g1/validation_changes.csv",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "1bea0b86839b5c9d7f0a0631cd304bd4cb216fa2d688c44fee960f2ba2d2b5b6",
+      "expected_sha256": "1bea0b86839b5c9d7f0a0631cd304bd4cb216fa2d688c44fee960f2ba2d2b5b6"
+    },
+    {
+      "item": "experiments/surface_g1/validation_by_parent.csv",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "9ce5e5bddcd5d01ea9de7d79d31c66d00e43641e7a864df690691201df9f9751",
+      "expected_sha256": "9ce5e5bddcd5d01ea9de7d79d31c66d00e43641e7a864df690691201df9f9751"
+    },
+    {
+      "item": "experiments/surface_g1/test_predictions.csv.gz",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "852080aa33a6888c4f04b17e529c3845063183500ed9f6e837e7c0dd46a3860c",
+      "expected_sha256": "852080aa33a6888c4f04b17e529c3845063183500ed9f6e837e7c0dd46a3860c"
+    },
+    {
+      "item": "experiments/surface_g1/test_pairs.csv.gz",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "1be6f9b097999d5baa1c3bdacff907853aa563a4d00b0080daf332a3b0b3f0f1",
+      "expected_sha256": "1be6f9b097999d5baa1c3bdacff907853aa563a4d00b0080daf332a3b0b3f0f1"
+    },
+    {
+      "item": "experiments/surface_g1/test_summary.csv",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "f7e0c9e2c1e8eb1bbcb1352679b7fde6b1dd508fecdba18feb1e77534958c2f1",
+      "expected_sha256": "f7e0c9e2c1e8eb1bbcb1352679b7fde6b1dd508fecdba18feb1e77534958c2f1"
+    },
+    {
+      "item": "experiments/surface_g1/test_classes.csv",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "93b0d9c1f341c347a1d18b6126d85aa787ea8b054e4a28859f04dfbf826ea667",
+      "expected_sha256": "93b0d9c1f341c347a1d18b6126d85aa787ea8b054e4a28859f04dfbf826ea667"
+    },
+    {
+      "item": "experiments/surface_g1/test_confusion.csv",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "b6fd257c1a4b0a29b1f68d7e7870eeb83a02747729505accf3a51a3f0056b2e3",
+      "expected_sha256": "b6fd257c1a4b0a29b1f68d7e7870eeb83a02747729505accf3a51a3f0056b2e3"
+    },
+    {
+      "item": "experiments/surface_g1/test_changes.csv",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "dcec3457ab3eb2213f4191ae240b1d10087a0a6c58c319926a0dbe59b75fc8e7",
+      "expected_sha256": "dcec3457ab3eb2213f4191ae240b1d10087a0a6c58c319926a0dbe59b75fc8e7"
+    },
+    {
+      "item": "experiments/surface_g1/test_by_parent.csv",
+      "description": "sealed experiment artifact",
+      "status": "pass",
+      "actual_sha256": "bb0e69818cf279ab6d68d28ff985f1e1cfe8acd9dcbbe0759350abf0b23a41f4",
+      "expected_sha256": "bb0e69818cf279ab6d68d28ff985f1e1cfe8acd9dcbbe0759350abf0b23a41f4"
+    },
+    {
+      "item": "src/surface_data.py",
+      "description": "sealed source code",
+      "status": "pass",
+      "actual_sha256": "ebf75645aea994ae19049e00431ac2319c1b04153ca794b4c71a5b6a9b09ac5d",
+      "expected_sha256": "ebf75645aea994ae19049e00431ac2319c1b04153ca794b4c71a5b6a9b09ac5d"
+    },
+    {
+      "item": "src/surface_detector.py",
+      "description": "sealed source code",
+      "status": "pass",
+      "actual_sha256": "0811d2cc4f909e2a4d2e10b46d9cc93c02a444270fa17376bd7a4504d95577c8",
+      "expected_sha256": "0811d2cc4f909e2a4d2e10b46d9cc93c02a444270fa17376bd7a4504d95577c8"
+    },
+    {
+      "item": "src/surface_study.py",
+      "description": "sealed source code",
+      "status": "pass",
+      "actual_sha256": "9111065e42498f6ddf949ea06f4e080c9b4c10c3fadc3861d9ce6825161e671c",
+      "expected_sha256": "9111065e42498f6ddf949ea06f4e080c9b4c10c3fadc3861d9ce6825161e671c"
+    },
+    {
+      "item": "src/surface_g1.py",
+      "description": "sealed source code",
+      "status": "pass",
+      "actual_sha256": "d9736efcf6131affe2a6122d8815c30d571d1d41ccfd925786d546cc7af421c1",
+      "expected_sha256": "d9736efcf6131affe2a6122d8815c30d571d1d41ccfd925786d546cc7af421c1"
+    },
+    {
+      "item": "src/surface_g1_study.py",
+      "description": "sealed source code",
+      "status": "pass",
+      "actual_sha256": "85873851481302bd210bc7b6244600a4f32529fb1f840cdbd08aa600c9de2d6a",
+      "expected_sha256": "85873851481302bd210bc7b6244600a4f32529fb1f840cdbd08aa600c9de2d6a"
+    },
+    {
+      "item": "src/surface_replay.py",
+      "description": "sealed source code",
+      "status": "pass",
+      "actual_sha256": "9da94170f94550f7ea89b317e692fa5fb6393448a835dc29c01063453e5af8c6",
+      "expected_sha256": "9da94170f94550f7ea89b317e692fa5fb6393448a835dc29c01063453e5af8c6"
+    },
+    {
+      "item": "src/surface_g1_replay.py",
+      "description": "sealed source code",
+      "status": "pass",
+      "actual_sha256": "289f479200bb4b58791c7d4aaa0f3cdc5a0a84024dd997770312f79265a9d7eb",
+      "expected_sha256": "289f479200bb4b58791c7d4aaa0f3cdc5a0a84024dd997770312f79265a9d7eb"
+    },
+    {
+      "item": "src/surface_ui.py",
+      "description": "sealed source code",
+      "status": "pass",
+      "actual_sha256": "34bfe31fa7e71dea16859fe45850144e7399c99ee5d84aafb582b258f61a5ac9",
+      "expected_sha256": "34bfe31fa7e71dea16859fe45850144e7399c99ee5d84aafb582b258f61a5ac9"
+    },
+    {
+      "item": "src/surface_g1_ui.py",
+      "description": "sealed source code",
+      "status": "pass",
+      "actual_sha256": "8f3ce5b86257bc8463a0bb329105c475552cd66554d1a1a17ffec1de9c6a979c",
+      "expected_sha256": "8f3ce5b86257bc8463a0bb329105c475552cd66554d1a1a17ffec1de9c6a979c"
+    },
+    {
+      "item": "experiments/surface_v1/models/resnet18-f37072fd.pth",
+      "description": "frozen encoder",
+      "status": "pass",
+      "actual_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+      "expected_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec"
+    },
+    {
+      "item": "experiments/cnn_v1/protocol.json",
+      "description": "",
+      "status": "pass",
+      "actual_sha256": "d2ad627deba491be2c506b2d38cdb25ee5264ae96f16e9e873561b5a092767c8",
+      "expected_sha256": "d2ad627deba491be2c506b2d38cdb25ee5264ae96f16e9e873561b5a092767c8"
+    },
+    {
+      "item": "experiments/cnn_v1/models/0_C0.pt",
+      "description": "CNN fold model",
+      "status": "pass",
+      "actual_sha256": "fe36894d0575ec227556c0c2429d631404f0b9347336d2cd7b74639978240738",
+      "expected_sha256": "fe36894d0575ec227556c0c2429d631404f0b9347336d2cd7b74639978240738"
+    },
+    {
+      "item": "experiments/cnn_v1/models/0_C1.pt",
+      "description": "CNN fold model",
+      "status": "pass",
+      "actual_sha256": "435d5d5d243fcac3d2e6fd6e5d27d8285801e3ef7ccd246a2d1db02e580774fb",
+      "expected_sha256": "435d5d5d243fcac3d2e6fd6e5d27d8285801e3ef7ccd246a2d1db02e580774fb"
+    },
+    {
+      "item": "experiments/cnn_v1/models/1_C0.pt",
+      "description": "CNN fold model",
+      "status": "pass",
+      "actual_sha256": "9a9346a9d7179626ca85c94458b644c7c6aa2c7f60c87224e8db43594c68804b",
+      "expected_sha256": "9a9346a9d7179626ca85c94458b644c7c6aa2c7f60c87224e8db43594c68804b"
+    },
+    {
+      "item": "experiments/cnn_v1/models/1_C1.pt",
+      "description": "CNN fold model",
+      "status": "pass",
+      "actual_sha256": "a09249bc74d25ddf11d523c50f96d2e202a97311dc724289e5d37dc58fa50b5b",
+      "expected_sha256": "a09249bc74d25ddf11d523c50f96d2e202a97311dc724289e5d37dc58fa50b5b"
+    },
+    {
+      "item": "experiments/cnn_v1/models/2_C0.pt",
+      "description": "CNN fold model",
+      "status": "pass",
+      "actual_sha256": "9a95840c661d8eb3a4064dd0f22beedeae6d7cd64c9ac82ef2fddaadda32a460",
+      "expected_sha256": "9a95840c661d8eb3a4064dd0f22beedeae6d7cd64c9ac82ef2fddaadda32a460"
+    },
+    {
+      "item": "experiments/cnn_v1/models/2_C1.pt",
+      "description": "CNN fold model",
+      "status": "pass",
+      "actual_sha256": "362269b6c23174893927d410a0c8d0849c38d7e4cbd6ca68e338ab9ef18a2862",
+      "expected_sha256": "362269b6c23174893927d410a0c8d0849c38d7e4cbd6ca68e338ab9ef18a2862"
+    },
+    {
+      "item": "experiments/cnn_v1/models/3_C0.pt",
+      "description": "CNN fold model",
+      "status": "pass",
+      "actual_sha256": "f6e963bd4e2ca378be398c21934f7fb5f9130043697bc2ddb0fbbca3fedfb94b",
+      "expected_sha256": "f6e963bd4e2ca378be398c21934f7fb5f9130043697bc2ddb0fbbca3fedfb94b"
+    },
+    {
+      "item": "experiments/cnn_v1/models/3_C1.pt",
+      "description": "CNN fold model",
+      "status": "pass",
+      "actual_sha256": "6b3023b850d2e0b456330e9d911c89d7722f34a80b1f7abaea205811bca81c1e",
+      "expected_sha256": "6b3023b850d2e0b456330e9d911c89d7722f34a80b1f7abaea205811bca81c1e"
+    },
+    {
+      "item": "experiments/cnn_v1/models/full_C0.pt",
+      "description": "CNN fold model",
+      "status": "pass",
+      "actual_sha256": "a41e798bece5b659e5ea9f8448d9acd63fa44d5274dd3d3b8202b53a7a742987",
+      "expected_sha256": "a41e798bece5b659e5ea9f8448d9acd63fa44d5274dd3d3b8202b53a7a742987"
+    },
+    {
+      "item": "experiments/cnn_v1/models/full_C1.pt",
+      "description": "CNN fold model",
+      "status": "pass",
+      "actual_sha256": "df09f217a94d415cea32901eee84a016307b97a76444de1c169ce6eabc1c53ce",
+      "expected_sha256": "df09f217a94d415cea32901eee84a016307b97a76444de1c169ce6eabc1c53ce"
+    },
+    {
+      "item": "experiments/cnn_v1/predictions.csv",
+      "description": "",
+      "status": "pass",
+      "actual_sha256": "ce93d6447a22f93584f43af9d07bfe651bb57a358262a825384db2ba966e5272",
+      "expected_sha256": "ce93d6447a22f93584f43af9d07bfe651bb57a358262a825384db2ba966e5272"
+    },
+    {
+      "item": "experiments/cnn_v1/pair_summary.csv",
+      "description": "",
+      "status": "pass",
+      "actual_sha256": "856ebca7b6e1b68b15823493b441e833fc189f8abbd112373c37798d8a253f91",
+      "expected_sha256": "856ebca7b6e1b68b15823493b441e833fc189f8abbd112373c37798d8a253f91"
+    },
+    {
+      "item": "experiments/cnn_v1/summary.csv",
+      "description": "",
+      "status": "pass",
+      "actual_sha256": "0203d8211038c359ab5cec11247a2b8b6c39ad2d97ae9cef82729b17c1c9d8f8",
+      "expected_sha256": "0203d8211038c359ab5cec11247a2b8b6c39ad2d97ae9cef82729b17c1c9d8f8"
+    },
+    {
+      "item": "experiments/cnn_v1/changes.csv",
+      "description": "",
+      "status": "pass",
+      "actual_sha256": "26dde393e68af1613c6f5d143aad292989890424f191cdbbc135524701caa46e",
+      "expected_sha256": "26dde393e68af1613c6f5d143aad292989890424f191cdbbc135524701caa46e"
+    },
+    {
+      "item": "experiments/cnn_v1/verdict.json",
+      "description": "",
+      "status": "pass",
+      "actual_sha256": "745eca67985bc60b9fb006f6dfc79c3f55ca23aa2ad4fd92cab7f565586daab5",
+      "expected_sha256": "745eca67985bc60b9fb006f6dfc79c3f55ca23aa2ad4fd92cab7f565586daab5"
+    },
+    {
+      "item": "experiments/inspection_binary/protocol.json",
+      "description": "KSDD2 experimental record",
+      "status": "pass",
+      "actual_sha256": "ac90a2b313631dfa50a4d889e0bab29e0197f9b33d96d6c903b25400a2765ed0",
+      "expected_sha256": "ac90a2b313631dfa50a4d889e0bab29e0197f9b33d96d6c903b25400a2765ed0"
+    },
+    {
+      "item": "experiments/inspection_binary/protocol_receipt.json",
+      "description": "KSDD2 experimental record",
+      "status": "pass",
+      "actual_sha256": "ff14d17a051a30c262b6f168c84d8138ba301554e4d08feb94f8ca209fbb580f",
+      "expected_sha256": "ff14d17a051a30c262b6f168c84d8138ba301554e4d08feb94f8ca209fbb580f"
+    },
+    {
+      "item": "experiments/inspection_binary/hypothesis.json",
+      "description": "KSDD2 experimental record",
+      "status": "pass",
+      "actual_sha256": "7c371f1a4fb3260da956df7029b80456d5849bf105c337c42e6084ff05128b43",
+      "expected_sha256": "7c371f1a4fb3260da956df7029b80456d5849bf105c337c42e6084ff05128b43"
+    },
+    {
+      "item": "experiments/inspection_binary/models/K0.joblib",
+      "description": "KSDD2 experimental record",
+      "status": "pass",
+      "actual_sha256": "837e82f23d5c77a4cddea97b6b2b07ff1274b13127cd396974ace0c450efb618",
+      "expected_sha256": "837e82f23d5c77a4cddea97b6b2b07ff1274b13127cd396974ace0c450efb618"
+    },
+    {
+      "item": "experiments/inspection_binary/models/K1.joblib",
+      "description": "KSDD2 experimental record",
+      "status": "pass",
+      "actual_sha256": "615eb79b9b3490d33d21d21da8f0de4fcddfbeb08d2454818cef5d50df722fc7",
+      "expected_sha256": "615eb79b9b3490d33d21d21da8f0de4fcddfbeb08d2454818cef5d50df722fc7"
+    },
+    {
+      "item": "experiments/inspection_binary/K0_study.json",
+      "description": "KSDD2 experimental record",
+      "status": "pass",
+      "actual_sha256": "005cb4a74f24e01b1a0112ede9307b420faada5f36c9fd2085a261aaae09ddb3",
+      "expected_sha256": "005cb4a74f24e01b1a0112ede9307b420faada5f36c9fd2085a261aaae09ddb3"
+    },
+    {
+      "item": "experiments/inspection_binary/K1_study.json",
+      "description": "KSDD2 experimental record",
+      "status": "pass",
+      "actual_sha256": "f39d499b28d550617f3db8dd5156054e8a615dcf99acff8b95b8e9f4f9b286e7",
+      "expected_sha256": "f39d499b28d550617f3db8dd5156054e8a615dcf99acff8b95b8e9f4f9b286e7"
+    },
+    {
+      "item": "experiments/inspection_binary/K0_validation_diagnostics.csv",
+      "description": "KSDD2 experimental record",
+      "status": "pass",
+      "actual_sha256": "89a3ab6a27a80e4dd837a9607b075ecf948289af9931811cab0de231c1339f0b",
+      "expected_sha256": "89a3ab6a27a80e4dd837a9607b075ecf948289af9931811cab0de231c1339f0b"
+    },
+    {
+      "item": "experiments/inspection_binary/K1_validation_diagnostics.csv",
+      "description": "KSDD2 experimental record",
+      "status": "pass",
+      "actual_sha256": "7c0e0c7aed6a79b987023624cc847f79d94aecb7a6268d738d08ca2c94249022",
+      "expected_sha256": "7c0e0c7aed6a79b987023624cc847f79d94aecb7a6268d738d08ca2c94249022"
+    },
+    {
+      "item": "experiments/inspection_binary/study.py",
+      "description": "KSDD2 experimental record",
+      "status": "pass",
+      "actual_sha256": "f8c1eada8e7a23d02d89b358be9b3c3aadb0547bb027298344b71066e64d5f58",
+      "expected_sha256": "f8c1eada8e7a23d02d89b358be9b3c3aadb0547bb027298344b71066e64d5f58"
+    },
+    {
+      "item": "experiments/surface_v1/models/resnet18-f37072fd.pth",
+      "description": "",
+      "status": "pass",
+      "actual_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+      "expected_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec"
+    },
+    {
+      "item": "artifacts/fold_0.joblib",
+      "description": "legacy per-fold SSFD checkpoint, no original digest commitment",
+      "status": "pass",
+      "actual_sha256": "84ca18153bf25f59092ab0ba9b637d8af8cdd8e5678d15173ce53676070dc86d",
+      "expected_sha256": null
+    },
+    {
+      "item": "artifacts/fold_1.joblib",
+      "description": "legacy per-fold SSFD checkpoint, no original digest commitment",
+      "status": "pass",
+      "actual_sha256": "aaf962d6a96eb60e03013c40a98d6c5760b4237351b280064eacfd12cfbf1038",
+      "expected_sha256": null
+    },
+    {
+      "item": "artifacts/fold_2.joblib",
+      "description": "legacy per-fold SSFD checkpoint, no original digest commitment",
+      "status": "pass",
+      "actual_sha256": "fd7397e4691abd9a4a3d3b5984e8b2ba0cf0b26aceecb1f80895414b121fd536",
+      "expected_sha256": null
+    },
+    {
+      "item": "artifacts/fold_3.joblib",
+      "description": "legacy per-fold SSFD checkpoint, no original digest commitment",
+      "status": "pass",
+      "actual_sha256": "7d3a2d5435a9dd00a441da8fb4abaa4fe15cc4f723611be9e98ca8b1439e25d7",
+      "expected_sha256": null
+    }
+  ],
+  "n_checked": 82,
+  "n_failed": 0,
+  "model_adoption": {
+    "G1": true,
+    "V1": false,
+    "V2": false,
+    "K1": false,
+    "C0": false,
+    "C1": false
+  },
+  "important_notes": [
+    "K1 failed validation selection; increased defect misses despite fewer false positives.",
+    "G1 passed existing predefined gates; it did not improve clean-image accuracy.",
+    "V1 and V2 were not selected; CNN C0 and C1 did not satisfy the original gates.",
+    "K0/K1 official source images/masks are not included; cannot independently infer their validation set.",
+    "NEU-CLS contains only defective classes; do not treat it as a normal/defect detector.",
+    "Adaptive search uses validation-only images. Its discovery score is not an independent test score.",
+    "Legacy fold artifacts have no signed original checksum commitment; hashes recorded for reference only."
+  ]
+}

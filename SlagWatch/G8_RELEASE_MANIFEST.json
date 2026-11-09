@@ -1,0 +1,33 @@
+{
+  "release": "SteelTrust G8 simplified fusion",
+  "base": "SteelTrust G7 integrated full",
+  "built_from": "user-provided SteelTrust_G7_Integrated_Full.zip",
+  "github_basis": "public raw GitHub dohyeon source, not full fetched repo",
+  "patch_files": {
+    "app_easy.py": "fd838ab6d4c9d5ff9825bffdd7820a29098da38950406ad4a99fb4203ade8996",
+    "src/g8_core.py": "0958ae68acfeaf924c226c6674f089680381e51fa24663b1374e4181caf5be84",
+    "src/g8_easy.py": "2219d5e941e7f82e0bd61bb80c00cd97918add1e77a18c527dd474740dd71f42",
+    "tests/test_g8_easy_core.py": "06b99c7e9922abef0161c0b4f951abdac93862c418b2ae2ce5c05365b2030e48",
+    "START_WINDOWS.cmd": "c273d8677cdc62f182f0a2ff12983747496ffb672c8bee9cdeb6b84ca98a8c59",
+    "START_G8_WINDOWS.cmd": "d7b9a4ca81e7364948f56a25ca48f9b3ae561d5550a0b46bebf3067984f06045",
+    "START_G7_LEGACY_WINDOWS.cmd": "5a89d002fea125a12ea707511a67175d431bb5a0e6a504763761b8478f062e93",
+    "SETUP_G8_PY312_WINDOWS.cmd": "0db529fd75d9c7ffa341ba87f0c75334379d64d012c9450d495d603298ddcf76",
+    "CHECK_G8_WINDOWS.cmd": "a73dc61292ac94783457d5a8d0150eb7c5e7190b2cae6fb04dc403f9671e968b",
+    "requirements_g8.txt": "08f0416e3a5c5d379f5ab404ba8101353ebddacb2f0cfc3c53e69fe5fe5ee4c3",
+    ".streamlit/credentials.toml": "a9abd548c7768c5dfedd44042e5e583f796c93918dda2d926cbff53a72eb449b",
+    "README_G8_KO.md": "8d2704f4c7d6deaab7843149a7ba9322fbb111d13bd42f56858bf88d4dba6e15",
+    "G8_GITHUB_COMPARISON.md": "4275861154ea8ecc7fdcaaecb5265cd3d8aa1742a34a81897f6a8950fa6aafc3",
+    "G8_RELEASE_NOTES_KO.md": "8458d802880d7c969c393f65ebe1dd2a66135c3189f2c6abbaa6b9a8cbe67e30"
+  },
+  "tests": {
+    "g8_core_tests": 6,
+    "core_regression_tests_including_g8": 25,
+    "sealed_checks": 82,
+    "sealed_failures": 0
+  },
+  "limitations": [
+    "Streamlit browser not tested locally",
+    "GitHub branch whole tree not fetched",
+    "KSDD2 images absent in G7 base"
+  ]
+}

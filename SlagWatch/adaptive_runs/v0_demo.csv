@@ -1,0 +1,7 @@
+sample_id,model_id,label,strategy,budget,failures,first_failure_trial,minimum_failure_rmse,best_failure_trial
+Cr_1,V0,crazing,random,12,4,7.0,0.05655921623110771,8.0
+Cr_1,V0,crazing,adaptive,12,5,8.0,0.08478808403015137,9.0
+In_1,V0,inclusion,random,12,1,5.0,0.0866156667470932,5.0
+In_1,V0,inclusion,adaptive,12,5,5.0,0.07215161621570587,12.0
+Pa_10,V0,patches,random,12,0,,,
+Pa_10,V0,patches,adaptive,12,2,11.0,0.1108422800898552,11.0

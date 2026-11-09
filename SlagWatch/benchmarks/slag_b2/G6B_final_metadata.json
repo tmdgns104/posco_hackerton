@@ -1,0 +1,30 @@
+{
+  "threshold": 0.7085592185592187,
+  "fs": 6400,
+  "width": 3200,
+  "ref_len": 16000,
+  "features": 75,
+  "name": "G6B_refspec_v1",
+  "data_sha256": "6055653436f9c728cc8c763f21da46f3462df34914befce125de5b71cd570328",
+  "training_groups": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "target_validation_fpr": 0.1,
+  "known_B_reference_required": true,
+  "warning": "Research only: model fit on all 16 SSFD occurrences, no independent deployment test."
+}

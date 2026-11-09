@@ -1,0 +1,16 @@
+{
+  "release": "G8.2 Model Matrix",
+  "base": "G8.1 Dohyeon Style",
+  "modified_files": {
+    "src/g8_easy.py": "5fa8935d44f141a91414edda931deeab81fa381ef878df296b77a386ba527da3",
+    "src/g8_model_matrix_ui.py": "dd33daf7a1431bcee0614c12f8c669226c741107f034c6dcfb91a4f140927ed2",
+    "src/g8_catalog.py": "a1016b9a09b733416318ad6b60c8667da743dc2595a13c9d5883d5e9247dc1af",
+    "tests/test_g8_catalog.py": "46205e36a1c089eb5e86c30910ba8df56e9d2b9a2ebd010832a2efadb673e3d6",
+    "tests/test_g8_model_matrix_ui.py": "9fe579c36d961c34fdb3291d6dcdd68009fb28e323fc3286333b01fe33c4b0eb",
+    "CHECK_G8_WINDOWS.cmd": "c8d6fe6ed516170c8d69b69ac8feafd7f39ac606cfdea709f86237d7f1eaac77",
+    "README_G8_2_MODEL_MATRIX_KO.md": "7f5a86cf42ac807cb0eb2665f9be381f109dd71e1b000b71a7445c5c532e88a8",
+    "G8_2_RELEASE_NOTES_KO.md": "5d4e8d2a26f741cf3de8cd0598d0329b1b3333e4cb33b9bb6e3ea23a7dbee430"
+  },
+  "unmodified_models": true,
+  "notes": "No historical source or model checkpoint has been rewritten"
+}

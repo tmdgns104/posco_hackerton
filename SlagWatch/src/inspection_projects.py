@@ -113,12 +113,14 @@ class InspectionProject:
 
     @cached_property
     def models(self):
+        from .model_contract import ImageModelAdapter
         if self.kind == "binary":
             from .inspection_model import load_binary
-            return {name:load_binary(name) for name in ("K0","K1")}
+            return {name:ImageModelAdapter(load_binary(name), name, self.classes, self.kind) for name in ("K0","K1")}
         from .surface_g1_replay import G1Run
         frozen = G1Run(DEFAULT_G1)
-        return {name:SurfaceAdapter(frozen.detector(name)) for name in ("V0","G1")}
+        return {name:ImageModelAdapter(SurfaceAdapter(frozen.detector(name)), name, self.classes, self.kind)
+                for name in ("V0","G1")}
 
     def available_splits(self):
         if self.official and self.kind=="binary" and (BINARY/"test_access.json").is_file():

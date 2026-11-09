@@ -4,7 +4,7 @@ gatherUsageStats = false
 address = "127.0.0.1"
 [theme]
 base = "light"
-primaryColor = "#18736e"
-backgroundColor = "#f5f7f8"
-secondaryBackgroundColor = "#ffffff"
-textColor = "#182d42"
+primaryColor = "#7856F7"
+backgroundColor = "#F6F7FC"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#1F2937"

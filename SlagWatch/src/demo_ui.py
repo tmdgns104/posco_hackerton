@@ -217,13 +217,14 @@ def overall(run, split):
     st.write(f"잡음 9조건 평균 macro F1은 **{noise['V0_f1']:.4f} → {noise['G1_f1']:.4f}**, "
              f"원본은 **{clean.V0_f1:.4f} → {clean.G1_f1:.4f}**입니다.")
     chart = go.Figure()
-    for model,color in (("V0","#536c83"),("G1","#18736e")):
+    for model,color in (("V0","#60bfff"),("G1","#f5ae50")):
         vals = table[model+"_f1"].tolist()
         chart.add_bar(name=MODELS[model],x=table["입력"].tolist(),y=vals,marker_color=color,
                       hovertemplate="%{x} · %{y:.4f}<extra>%{fullData.name}</extra>")
     chart.update_layout(barmode="group",yaxis={"range":[0,1],"dtick":.25,"title":"macro F1","fixedrange":True},
                         xaxis={"fixedrange":True},legend={"orientation":"h","y":1.13},height=285,
-                        margin={"l":35,"r":10,"t":40,"b":25},bargap=.35,plot_bgcolor="white",paper_bgcolor="white")
+                        margin={"l":35,"r":10,"t":40,"b":25},bargap=.35,plot_bgcolor="#111f38",
+                        paper_bgcolor="#111f38",font={"color":"#e7eefb"})
     st.plotly_chart(chart,key=f"f1_{run.id}_{split}",width="stretch",config={"displayModeBar":False})
     st.caption(F1_HELP+" 원본은 한 조건의 점수이고, 잡음 강도별 값은 세 패턴 점수의 평균입니다.")
     denom = run.man["n_originals"][split]

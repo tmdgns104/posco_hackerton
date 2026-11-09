@@ -5,3 +5,10 @@ __pycache__/
 .pytest_cache/
 .env
 .env.*
+SlagWatch/inspection_governance/
+SlagWatch/inspection_models/
+SlagWatch/inspection_events/
+SlagWatch/inspection_active_models/
+SlagWatch/p1_tabular_local/
+SlagWatch/steeltrust_security/
+SlagWatch/steeltrust_audit_local/

@@ -13,11 +13,17 @@ import streamlit as st
 
 from .demo_design import heading
 
-SECTIONS = ["교체 판단", "새 검증 실행", "실패 사례", "사례 모음·재시험", "프로젝트 설정"]
+NAVIGATION = {
+    "Workspace": ["프로젝트 소개", "개요", "모델 비교", "실패 사례"],
+    "Models & Evaluation": ["모델 레지스트리", "새 검증 실행", "전이·통계 분석", "사례 모음·재시험"],
+    "Governance": ["교체 판단", "평가 설계 기록", "보고서", "이벤트 기록", "프로젝트 설정"],
+}
+SECTIONS = [section for group in NAVIGATION.values() for section in group]
 SPLITS = {"validation": "검증 · validation", "test": "동결 후 독립 시험 · test"}
 LABELS = {"normal": "정상", "defect": "불량", "crazing": "망상 균열", "inclusion": "개재물",
           "patches": "반점", "pitted_surface": "표면 패임", "rolled_in_scale": "압연 스케일", "scratches": "긁힘"}
 KINDS = {"new_fn":"새 미검출", "new_fp":"새 오경보", "fixed_fn":"고친 미검출", "fixed_fp":"해소한 오경보",
+         "persistent_fn":"공통 미검출", "stable_tp":"공통 불량 검출", "persistent_fp":"공통 오경보", "stable_tn":"공통 정상 판정",
          "fixed":"고친 오분류", "new_error":"새 오분류", "both_wrong":"둘 다 틀림", "both_right":"둘 다 맞힘",
          "failed":"추론 실패"}
 CONDS = {"ALL":"전체 조건", "clean":"원본", "original":"원본", "dark":"밝기 감소", "bright":"밝기 증가",
@@ -144,6 +150,36 @@ def _ids(project):
     return [m if isinstance(m, str) else m.model_id for m in project.models]
 
 
+def _event(project_id, event, outcome, details=None):
+    from .inspection_event_log import record_event
+    from .surface_data import ROOT
+    return record_event(ROOT / "inspection_events", event, project_id=project_id, outcome=outcome, details=details)
+
+
+def _model_root():
+    from .surface_data import ROOT
+    return ROOT / "inspection_models"
+
+
+def _steel_projects():
+    from .inspection_projects import BUILTIN, DATASETS, list_projects
+    from .surface_g1 import read_json
+    projects = list_projects()
+    return {pid: title for pid, title in projects.items()
+            if pid == "neu_cls6" or pid not in BUILTIN and
+            read_json(DATASETS / pid / "project.json")["template_id"] == "neu_cls6"}
+
+
+def _case_model_view(project, manifest, extra=None):
+    from .inspection_model_registry import ModelView, load_registered
+    models = dict(project.models)
+    needed = [extra] if extra else [manifest["before_model_id"], manifest["after_model_id"]]
+    for model in needed:
+        if model not in models:
+            models[model] = load_registered(_model_root(), model)
+    return ModelView(project, models)
+
+
 def _short(v):
     if v is None or v == "":
         return "계산 불가"
@@ -187,7 +223,7 @@ def _plot(summary, metrics, rid):
     metric = st.radio("그래프 지표", metrics, format_func=lambda a:NAMES[a], horizontal=True, key=k("plot",rid))
     fig = go.Figure()
     xs = []
-    for (mid, group), color in zip(cells.groupby("model_id", sort=False), ["#596f82","#106c66"]):
+    for (mid, group), color in zip(cells.groupby("model_id", sort=False), ["#7856f7","#14b8a6"]):
         x = [cell_label(c,s) for c,s in zip(group.condition,group.seed)]
         if not xs:
             xs = x
@@ -198,7 +234,7 @@ def _plot(summary, metrics, rid):
     st.plotly_chart(fig, width="stretch", key=k("chart",rid,metric))
 
 
-def _result(project, split, path, m):
+def _result(project, split, path, m, *, overview=False):
     rid = m["run_id"]
     d = jread(path / "decision.json")
     b, a = m["before_model_id"], m["after_model_id"]
@@ -220,17 +256,32 @@ def _result(project, split, path, m):
                ("새 오경보", n(counts["new_fp"]), "기존 정상 → 후보 오경보", "caution")])
         st.write(f"고친 미검출 **{n(counts['fixed_fn'])}회**　·　새 미검출 **{n(counts['new_fn'])}회**　·　"
                  f"해소한 오경보 **{n(counts['fixed_fp'])}회**　·　새 오경보 **{n(counts['new_fp'])}회**")
+        if not overview:
+            matrix = pd.DataFrame([
+                {"비교 항목": "불량 미검출", "기존 → 후보": trans("fn"), "상태": "불완전" if m["failed_pairs"] else "감소" if all_models.loc[a,"fn"] < all_models.loc[b,"fn"] else "증가" if all_models.loc[a,"fn"] > all_models.loc[b,"fn"] else "변화 없음"},
+                {"비교 항목": "정상 오경보", "기존 → 후보": trans("fp"), "상태": "불완전" if m["failed_pairs"] else "감소" if all_models.loc[a,"fp"] < all_models.loc[b,"fp"] else "증가" if all_models.loc[a,"fp"] > all_models.loc[b,"fp"] else "변화 없음"},
+                {"비교 항목": "노이즈 강건성", "기존 → 후보": "기록된 시험 조건에서 확인", "상태": "분석 가능"},
+                {"비교 항목": "저대비 결함", "기존 → 후보": "저대비 정답 라벨 없음", "상태": "미평가"},
+                {"비교 항목": "통계적 불확실성", "기존 → 후보": "전이·통계 분석에서 확인", "상태": "별도 분석"},
+                {"비교 항목": "최종 승인", "기존 → 후보": "독립 시험 및 승인 절차 필요", "상태": "미평가"},
+            ])
+            with st.expander("비교 항목 요약"):
+                st.dataframe(matrix, hide_index=True, width="stretch")
     else:
-        cards([("기존 모델의 오분류",n(all_models.loc[b,"completed"]-all_models.loc[b,"correct"]),b,""),
-               ("후보 모델의 오분류",n(all_models.loc[a,"completed"]-all_models.loc[a,"correct"]),a,""),
-               ("고친 오분류",n(counts["fixed"]),"기존 오답 → 후보 정답","good"),
-               ("새 오분류",n(counts["new_error"]),"기존 정답 → 후보 오답","caution")])
+        cards([("기존 모델의 오분류", n(all_models.loc[b,"completed"]-all_models.loc[b,"correct"]), b, ""),
+               ("후보 모델의 오분류", n(all_models.loc[a,"completed"]-all_models.loc[a,"correct"]), a, ""),
+               ("고친 오분류", n(counts["fixed"]), "기존 오답 → 후보 정답", "good"),
+               ("새 오분류", n(counts["new_error"]), "기존 정답 → 후보 오답", "caution")])
+        st.write(f"고친 오분류 **{n(counts['fixed'])}회** · 새 오분류 **{n(counts['new_error'])}회**")
         st.caption("NEU에는 정상 클래스가 없습니다. 여섯 결함 종류 사이의 오분류를 비교합니다.")
     st.caption(f"짝지은 판정: 예정 {m['planned_pairs']:,}회 · 완료 {m['completed_pairs']:,}회 · 실패 {m['failed_pairs']:,}회. "
                "같은 원본에 조건과 seed를 반복한 횟수로, 서로 독립적인 제품 수가 아닙니다.")
     if m["failed_pairs"]:
         st.warning("실패는 정상이나 정답으로 계산하지 않습니다. 해당 클래스의 예정 건수가 채워지지 않으면 그 비율은 계산 불가로 표시합니다.")
-    if project.official and project.kind=="binary" and m["scope"]=="full" and split=="validation":
+    if not m.get("official", False):
+        st.info("이 실행은 개발용 비교입니다. 공식 승인이나 공식 시험 접근에 사용할 수 없습니다.")
+    if m.get("official", False) and project.official and project.kind=="binary" and m["scope"]=="full" and split=="validation":
+        st.caption("이 화면은 개발 검증 결과이며 독립 최종 시험의 교체 승인 판정이 아닙니다.")
         if d["status"]=="fail":
             st.warning("교체 판단: 후보 미채택. 전체 검증에서 사전 기준을 충족하지 못해 이 결과를 근거로 공식 시험을 열지 않습니다.")
         elif d["status"]=="pass":
@@ -258,7 +309,7 @@ def _result(project, split, path, m):
     orig = str(m["conditions"][0][0])
     subset = summary[(summary.scope=="all") | (summary.condition.astype(str)==orig)]
     st.table(format_frame(subset, ["condition"]+cols), hide_index=True, border="horizontal")
-    with st.expander("조건·seed별 전후 비교"):
+    with st.expander("조건·seed별 전후 비교", expanded=True):
         _plot(summary,metrics,rid)
         st.dataframe(format_frame(summary[summary.scope=="cell"],["condition","seed","n_defect","n_normal"]+cols),hide_index=True,width="stretch")
         st.caption("오류 변화 유형별 횟수")
@@ -288,11 +339,73 @@ def _result(project, split, path, m):
         st.caption(f"규약 SHA-256 · {m['protocol_sha256']}")
 
 
+def _multiclass_analysis(project, split, path, m):
+    st.subheader("조건별 오분류와 모델 성능")
+    st.caption("선택한 실행 기록의 동일 원본·조건·seed를 비교합니다. 판정 횟수와 독립 원본 수는 다릅니다.")
+    summary = table_file(path, "summary", m)
+    cells = summary[summary.scope.eq("cell")]
+    metrics = ["accuracy"] + (["macro_f1"] if "macro_f1" in cells else [])
+    _plot(summary, metrics, m["run_id"])
+    st.dataframe(format_frame(cells, ["condition", "seed", "model_id", "n_originals", "planned",
+                                      "completed", "failed", "correct"] + metrics),
+                 hide_index=True, width="stretch")
+    changes = table_file(path, "changes", m)
+    st.markdown("#### 조건별 오류 변화")
+    st.dataframe(format_frame(changes[changes.scope.eq("cell")],
+                             ["condition", "seed", "n_originals", "planned", "completed",
+                              "failed", "fixed", "new_error", "both_wrong", "both_right"]),
+                 hide_index=True, width="stretch")
+    with st.expander("결함 종류별 재현율과 오분류"):
+        classes = table_file(path, "classes", m)
+        st.dataframe(format_frame(classes[classes.scope.eq("cell")],
+                                 ["condition", "seed", "model_id", "class_label", "n_originals",
+                                  "planned", "completed", "failed", "correct", "recall"]),
+                     hide_index=True, width="stretch")
+        st.caption("macro F1은 각 결함 종류의 F1을 동일 가중한 값입니다. 추론 실패가 있으면 해당 수치 해석에 주의하세요.")
+    conditions = [(str(c), int(seed)) for c, seed in m["conditions"]]
+    chosen = st.selectbox("사례를 확인할 조건", conditions, format_func=lambda value: cell_label(*value),
+                          key=k("analysis-condition", m["run_id"]))
+    def open_cases():
+        st.session_state[k("focus", m["run_id"])] = (chosen[0], chosen[1], "macro_f1", "ALL")
+        section_jump(project.id, split, "실패 사례")
+    st.button("이 조건의 실패 사례 보기", on_click=open_cases, key=k("analysis-cases", m["run_id"]))
+    st.caption("이진 FN/FP 전이와 원본 단위 Bootstrap은 다중 클래스 결과에 적용하지 않습니다.")
+
+
 def _run(project, split, root):
     from .inspection_runner import run_project, load_run
+    from .inspection_model_registry import list_models, load_registered, ModelView
     import time
     st.subheader("새 검증 실행")
     st.write("등록된 원본에서 시험 입력을 만들고, 같은 입력을 기존 모델과 후보 모델에 넣습니다. 새 실행에는 별도 기록을 남깁니다.")
+    builtins = _ids(project)
+    before, after = builtins
+    if project.kind == "binary" and split == "validation":
+        from .inspection_activation import active_model
+        from .inspection_workspace import ACTIVE
+        registered = list_models(_model_root())
+        choices = builtins + registered
+        bk, ak = k("baseline",project.id,split), k("candidate",project.id,split)
+        active = active_model(ACTIVE, project)
+        if active not in choices:
+            st.error(f"로컬 활성 모델 {active}을 레지스트리에서 찾을 수 없습니다.")
+            return
+        if st.session_state.get(bk) not in choices:
+            st.session_state[bk] = active
+        if st.session_state.get(ak) not in choices:
+            st.session_state[ak] = next(v for v in choices if v != active)
+        left, right = st.columns(2)
+        before = left.selectbox("기준 모델", choices, key=bk)
+        after = right.selectbox("후보 모델", choices, key=ak)
+        def swap():
+            st.session_state[bk], st.session_state[ak] = st.session_state[ak], st.session_state[bk]
+        st.button("기준·후보 바꾸기", on_click=swap, key=k("swap",project.id,split))
+        st.button("모델 추가", on_click=section_jump, args=(project.id,split,"프로젝트 설정"), key=k("add-model",project.id,split))
+        if before == after:
+            st.warning("기준과 후보는 서로 다른 모델이어야 합니다.")
+            return
+        if before in registered or after in registered or [before, after] != builtins:
+            st.warning("등록 후보는 개발용 검증만 가능합니다. 공식 시험·승인과 연결되지 않습니다.")
     rows = project.rows(split)
     n = len(rows)
     demo = project.demo_ids(split)
@@ -310,8 +423,8 @@ def _run(project, split, root):
     count = n if scope=="full" else len(demo)
     cells = project.conditions(split)
     st.caption(f"{SPLITS.get(split,split)} · {count:,}장 × {len(cells)}개 조건·seed = 예정 {count*len(cells):,}회 짝 비교 · "
-               + " → ".join(_ids(project)) + (" · 부분집합으로 채택을 결정하지 않습니다." if scope=="demo" else ""))
-    result_key = k("live-result",project.id,split,scope)
+               + f"{before} → {after}" + (" · 부분집합으로 채택을 결정하지 않습니다." if scope=="demo" else ""))
+    result_key = k("live-result",project.id,split,scope,before,after)
     if st.button("새 추론 실행", type="primary", key=k("start",project.id,split,scope)):
         st.session_state.pop(result_key,None)
         bar = st.progress(0, text="입력과 모델을 확인하는 중…")
@@ -321,24 +434,48 @@ def _run(project, split, root):
             if done==total or now-last[0] >= 0.22:
                 bar.progress(min(1.0,done/max(1,total)),text=f"두 모델 추론 중 · 처리 {done:,} / {total:,}회")
                 last[0] = now
+        details = {"split": split, "before_model_id": before, "after_model_id": after, "scope": scope}
+        path = None
         try:
-            path = Path(run_project(project,split,root,sample_ids=(demo if scope=="demo" else None),progress=progress))
+            _event(project.id, "evaluation", "started", details)
+            compare = project
+            if [before, after] != builtins:
+                adapters = dict(project.models)
+                for model in (before, after):
+                    if model not in adapters:
+                        adapters[model] = load_registered(_model_root(), model)
+                compare = ModelView(project, {before: adapters[before], after: adapters[after]}, development_only=True)
+            path = Path(run_project(compare,split,root,sample_ids=(demo if scope=="demo" else None),progress=progress))
             m = load_run(path)
+            _event(project.id, "evaluation", "completed",
+                   {**details, "run_id": m["run_id"], "failed_pairs": m["failed_pairs"]})
             st.session_state[result_key] = m["run_id"]
             remember(project.id,split,m["run_id"])
+            st.session_state[k("history",project.id,split)] = m["run_id"]
             bar.progress(1.0,text="추론 및 기록 저장 완료")
         except Exception as exc:
             bar.empty()
-            show_error("새 추론을 완료하지 못했습니다.",exc)
+            try:
+                _event(project.id, "evaluation", "failed", {**details, "error": str(exc)[:500]})
+            except Exception as log_exc:
+                st.error(f"이벤트 기록도 실패했습니다: {log_exc}")
+            if path is not None:
+                show_error(f"추론 기록 {path.name}은 저장되었을 수 있지만 완료 확인 또는 이벤트 기록에 실패했습니다.", exc)
+            else:
+                show_error("새 추론을 완료하지 못했습니다.",exc)
     rid = st.session_state.get(result_key)
     if rid:
         m = load_run(Path(root)/rid)
-        st.success(f"새 실행 기록 생성 · 예정 {m['planned_pairs']:,}회 / 완료 {m['completed_pairs']:,}회 / 실패 {m['failed_pairs']:,}회")
+        message = f"새 실행 기록 생성 · 예정 {m['planned_pairs']:,}회 / 완료 {m['completed_pairs']:,}회 / 실패 {m['failed_pairs']:,}회"
+        if m["failed_pairs"]:
+            st.warning(message + " · 평가가 불완전합니다.")
+        else:
+            st.success(message)
         st.code(rid,language=None)
         def view():
             remember(project.id,split,rid)
             st.session_state[k("history",project.id,split)] = rid
-            section_jump(project.id,split,"교체 판단")
+            section_jump(project.id,split,"모델 비교")
         st.button("이번 실행 결과 열기",on_click=view,key=k("view-live",rid))
     st.caption("이미 저장한 기록은 ‘교체 판단’에서 엽니다. 그 화면을 여는 것만으로는 새 추론이 실행되지 않습니다.")
 
@@ -380,7 +517,13 @@ def _case_browser(project,split,path,m,case_root):
     rid = m["run_id"]
     pairs = table_file(path,"pairs",m)
     conds = [("ALL",-1)] + [(str(c),int(s)) for c,s in m["conditions"]]
-    kinds = (["new_fn","new_fp","fixed_fn","fixed_fp"] if project.kind=="binary" else ["new_error","fixed"]) + ["both_wrong","both_right","failed"]
+    kinds = (["new_fn","fixed_fn","persistent_fn","stable_tp","new_fp","fixed_fp","persistent_fp","stable_tn","failed"]
+             if project.kind=="binary" else ["new_error","fixed","both_wrong","both_right","failed"])
+    if project.kind=="binary":
+        from .inspection_reliability import classify_pairs
+        pairs = classify_pairs(pairs)
+    filters, main, inspector = st.columns([1.2, 2.5, 1.1], gap="medium")
+    filters.markdown("#### 사례 목록")
     focus = st.session_state.pop(k("focus",rid),None)
     ck = k("case-condition",rid)
     if focus:
@@ -392,39 +535,80 @@ def _case_browser(project,split,path,m,case_root):
         st.session_state[ck] = focus_cell if focus_cell in conds or focus_cell[1]==-1 and any(c==focus_cell[0] for c,s in conds) else conds[0]
     extra = [(c,-1) for c in dict.fromkeys(v for v,s in conds[1:]) if sum(v==c for v,s in conds)>1]
     options = list(dict.fromkeys(conds[:1]+extra+conds[1:]))
-    cond,seed = st.selectbox("사례 입력 조건",options,format_func=lambda v:("모든 조건·seed" if v[0]=="ALL" else
+    cond,seed = filters.selectbox("사례 입력 조건",options,format_func=lambda v:("모든 조건·seed" if v[0]=="ALL" else
                                       f"{cname(v[0])} · 모든 seed" if v[1]==-1 else cell_label(*v)),key=ck)
     subset = pairs if cond=="ALL" else pairs[(pairs.condition.astype(str)==cond) & ((pairs.seed==seed) if seed!=-1 else True)]
     tk = k("case-truth",rid,cond,seed)
     if focus:
         st.session_state[tk] = focus[3]
-    truth = st.selectbox("사례의 실제 정답", ["ALL",*project.classes],format_func=lambda v:"모든 정답" if v=="ALL" else label(v),key=tk)
+    truth = filters.selectbox("사례의 실제 정답", ["ALL",*project.classes],format_func=lambda v:"모든 정답" if v=="ALL" else label(v),key=tk)
     if truth!="ALL":
         subset = subset[subset.true_label==truth]
+    with filters.expander("결함 면적·원본 밝기 필터"):
+        st.caption("형태별 정답 라벨은 제공되지 않습니다. 면적은 원본 마스크, 밝기는 원본 RGB 픽셀로 계산합니다.")
+        if project.id == "ksdd2" and {"defect_pixels", "width", "height"}.issubset(project.index.columns):
+            size = st.selectbox("결함 면적 구간", ["전체", "Small", "Medium", "Large"],
+                                key=k("failure-size", rid))
+            st.caption("Small < 0.1% · Medium 0.1% 이상 1% 미만 · Large 1% 이상. 정상 원본에는 적용하지 않습니다.")
+            if size != "전체":
+                index = project.index.set_index("sample_id")
+                try:
+                    pixel = pd.to_numeric(index["defect_pixels"], errors="raise")
+                    width = pd.to_numeric(index["width"], errors="raise")
+                    height = pd.to_numeric(index["height"], errors="raise")
+                    if ((pixel < 0) | (width <= 0) | (height <= 0) | (pixel > width * height)).any():
+                        raise ValueError("유효하지 않은 주석 면적")
+                    fraction = pixel / (width * height)
+                    mask = ((pixel > 0) & (fraction < .001) if size == "Small" else
+                            (fraction >= .001) & (fraction < .01) if size == "Medium" else fraction >= .01)
+                    subset = subset[subset.sample_id.astype(str).isin(index.index[mask].astype(str))]
+                except (ValueError, KeyError) as exc:
+                    show_error("결함 면적을 확인하지 못했습니다.", exc)
+                    return
+        bright_key = "brightness:" + rid
+        if st.button("원본 밝기 측정", key=k("case-brightness", rid)):
+            from .inspection_brightness import original_brightness
+            st.session_state.pop(bright_key, None)
+            try:
+                st.session_state[bright_key] = original_brightness(project, split, pairs)
+            except Exception as exc:
+                show_error("원본 밝기를 측정하지 못했습니다.", exc)
+        if bright_key in st.session_state:
+            bright = st.selectbox("원본 밝기 구간", ["전체", "낮음", "중간", "높음"],
+                                  key=k("case-brightness-group", rid))
+            st.caption("탐색용 경계: 낮음 < 0.17, 중간 0.17 이상 0.18 미만, 높음 0.18 이상. 물리 조도가 아닙니다.")
+            measured = st.session_state[bright_key]
+            if bright != "전체":
+                mask = (measured.brightness < .17 if bright == "낮음" else
+                        measured.brightness.ge(.17) & measured.brightness.lt(.18) if bright == "중간" else
+                        measured.brightness.ge(.18))
+                subset = subset[subset.sample_id.astype(str).isin(measured.loc[mask, "sample_id"].astype(str))]
     def matching(kind):
+        if project.kind=="binary":
+            return subset[subset.transition==kind]
         return subset[subset.status!="ok"] if kind=="failed" else subset[(subset.status=="ok") & (subset.change==kind)]
     frames = {q:matching(q) for q in kinds}
     kk = k("case-kind",rid,cond,seed,truth)
     if focus:
         metric = str(focus[2]).lower()
-        priorities = (["new_fp","both_wrong","new_fn"] if any(x in metric for x in ("fpr","fp","false_positive")) else
-                      ["new_fn","both_wrong","new_fp"]) if project.kind=="binary" else ["new_error","both_wrong"]
+        priorities = (["new_fp","persistent_fp","new_fn"] if any(x in metric for x in ("fpr","fp","false_positive")) else
+                      ["new_fn","persistent_fn","new_fp"]) if project.kind=="binary" else ["new_error","both_wrong"]
         st.session_state[kk] = next((q for q in priorities+kinds if len(frames[q])),kinds[0])
     first = next((i for i,q in enumerate(kinds) if len(frames[q])),0)
-    kind = st.selectbox("판정 변화 유형", kinds,index=0 if kk in st.session_state else first,format_func=lambda q:f"{KINDS[q]} · {len(frames[q]):,}회",key=kk)
+    kind = filters.selectbox("판정 변화 유형", kinds,index=0 if kk in st.session_state else first,format_func=lambda q:f"{KINDS[q]} · {len(frames[q]):,}회",key=kk)
     sample_rows = frames[kind]
     if sample_rows.empty:
-        st.info("이 조건과 변화 유형에 해당하는 사례는 0건입니다.")
+        filters.info("이 조건과 변화 유형에 해당하는 사례는 0건입니다.")
         return
     choices = sample_rows.reset_index(drop=True)
-    idx = st.selectbox("확인할 실제 사례", range(len(choices)),key=k("case-sample",rid,cond,seed,truth,kind),
+    idx = filters.selectbox("확인할 실제 사례", range(len(choices)),key=k("case-sample",rid,cond,seed,truth,kind),
                        format_func=lambda i:f"{choices.at[i,'sample_id']} · {label(choices.at[i,'true_label'])} · "
                                             +cell_label(choices.at[i,"condition"],choices.at[i,"seed"]))
     r = choices.iloc[idx]
     token = k(rid,r.sample_id,r.condition,int(r.seed))
     if kind == "failed":
-        st.warning("완료되지 않은 입력입니다. 정답이나 재현 성공으로 간주하지 않습니다.")
-        st.dataframe(r.to_frame("값").astype(str),width="stretch")
+        main.warning("완료되지 않은 입력입니다. 정답이나 재현 성공으로 간주하지 않습니다.")
+        main.dataframe(r.to_frame("값").astype(str),width="stretch")
         return
     try:
         data = build_case(project,path,str(r.sample_id),str(r.condition),int(r.seed))
@@ -432,7 +616,24 @@ def _case_browser(project,split,path,m,case_root):
     except Exception as exc:
         show_error("사례의 원본·시험 입력을 확인할 수 없습니다.",exc)
         return
-    _truth_display(project,meta,original,actual)
+    with main:
+        _truth_display(project,meta,original,actual)
+        if project.id == "ksdd2" and st.checkbox("원본 정답 마스크 표시", key=k("overlay", token)):
+            from .inspection_workspace import annotation_overlay
+            try:
+                overlay = annotation_overlay(project, m, str(meta["sample_id"]), original)
+                st.image(overlay, caption="원본 정답 마스크 · 빨강 (모델 예측 위치가 아님)", width="content", clamp=True)
+            except Exception as exc:
+                show_error("원본 정답 마스크를 표시하지 못했습니다.", exc)
+    with inspector:
+        st.markdown("#### 사례 Inspector")
+        st.write(f"**사례:** {meta['sample_id']}")
+        st.write(f"**변화:** {KINDS.get(kind, kind)}")
+        st.write(f"**정답:** {label(meta['true_label'])}")
+        st.write(f"**조건:** {cell_label(meta['condition'], meta['seed'])}")
+        with st.expander("점수와 실행 정보"):
+            st.code(meta["run_id"], language=None)
+            st.json(meta["predictions"], expanded=False)
     if split!="validation":
         st.info("독립 시험 사례는 최종 결과 설명과 과거 실행 재현에만 사용합니다.")
     with st.container(horizontal=True):
@@ -476,7 +677,7 @@ def _history_replay(project,path,m,data,mode,trigger,case_root):
         st.session_state.pop(state,None)
         try:
             with st.spinner("저장한 입력으로 당시 두 모델의 추론을 확인하고 있습니다…"):
-                record = replay_case(project,path,data)
+                record = replay_case(_case_model_view(project,m),path,data)
             st.session_state[state] = (marker,record,None)
         except Exception as exc:
             st.session_state[state] = (marker,None,str(exc))
@@ -503,6 +704,7 @@ def _history_replay(project,path,m,data,mode,trigger,case_root):
 
 def _library(project,split,path,m,case_root):
     from .inspection_cases import list_cases, retest_collection
+    from .inspection_model_registry import list_models
     rid = m["run_id"]
     st.subheader("사례 모음·재시험")
     mode = st.radio("확인할 작업", ["model","historical"],horizontal=True,format_func={"model":"모델 버전 재시험","historical":"과거 실행 재현"}.get,
@@ -537,22 +739,30 @@ def _library(project,split,path,m,case_root):
         return
     by_id = {row["case_id"]:row for row in entries}
     sel = st.multiselect("재시험할 저장 사례",list(by_id),default=[next(iter(by_id))],format_func=lambda v:case_name(by_id[v]),key=k("reg-cases",rid))
-    mids = _ids(project)
+    mids = list(dict.fromkeys(_ids(project) + ([m["after_model_id"]] if project.kind=="binary" else [])
+                              + (list_models(_model_root()) if project.kind=="binary" else [])))
     model = st.selectbox("재시험할 모델 버전",mids,index=mids.index(m["after_model_id"]),key=k("reg-model",rid))
     st.caption(f"당시 기준 모델 {m['before_model_id']} → 선택한 모델 {model} · 개발용 검증 사례 · 전체 분할 평가를 대신하지 않습니다.")
     selections = sorted(sel)
     histories = {by_id[s]["history_id"] for s in sel}
     folder = Path(case_root)/"retests"
     if st.button("선택한 사례 재시험",type="primary",disabled=not sel,key=k("reg-exec",rid,model,*selections)):
+        details = {"run_id": rid, "model_id": model, "case_count": len(sel)}
         try:
+            _event(project.id, "case_retest", "started", details)
             with st.spinner("선택한 모델로 재시험하고 결과를 기록하고 있습니다…"):
-                results = retest_collection(project,path,[by_id[s]["path"] for s in sel],model,folder)
+                results = retest_collection(_case_model_view(project,m,model),path,[by_id[s]["path"] for s in sel],model,folder)
             nok = sum(r["status"]=="ok" for r in results)
+            _event(project.id, "case_retest", "completed", {**details, "failed": len(results)-nok})
             if nok==len(results):
                 st.success(f"새 재시험 기록 저장 · 완료 {nok}건 / 실패 0건")
             else:
                 st.warning(f"새 재시험 기록 저장 · 완료 {nok}건 / 실패 {len(results)-nok}건")
         except Exception as exc:
+            try:
+                _event(project.id, "case_retest", "failed", {**details, "error": str(exc)[:500]})
+            except Exception as log_exc:
+                st.error(f"이벤트 기록도 실패했습니다: {log_exc}")
             show_error("재시험을 완료하지 못했습니다.",exc)
     history = []
     for file in folder.glob("*.json"):
@@ -569,7 +779,7 @@ def _library(project,split,path,m,case_root):
 
 
 def _settings(project,split):
-    from .inspection_projects import BUILTIN, register_zip
+    from .inspection_projects import register_zip
     st.subheader("프로젝트 설정")
     binary = project.kind=="binary"
     if binary:
@@ -597,12 +807,42 @@ def _settings(project,split):
         st.info("사용자 등록 자료는 개발용 검증입니다. 이 자료의 결과로 공식 모델의 교체 판정을 바꾸지 않습니다.")
     with st.expander("모델 식별 정보와 전체 시험 규약"):
         st.json({"models":{name:project.models[name].identity for name in models},"protocol":project.protocol},expanded=False)
+    if binary:
+        from .inspection_model_registry import list_models, register_model
+        st.divider()
+        st.markdown("### 로컬 모델 등록")
+        st.warning("joblib 파일을 읽으면 임의 코드가 실행될 수 있습니다. 출처를 신뢰하는 로컬 파일만 등록하세요. SHA-256은 변경 감지용이며 안전성을 증명하지 않습니다.")
+        st.caption("현재 K0/K1과 같은 고정 ResNet18 전처리·1536차원 특징·이진 StandardScaler/LogisticRegression 모델만 지원합니다. 등록 후보는 검증 분할에서만 사용합니다.")
+        registered = list_models(_model_root())
+        st.write("등록된 모델: " + (", ".join(registered) if registered else "없음"))
+        with st.form(k("model-form",project.id)):
+            model_id = st.text_input("새 모델 ID (예: K2)", max_chars=40)
+            model_path = st.text_input("신뢰한 로컬 .joblib 절대 경로")
+            trusted = st.checkbox("이 파일을 신뢰하며 로드 시 코드가 실행될 수 있음을 확인했습니다.")
+            submit = st.form_submit_button("모델 등록")
+        if submit:
+            details = {"model_id": model_id}
+            try:
+                _event(project.id, "model_registration", "started", details)
+                metadata = register_model(_model_root(), model_path, model_id, trusted=trusted,
+                                          auth_token=st.session_state.get("security-token"))
+                _event(project.id, "model_registration", "completed",
+                       {**details, "artifact_sha256": metadata["artifact_sha256"]})
+            except Exception as exc:
+                try:
+                    _event(project.id, "model_registration", "failed", {**details, "error": str(exc)[:500]})
+                except Exception as log_exc:
+                    st.error(f"이벤트 기록도 실패했습니다: {log_exc}")
+                show_error("모델 등록 또는 이벤트 기록에 실패했습니다. 이미 등록되었을 수 있으니 목록을 확인하세요.", exc)
+            else:
+                st.success(f"{model_id} 등록 완료 · 개발용 검증에서 선택할 수 있습니다.")
+                st.json(metadata, expanded=False)
     st.divider()
     st.markdown("### 새 검사 데이터 등록")
     st.write("정답 CSV와 이미지를 한 ZIP으로 올리고, 클래스 구성이 맞는 로컬 모델 두 개를 선택합니다.")
     st.caption("ZIP 루트의 manifest.csv: sample_id, image_path, true_label 필수 · group_id, source_id 선택. "
                "image_path는 ZIP 안의 상대 경로입니다. PNG·JPEG·BMP, 최대 500장 / ZIP 100 MiB.")
-    template = st.selectbox("등록할 모델 조합",list(BUILTIN),format_func=lambda x:
+    template = st.selectbox("등록할 모델 조합",["neu_cls6"],format_func=lambda x:
                             ("K0 → K1 · 정상 / 불량" if x=="ksdd2" else "V0 → G1 · NEU 결함 6종"),key=k("register-adapter",project.id))
     labels = ["normal","defect"] if template=="ksdd2" else list(LABELS)[2:]
     st.caption("허용된 true_label: " + ", ".join(labels) + (" · NEU 입력은 200×200 회색조입니다." if template=="neu_cls6" else " · RGB 또는 회색조, 이미지당 최대 2,795,520픽셀 / 한 변 최대 4,096픽셀."))
@@ -610,9 +850,15 @@ def _settings(project,split):
     uploaded = st.file_uploader("이미지와 정답 CSV가 든 ZIP",type=["zip"],max_upload_size=100,key=k("registration",project.id))
     if st.button("새 프로젝트 등록",disabled=not title.strip() or not uploaded,key=k("register",project.id),type="primary"):
         try:
+            _event(project.id, "dataset_registration", "started", {"template_id": template})
             pid = register_zip(uploaded.getvalue(),title.strip(),template)
+            _event(project.id, "dataset_registration", "completed", {"registered_project_id": pid, "template_id": template})
         except Exception as exc:
-            show_error("데이터를 등록하지 못했습니다. 정답·이미지 경로·클래스 구성을 확인하세요.",exc)
+            try:
+                _event(project.id, "dataset_registration", "failed", {"template_id": template, "error": str(exc)[:500]})
+            except Exception as log_exc:
+                st.error(f"이벤트 기록도 실패했습니다: {log_exc}")
+            show_error("데이터 등록 또는 이벤트 기록에 실패했습니다. 프로젝트가 이미 생성되었을 수 있으니 목록을 확인하세요.",exc)
         else:
             st.session_state["inspection_next_project"] = pid
             st.session_state[k("section",pid,"validation")] = "새 검증 실행"
@@ -620,10 +866,9 @@ def _settings(project,split):
 
 
 def workbench():
-    from .inspection_projects import CASES, RUNS, list_projects, load_project
-    projects = list_projects()
-    st.html('<span class="steel-scope" style="margin-bottom:0">SteelTrust　 /　 검사 모델 검증실</span>')
-    heading("검사 AI 교체 검증","검사 AI를 바꾸기 전에, 새로 놓치는 불량이 없는지 확인합니다.")
+    from .inspection_projects import CASES, RUNS, load_project
+    from .inspection_workspace import ACTIVE, active_model, decision_workspace, introduction, overview, registry, reports
+    projects = _steel_projects()
     if not projects:
         st.warning("등록된 검사 프로젝트가 없습니다.")
         return
@@ -631,6 +876,8 @@ def workbench():
         pid = st.session_state.pop("inspection_next_project")
         if pid in projects:
             st.session_state["inspection_project"] = pid
+    if st.session_state.get("inspection_project") not in projects:
+        st.session_state.pop("inspection_project", None)
     left,right = st.columns([2,1])
     pid = left.selectbox("검사 프로젝트", list(projects),format_func=projects.get,key="inspection_project")
     project = load_project(pid)
@@ -639,22 +886,92 @@ def workbench():
         st.warning("지금 평가할 수 있는 분할이 없습니다.")
         return
     split = right.selectbox("평가 분할",splits,format_func=lambda s:SPLITS.get(s,s),key=k("split",pid))
-    section = st.radio("검증 작업",SECTIONS,horizontal=True,key=k("section",pid,split),label_visibility="collapsed")
+    section_key = k("section",pid,split)
+    section = st.session_state.get(section_key, "프로젝트 소개")
+    if section not in SECTIONS:
+        section = "개요"
+    with st.sidebar:
+        for group, items in NAVIGATION.items():
+            st.html(f'<div class="workspace-nav-label">{escape(group)}</div>')
+            for name in items:
+                st.button(name, type="primary" if name == section else "secondary",
+                          width="stretch", on_click=section_jump, args=(pid,split,name),
+                          key=k("navigation",pid,split,name))
+    st.html('<span class="steel-scope" style="margin-bottom:0">SteelTrust　 /　 OPERATIONAL AI VALIDATION</span>')
+    if section != "프로젝트 소개":
+        heading(section, "검사 AI 모델, 데이터와 검증 근거를 연결하는 작업 공간")
+    try:
+        active = active_model(ACTIVE, project)
+        st.caption(f"프로젝트 · {project.title}　 |　 데이터 · {SPLITS.get(split,split)}　 |　 로컬 활성 모델 · {active}　 |　 저장 기록 / 새 추론 구분")
+        activated = st.session_state.pop(k("activation-message", pid), None)
+        if activated:
+            st.success(f"로컬 활성 모델을 {activated}로 변경했습니다. 생산 설비는 변경되지 않았습니다.")
+    except Exception as exc:
+        show_error("로컬 활성 모델을 확인하지 못했습니다.", exc)
+        return
     if not project.official:
         st.caption("사용자 등록 개발용 검증 · 공식 프로젝트의 교체 판정과 별도로 기록합니다.")
     if section=="프로젝트 설정":
         _settings(project,split)
         return
+    if section=="이벤트 기록":
+        from .inspection_event_log import read_events
+        from .surface_data import ROOT
+        st.subheader("로컬 이벤트 기록")
+        st.warning("OS 계정은 인증된 작성자 신원이 아닙니다. 로컬 파일은 수정·삭제할 수 있으므로 공식 감사 로그나 접근 통제가 아닙니다. UI에서 수행한 작업만 기록합니다.")
+        try:
+            events = read_events(ROOT/"inspection_events", project_id=pid)
+        except Exception as exc:
+            show_error("이벤트 기록을 읽지 못했습니다.", exc)
+        else:
+            if events:
+                st.dataframe(pd.DataFrame(events), hide_index=True, width="stretch")
+                st.download_button("이벤트 JSON", json.dumps(events, ensure_ascii=False, indent=2).encode("utf-8"),
+                                   f"{pid}_events.json", "application/json", on_click="ignore")
+            else:
+                st.info("이 프로젝트의 기록된 이벤트가 없습니다.")
+        return
+    if section=="평가 설계 기록":
+        from .inspection_reliability_ui import governance
+        from .surface_data import ROOT
+        governance(project, split, ROOT/"inspection_governance"/project.id)
+        return
     if section=="새 검증 실행":
         _run(project,split,RUNS)
         return
     records = runs_for(RUNS,pid,split)
+    if section=="모델 레지스트리":
+        registry(project,split,records)
+        return
     path, m = pick_run(project,split,records,RUNS,interactive=True)
+    if section=="프로젝트 소개":
+        introduction(project,split,path,m)
+        return
+    if section=="개요":
+        overview(project,split,path,m)
+        return
+    if section=="교체 판단":
+        decision_workspace(project,split,path,m)
+        return
+    if section=="보고서":
+        reports(project,split,path,m)
+        return
     if m is None:
         st.info("이 분할에 저장된 실행 기록이 없습니다. 새 추론으로 첫 검증 결과를 만드세요.")
         st.button("새 검증 실행으로 이동",type="primary",on_click=section_jump,args=(pid,split,"새 검증 실행"),key=k("go-run",pid,split))
         return
-    if section=="교체 판단":
+    if section=="전이·통계 분석":
+        if project.kind != "binary":
+            _multiclass_analysis(project, split, path, m)
+        else:
+            from .inspection_reliability_ui import reliability
+            reliability(table_file(path,"pairs",m), m, project)
+        return
+    if section=="모델 비교":
+        buttons = st.columns(3)
+        buttons[0].button("새 비교 구성", on_click=section_jump, args=(pid,split,"새 검증 실행"), key=k("compare-run",m["run_id"]))
+        buttons[1].button("실패 사례 열기", on_click=section_jump, args=(pid,split,"실패 사례"), key=k("compare-cases",m["run_id"]))
+        buttons[2].button("교체 조건 확인", on_click=section_jump, args=(pid,split,"교체 판단"), key=k("compare-decision",m["run_id"]))
         _result(project,split,path,m)
     elif section=="실패 사례":
         _case_browser(project,split,path,m,CASES)

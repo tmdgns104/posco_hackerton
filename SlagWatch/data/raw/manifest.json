@@ -1,0 +1,268 @@
+{
+  "dataset": "SSFD",
+  "version": 3,
+  "source_url": "https://data.mendeley.com/datasets/mjnpsbs6fs/3",
+  "doi": "10.17632/mjnpsbs6fs.3",
+  "license": "CC BY 4.0",
+  "download_date_kst": "2026-11-07",
+  "original_zip_sha256": "6055653436f9c728cc8c763f21da46f3462df34914befce125de5b71cd570328",
+  "csv_count": 48,
+  "jpg_count": 3,
+  "files": [
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/B-12.csv",
+      "bytes": 1447832,
+      "sha256": "cf75148ebb54e051ad34495c3af71edda18af52b6e7d96dabee84cde285f3879"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/B-10.csv",
+      "bytes": 1447382,
+      "sha256": "983e39caceca6b0d0d83d41754d6886f923920516d023ec912d331684cd3b117"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/B-16.csv",
+      "bytes": 1447597,
+      "sha256": "3ca0a43d0dd6735381bf2edc3d4349a6c62c399d50db4bfb27802aaac539340e"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/B-9.csv",
+      "bytes": 1447273,
+      "sha256": "b874956955af5eb7166894aa65e89c63cedc4982bae2218ff2bae11a1ddf7419"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/B-13.csv",
+      "bytes": 1446830,
+      "sha256": "5b41460c50d3b5ab7971bac9eb5be8acb65cbd129b6567869d05a92149cc1da9"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/B-15.csv",
+      "bytes": 1446892,
+      "sha256": "76a7a971438cd63d81fd81d7fab3f911d7b3d601e1fdc59384517fba17e8bc15"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/E-1.csv",
+      "bytes": 1452721,
+      "sha256": "15456f5363cb2d3d8f9f6f3a2a610dfe44edb06805519e760d55ec9ca91bc4f5"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/E-2.csv",
+      "bytes": 1450140,
+      "sha256": "2844f2e96d7c33c28497e231e7ce6385d4e0865d6272e076c2e32046823d341a"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/B-14.csv",
+      "bytes": 1449265,
+      "sha256": "89bae1bd3b261249e0154ebab93e0763ebbbf10ab50b6a77182e69299fd6f969"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/B-11.csv",
+      "bytes": 1447501,
+      "sha256": "6029a24d02a538f0295340b4e361d4282e8672a3eb25291c15a37d8d6495575a"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/E-3.csv",
+      "bytes": 1447939,
+      "sha256": "9f08b85d8ca2e034636bfa91d67da908a4f9a1cd1924caac3cd6abc16d983385"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/E-4.csv",
+      "bytes": 1449373,
+      "sha256": "f60e88ac1fea948eb69726dacd7bbca56a0d6f7e0fa62045de1522683fe18116"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/E-5.csv",
+      "bytes": 1446524,
+      "sha256": "fce587f53894eec0c1e9c3616084b85dff702d9d44bd839b2f8c878ebad91fbc"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/E-7.csv",
+      "bytes": 1450063,
+      "sha256": "fdbda721b6991c3834ccfeaf08e10d60a260e0e6a2f25afa5fcf0c6224460756"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/E-6.csv",
+      "bytes": 1446385,
+      "sha256": "3ada24fd98bb71d05e7a6ae9f44729ca1838ac9b44b3fdcd22eaa352d717d24d"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/E-10.csv",
+      "bytes": 1447133,
+      "sha256": "22f560600d010e6a7067877b2d13a7a377c5b85132c1d3fbaf39be8444c636e6"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/E-9.csv",
+      "bytes": 1446944,
+      "sha256": "1975e15416482ca6a5ed4fc4c8d6cbc9a3084c05902f31bfcd0368c29ffc90d2"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/E-8.csv",
+      "bytes": 1451353,
+      "sha256": "de688bced30d17bec4f63c6144abf5c8043daf9fb160c20acab46817507c8bd0"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/E-11.csv",
+      "bytes": 1449957,
+      "sha256": "fe7b134033ec522063990e1d753d55369d5b074f2e96d0d29b1a509ede4efdda"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/E-12.csv",
+      "bytes": 1448242,
+      "sha256": "ac1fdd32e54a90cc46264cc633c0709943b23ec7fab630ac9df705900a6a9e5d"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/E-16.csv",
+      "bytes": 1447198,
+      "sha256": "9e663d3352ff3052560759d48bd5bfaeb86c0b9aefc9e483604510c6565de660"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/E-13.csv",
+      "bytes": 1446357,
+      "sha256": "8469e584ea62f861c8df5dc16ca4d439e17a01eb8b88f966109881de4fd6800b"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/E-14.csv",
+      "bytes": 1446635,
+      "sha256": "560b876cdf1e168cba684120ac77fafb37332a2251692973358dcde1f9e59296"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/E-15.csv",
+      "bytes": 1446858,
+      "sha256": "189bb7f8286ef81588ca870ccc163e3844ebba5adc46a27bf8f1494ff2d7af55"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/S-1.csv",
+      "bytes": 1448697,
+      "sha256": "3f54ba825e34979919721b985465266d35a623916981058ecd56cb86c3289d74"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/S-2.csv",
+      "bytes": 1448361,
+      "sha256": "a029ad64e54d12a3ad61233327469d89ac696de171a7e34d9284970409395f0e"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/S-3.csv",
+      "bytes": 1450687,
+      "sha256": "1f50238dc7a7562e06b46796a5b25b88f7824337355bb7f89c5a26bd1e9b7154"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/S-4.csv",
+      "bytes": 1450102,
+      "sha256": "bd2bdb701e8be7e3d22af2e61a283f349d94d64c28d6188b2c2be4bec16d2cd9"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/S-5.csv",
+      "bytes": 1446665,
+      "sha256": "5c39cce06923649fbc578bb11b7c7b238d866763d7bbf5f1150443032ae6e38d"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/S-6.csv",
+      "bytes": 1446988,
+      "sha256": "229d7d2fc0cf88102cf99f3d41b17a9c17f92407869c769123a117159b445218"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/S-7.csv",
+      "bytes": 1447391,
+      "sha256": "24e7f10df227c3382427c976cf138e6da448a04e5ee1e3a8cc825bfada2609e9"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/S-8.csv",
+      "bytes": 1449391,
+      "sha256": "28f74c3df191961f004c8a0e38c665c963b8978daf6fc8e7fa33044ed6a0b312"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/S-9.csv",
+      "bytes": 1447852,
+      "sha256": "e4bb08b9d832d04c3317dd669bba59bd74f4148ce1b1ed930f0dbd223a099f66"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/S-10.csv",
+      "bytes": 1447441,
+      "sha256": "f3d6de9be476b93585245d9367d4d15abf3f1d6a1700179c684b03b129bcbe2f"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/S-11.csv",
+      "bytes": 1447621,
+      "sha256": "9d916c2443f7c372d2c2d0b28a38f2f67038a044fe54a36a33334977c61bb052"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/S-12.csv",
+      "bytes": 1448219,
+      "sha256": "64209963b1a72e388f66baf03c43b2c490b3795debd0a3458db2895d0c81073a"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/S-13.csv",
+      "bytes": 1447140,
+      "sha256": "c7759c9f4118f641e27c4991afb8d0cfed72b1d479c48bfa554df81d55bc2bed"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/S-14.csv",
+      "bytes": 1447716,
+      "sha256": "de447c57200f90ad79729577519312fdd712401e2921f513a6398d2e4423bdd5"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/S-15.csv",
+      "bytes": 1447898,
+      "sha256": "953e73562edf8cbc9a62c32a2b7d6f1829613de9949d217f7238f7149cf86749"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/S-16.csv",
+      "bytes": 1448989,
+      "sha256": "36f9fd618617831b163bd86c928814b8c032e135f9d87a6f2b9e8c85762edb08"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/B-1.csv",
+      "bytes": 1448395,
+      "sha256": "4bd0a0e21adae4bd4dc7a80436634e18952058820f6e6a6136ba8a4a224f1442"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/B-2.csv",
+      "bytes": 1448489,
+      "sha256": "c1063e6e736dfd0abe7b9d643c999e9c46867f2fd15d70c8c7301033e3c1d41f"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/B-3.csv",
+      "bytes": 1453824,
+      "sha256": "8dd89d20c279be59f42779829c3eaa81f28bddf51dbc9673070d33f06e6c9894"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/B-5.csv",
+      "bytes": 1446359,
+      "sha256": "d5b5b5718b1cd574cfac66cf5c4cb4ce3743bd739ecb9f74894da0e56a5ed624"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/B-4.csv",
+      "bytes": 1449482,
+      "sha256": "c1558346be82b38a12c235887aacbb08ec677473633c695412a88811ca18830b"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/B-6.csv",
+      "bytes": 1446397,
+      "sha256": "6fe427b77b4d6e33fc3f06cbb928374a2c0d9c9c5398bb99568191434c3ed5fc"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/B-8.csv",
+      "bytes": 1448428,
+      "sha256": "260204ebc147bc941b9a741df872d5c189bec0d04afcef8d8b9a1577f9b826d5"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/B-7.csv",
+      "bytes": 1447376,
+      "sha256": "e30501561d711655c36dbb9595dd198e1db2c50b42cf8bd03fff0873be997169"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/A_Table 1- Dataset Labelling for SSFD.jpg",
+      "bytes": 101989,
+      "sha256": "c2e32cf7994b0b8341eecdb881f2acb04b9cdce37784deb7ccc6b8a0cea12529"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/A_Figure 1- Accelerometer Data for E-5, B-5 and S-5.jpg",
+      "bytes": 221423,
+      "sha256": "a49f4f3df0944f80337e98dff7df1fbaf805b6f2ffe12cc1da7eb00a3e94c0b6"
+    },
+    {
+      "path": "Steel Slag Flow Dataset (SSFD)/A_Figure_2_Data_Collection_Process.jpg",
+      "bytes": 91929,
+      "sha256": "e26b74697565af162461e36ced8d3b495657085c40fbc7f9ec5d8e572e210ec5"
+    }
+  ]
+}

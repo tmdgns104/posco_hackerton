@@ -1,0 +1,25 @@
+name: Restore verified public runtime inputs
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/restore-public-inputs.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  restore:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify archives and extract exactly the registered inputs
+        run: python3 .github/scripts/public_inputs.py "$RUNNER_TEMP/steeltrust"
+      - name: Save verified data and encoder in the default branch
+        run: |
+          git add -- SlagWatch/data/ksdd2/raw/train SlagWatch/data/raw/ SlagWatch/experiments/surface_v1/models/resnet18-f37072fd.pth
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Include verified validation images, SSFD originals and frozen ResNet encoder'
+          git push origin HEAD:main
